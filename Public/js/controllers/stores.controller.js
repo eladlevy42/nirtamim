@@ -3,6 +3,8 @@ import { storesFunc } from "../async-db.service.js";
 window.onload = onInit;
 
 function onInit() {
+  // Expose functions to the window object
+
   window.onChangePage = onChangePage;
   window.onSearch = onSearch;
   window.onFilterByCategory = onFilterByCategory;

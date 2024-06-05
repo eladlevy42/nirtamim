@@ -110,8 +110,9 @@
   gap: 1rem;
   grid-template-columns: 1fr 3fr;
   max-width: 380px;
-  max-height: 100px;
-  /* overflow-y: scroll; */
+  /* min-width: 300px; */
+  max-height: 120px;
+  overflow-y: hidden;
 }
 .store__sub-details {
   gap: 1rem;
