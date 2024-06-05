@@ -35,6 +35,7 @@ nav {
 }
 main {
   flex: 1;
+  padding-block: 2rem;
 }
 .fa-star {
   color: hsl(60, 100%, 40%);

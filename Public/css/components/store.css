@@ -16,9 +16,9 @@
   margin-block: 1rem;
 }
 
-.store-details{
-    align-items: center;
-    /* justify-content: center; */
+.store-details {
+  align-items: center;
+  /* justify-content: center; */
 }
 
 #allReviews {
@@ -39,9 +39,9 @@
   gap: 0.5rem;
 }
 
-.store-img img {
-    /* max-width: 450px; */
-}
+.store-wrapper {
+    padding-right: 1rem;
+  }
 
 @media (min-width: 425px) {
   .store-img {
@@ -76,5 +76,13 @@
     display: flex;
     align-items: center;
   }
-  
+}
+@media (min-width: 1024px) {
+  .store-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+  .store-img img {
+    max-width: 450px;
+  }
 }
