@@ -1,3 +1,5 @@
+import { renderHTML } from "./renderHTML.service.js";
+
 const storesUrl = "http://localhost:8001/stores";
 const ownerUrl = "http://localhost:8001/owners";
 
@@ -76,9 +78,6 @@ function displayPage(stores) {
     "hidden",
     currentPage === maxPage || totalStores <= storesPerPage
   );
-  if (currentPage === 1) {
-    pageNumberElement.classList.toggle("hidden");
-  }
 
   if (maxPage <= 1) {
     prevPageButton.classList.add("hidden");
@@ -137,7 +136,7 @@ export async function getStore() {
   }
 }
 
-export async function getStoreById(storeId) {
+async function getStoreById(storeId) {
   try {
     const res = await axios.get(`${storesUrl}/${storeId}`);
     return res.data;
@@ -163,11 +162,11 @@ export async function updateStore(storeId, updateStoreData) {
   }
 }
 
-export async function deleteStore(storeId) {
+async function deleteStore(storeId) {
   try {
     await axios.deleteStore(`${storesUrl}/${storeId}`);
   } catch (error) {
-    console.log(error);
+    console.log("Error deleting store from owner", error);
   }
 }
 
@@ -180,31 +179,9 @@ export async function getAllOwnerStores(ownersId) {
   }
 }
 
-////////// store
-
-async function getOwnerByID(ownersId) {
-  try {
-    const res = await axios.get(`${ownerUrl}/${ownersId}`);
-    return res.data;
-  } catch (err) {
-    console.error(err);
-  }
+function getLocalStores() {
+  return allStores;
 }
-
-async function postComment(storeID, comment) {
-  try {
-    const store = await getStoreById(storeID);
-    const commentsArr = store.comments;
-    commentsArr.push(comment);
-    await axios.patch(`${storesUrl}/${storeID}`, {
-      comments: commentsArr,
-    });
-    // patch
-  } catch (err) {
-    console.error(err);
-  }
-}
-
 export const storesFunc = {
   getStore,
   getStoreById,
