@@ -29,7 +29,12 @@
   padding: 2rem;
   border-radius: var(--border-radius-light);
 }
-
+.close-overlay {
+    cursor: pointer;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
 .pop-up__container input,
 textarea {
   width: 200px;
@@ -38,4 +43,8 @@ textarea {
     display: flex;
     flex-direction: column;
     border-radius: var(--border-radius-light);
+}
+.non-filled{
+    cursor: pointer;
+    color: var(--clr-neutral-300);
 }
