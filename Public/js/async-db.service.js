@@ -1,3 +1,5 @@
+import { renderHTML } from "./renderHTML.service.js";
+
 const storesUrl = "http://localhost:8001/stores";
 const ownerUrl = "http://localhost:8001/owners";
 
@@ -128,28 +130,28 @@ document
 
 function getUsernameFromURL() {
   const params = new URLSearchParams(window.location.search);
-  return params.get("username");
+  return params.get("userId");
 }
 
-async function getStore() {
+export async function getStore() {
   try {
     const res = await axios.get(storesUrl);
-    console.log(res.data);
+    return res.data;
   } catch (error) {
     console.log(error);
   }
 }
-  
+
 async function getStoreById(storeId) {
   try {
     const res = await axios.get(`${storesUrl}/${storeId}`);
-    console.log(res.data);
+    return res.data;
   } catch (error) {
     console.log(error);
   }
 }
 
-async function postStore(storeData) {
+export async function postStore(storeData) {
   try {
     await axios.post(storesUrl, storeData);
   } catch (error) {
@@ -157,43 +159,28 @@ async function postStore(storeData) {
   }
 }
 
-async function updateStore(storeId, updateStoreData) {
+export async function updateStore(storeId, updateStoreData) {
   try {
     const res = await axios.put(`${storesUrl}/${storeId}`, updateStoreData);
-    console.log(res.data);
+    return res.data;
   } catch (error) {
     console.log(error);
   }
 }
 
 async function deleteStore(storeId) {
-  let ownerId = undefined
   try {
-    const storeResponse = await axios.get(`${storesUrl}/${storeId}`);
-    const storeData = storeResponse.data;
-    ownerId = storeData.ownerID;
-    await axios.delete(`${storesUrl}/${storeId}`);
-  } catch (error) {
-    console.log("Error deleting store", error);
-  }
-  try {
-    const ownerResponse = await axios.get(`${ownerUrl}/${ownerId}`);
-    const ownerData = ownerResponse.data;
-    const updatedStores = ownerData.stores.filter((id) => id !== storeId);
-    await axios.put(`${ownerUrl}/${ownerId}`, {
-      ...ownerData,
-      stores: updatedStores,
-    });
-    console.log(`Store ${storeId} deleted and removed from owner ${ownerId}`);
+    const res = await axios.deleteStore(`${storesUrl}/${storeId}`);
+    console.log(res.data);
   } catch (error) {
     console.log("Error deleting store from owner", error);
   }
 }
 
-async function getAllOwnerStores(ownersId) {
+export async function getAllOwnerStores(ownersId) {
   try {
     const res = await axios.get(`${ownerUrl}/${ownersId}`);
-    console.log(res.data.stores);
+    return res.data.stores;
   } catch (error) {
     console.log(error);
   }
@@ -202,7 +189,6 @@ async function getAllOwnerStores(ownersId) {
 function getLocalStores() {
   return allStores;
 }
-
 export const storesFunc = {
   getStore,
   getStoreById,
@@ -210,6 +196,6 @@ export const storesFunc = {
   updateStore,
   deleteStore,
   getAllOwnerStores,
-  getAllStores,
-  getLocalStores,
+  getOwnerByID,
+  postComment,
 };

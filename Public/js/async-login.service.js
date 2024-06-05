@@ -137,7 +137,7 @@ async function postOwner(owner) {
   try {
     await axios.post(ownerUrl, owner);
     console.log("owner posted");
-    window.location.href = `http://localhost:3000/ownerStores.html?username=${encodeURIComponent(
+    window.location.href = `http://localhost:3000/ownerStores.html?userId=${encodeURIComponent(
       owner.username
     )}`;
   } catch (err) {
@@ -147,7 +147,7 @@ async function postOwner(owner) {
 
 function getUsernameFromURL() {
   const params = new URLSearchParams(window.location.search);
-  return params.get("username");
+  return params.get("userId");
 }
 
 export const loginFunc = {

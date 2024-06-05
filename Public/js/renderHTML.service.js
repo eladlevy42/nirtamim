@@ -1,9 +1,8 @@
 import { storesFunc } from "./async-db.service.js";
 
-const allStores = storesFunc.getLocalStores();
-
 function renderStoreUsers() {
-  allStores
+  const allStores = storesFunc.getLocalStores();
+  return allStores
     .map(
       (store) =>
         `<div class="store">
@@ -26,12 +25,13 @@ function renderStoreUsers() {
 }
 
 function renderStoreForOwners() {
-  allStores
+  const allStores = storesFunc.getLocalStores();
+  return allStores
     .map(
       (store) =>
         `<div class="store">
       <button onclick="editBook(this)" class="edit" id="editButton">
-      <button onclick="deleteBook(this)" class="delte" id="DeleteButton">
+      <button onclick="deleteBook(this)" class="delete" id="DeleteButton">
       <img src="${store.img}" alt="${store.name}" class="store-image"/>
       <h4 class="store-name">${store.name}</h4>
       <p class="store-description">${store.details.description}</p>
@@ -50,7 +50,18 @@ function renderStoreForOwners() {
     .join("");
 }
 
+function renderComments() {
+  return `<div class="review">
+    <h4>/h4>
+    <span class="reviewRating">
+      <i class="fa-solid fa-star"></i> 
+    </span>
+    <p class="reviewParagraph"></p>
+  </div>`;
+}
+
 export const renderHTML = {
   renderStoreUsers,
   renderStoreForOwners,
+  renderComments,
 };
