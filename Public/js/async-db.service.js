@@ -86,8 +86,7 @@ function displayPage(stores) {
 
   pageNumberElement.innerText = currentPage;
 }
-const search = async function (event) {
-  event.preventDefault();
+const search = async function () {
   const searchQuery = document
     .getElementById("searchInput")
     .value.trim()
@@ -163,9 +162,29 @@ export async function updateStore(storeId, updateStoreData) {
 }
 
 async function deleteStore(storeId) {
+  let ownerId;
   try {
-    const res = await axios.deleteStore(`${storesUrl}/${storeId}`);
-    console.log(res.data);
+    // Get the store details to find the ownerID
+    const storeResponse = await axios.get(`${storesUrl}/${storeId}`);
+    const storeData = storeResponse.data;
+    ownerId = storeData.ownerID;
+    // Delete the store
+    await axios.delete(`${storesUrl}/${storeId}`);
+  } catch (error) {
+    console.log("Error deleting store", error);
+  }
+  try {
+    // Get the owner's data
+    const ownerResponse = await axios.get(`${ownerUrl}/${ownerId}`);
+    const ownerData = ownerResponse.data;
+    // Remove the store from the owner's stores array
+    const updatedStores = ownerData.stores.filter((id) => id !== storeId);
+    // Update the owner's data
+    await axios.put(`${ownerUrl}/${ownerId}`, {
+      ...ownerData,
+      stores: updatedStores,
+    });
+    console.log(`Store ${storeId} deleted and removed from owner ${ownerId}`);
   } catch (error) {
     console.log("Error deleting store from owner", error);
   }
@@ -192,9 +211,53 @@ export const storesFunc = {
   getAllOwnerStores,
   getOwnerByID,
   postComment,
-  getLocalStores,
+  getUserIdFromURL,
   search,
+  changePage,
+  updateOwnerStores,
 };
+
+async function getOwnerStores(ownerId) {
+  try {
+    const res = await axios.get(`${storesUrl}/?ownerID=${ownerId}`);
+    alert(res.data);
+    return extractStoreName(res.data);
+  } catch (err) {
+    alert(err);
+    console.error(err);
+  }
+}
+function extractStoreName(array) {
+  return array.map((obj) => obj["id"]);
+}
+async function updateOwnerStores(ownerId) {
+  try {
+    const userStores = await getOwnerStores(ownerId);
+    alert(userStores);
+    try {
+      await axios.patch(`${ownerUrl}/${ownerId}`, {
+        stores: userStores,
+      });
+      alert("Updated");
+    } catch (err) {
+      alert(err);
+    }
+  } catch (err) {
+    alert(err);
+    console.error(err);
+  }
+}
+
+async function getOwnerByID(ownersId) {
+  try {
+    const res = await axios.get(`${ownerUrl}/?id=${ownersId}`);
+    return res.data[0];
+  } catch (err) {
+    alert(err);
+    console.error(err);
+  }
+}
+
 async function postComment(storeID, comment) {
   try {
     const store = await getStoreById(storeID);
@@ -205,15 +268,5 @@ async function postComment(storeID, comment) {
     });
   } catch (err) {
     console.error(err);
-  }
-}
-async function getOwnerByID(ownerId) {
-  try {
-    alert(`${ownerUrl}/${ownerId}`);
-    const res = await axios.get(`${ownerUrl}/${ownerId}`);
-    alert("");
-    return res.data;
-  } catch (error) {
-    console.log(error);
   }
 }
