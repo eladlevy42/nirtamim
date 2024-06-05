@@ -156,7 +156,7 @@ function getUserIdFromURL() {
   return params.get("userId");
 }
 
-export async function getStore() {
+async function getStore() {
   try {
     const res = await axios.get(storesUrl);
     return res.data;
@@ -174,7 +174,7 @@ async function getStoreById(storeId) {
   }
 }
 
-export async function postStore(storeData) {
+async function postStore(storeData) {
   try {
     await axios.post(storesUrl, storeData);
   } catch (error) {
@@ -182,7 +182,7 @@ export async function postStore(storeData) {
   }
 }
 
-export async function updateStore(storeId, updateStoreData) {
+async function updateStore(storeId, updateStoreData) {
   try {
     const res = await axios.put(`${storesUrl}/${storeId}`, updateStoreData);
     return res.data;
