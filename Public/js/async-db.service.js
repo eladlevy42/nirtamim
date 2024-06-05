@@ -48,6 +48,34 @@ export async function getStore() {
       console.log(error);
     }
   }
+
+  // export async function deleteStore(storeId) {
+  //   try {
+  //     // Step 1: Retrieve the store details to get the ownerID
+  //     const storeRes = await axios.get(`${storesUrl}/${storeId}`);
+  //     const ownerId = storeRes.data.ownerID;
+  
+  //     // Step 2: Retrieve the owner's details to get their list of stores
+  //     const ownerRes = await axios.get(`${ownerUrl}/${ownerId}`);
+  //     const ownerStores = ownerRes.data.stores;
+  
+  //     // Step 3: Remove the store ID from the owner's list of stores
+  //     const updatedStores = ownerStores.filter(id => id !== storeId);
+  
+  //     // Step 4: Update the owner's details with the new list of stores
+  //     await axios.put(`${ownerUrl}/${ownerId}`, {
+  //       ...ownerRes.data,
+  //       stores: updatedStores
+  //     });
+  
+      // Step 5: Delete the store from the stores endpoint
+      await axios.delete(`${storesUrl}/${storeId}`);
+      console.log(`Store ${storeId} deleted successfully and removed from owner ${ownerId}'s list of stores.`);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
   
   export async function getAllOwnerStores(ownersId) {
     try {
