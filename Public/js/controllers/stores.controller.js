@@ -6,8 +6,9 @@ function onInit() {
   // Expose functions to the window object
   window.onAddStore = onAddStore;
   // Add event listener for the form submission
-  document.querySelector("#addStoreFrm").addEventListener("submit", onAddStore);
+  // document.querySelector("#addStoreFrm").addEventListener("submit", onAddStore);
 }
+
 async function onAddStore(ev) {
   console.log(1);
   ev.preventDefault();
@@ -23,3 +24,4 @@ async function onAddStore(ev) {
     console.error(err);
   }
 }
+

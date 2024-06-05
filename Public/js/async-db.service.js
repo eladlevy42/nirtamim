@@ -133,7 +133,7 @@ function getUsernameFromURL() {
   return params.get("userId");
 }
 
-export async function getStore() {
+async function getStore() {
   try {
     const res = await axios.get(storesUrl);
     return res.data;
@@ -151,7 +151,7 @@ async function getStoreById(storeId) {
   }
 }
 
-export async function postStore(storeData) {
+async function postStore(storeData) {
   try {
     await axios.post(storesUrl, storeData);
   } catch (error) {
@@ -159,7 +159,7 @@ export async function postStore(storeData) {
   }
 }
 
-export async function updateStore(storeId, updateStoreData) {
+async function updateStore(storeId, updateStoreData) {
   try {
     const res = await axios.put(`${storesUrl}/${storeId}`, updateStoreData);
     return res.data;
@@ -169,9 +169,29 @@ export async function updateStore(storeId, updateStoreData) {
 }
 
 async function deleteStore(storeId) {
+  let ownerId;
   try {
-    const res = await axios.deleteStore(`${storesUrl}/${storeId}`);
-    console.log(res.data);
+    // Get the store details to find the ownerID
+    const storeResponse = await axios.get(`${storesUrl}/${storeId}`);
+    const storeData = storeResponse.data;
+    ownerId = storeData.ownerID;
+    // Delete the store
+    await axios.delete(`${storesUrl}/${storeId}`);
+  } catch (error) {
+    console.log("Error deleting store", error);
+  }
+  try {
+    // Get the owner's data
+    const ownerResponse = await axios.get(`${ownerUrl}/${ownerId}`);
+    const ownerData = ownerResponse.data;
+    // Remove the store from the owner's stores array
+    const updatedStores = ownerData.stores.filter((id) => id !== storeId);
+    // Update the owner's data
+    await axios.put(`${ownerUrl}/${ownerId}`, {
+      ...ownerData,
+      stores: updatedStores,
+    });
+    console.log(`Store ${storeId} deleted and removed from owner ${ownerId}`);
   } catch (error) {
     console.log("Error deleting store from owner", error);
   }
@@ -189,6 +209,7 @@ export async function getAllOwnerStores(ownersId) {
 function getLocalStores() {
   return allStores;
 }
+
 export const storesFunc = {
   getStore,
   getStoreById,
