@@ -158,6 +158,6 @@ export const loginFunc = {
   checkPassword,
   checkEmailExists,
   registerUser,
-  getUsernameFromURL,
+  getUserIdFromURL,
   postOwner,
 };
