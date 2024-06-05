@@ -10,11 +10,13 @@
         "city": "נתניה"
       },
       "img": "https://via.placeholder.com/150",
-      "comments": {
-        "name": "אנונימי",
-        "description": "בלה בלה",
-        "ratings": "4"
-      },
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "בלה בלה",
+          "ratings": "4"
+        }
+      ],
       "details": {
         "phone-number": "050-1234678",
         "hours": "אובייקט אופציה",
@@ -32,11 +34,13 @@
         "city": "חיפה"
       },
       "img": "https://via.placeholder.com/150",
-      "comments": {
-        "name": "אנונימי",
-        "description": "מקום נהדר!",
-        "ratings": "5"
-      },
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "מקום נהדר!",
+          "ratings": "5"
+        }
+      ],
       "details": {
         "phone-number": "050-1111111",
         "hours": "9-5",
@@ -54,11 +58,13 @@
         "city": "באר שבע"
       },
       "img": "https://via.placeholder.com/150",
-      "comments": {
-        "name": "אנונימי",
-        "description": "ספרים נחמדים",
-        "ratings": "4"
-      },
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "ספרים נחמדים",
+          "ratings": "4"
+        }
+      ],
       "details": {
         "phone-number": "050-2222222",
         "hours": "10-6",
@@ -76,11 +82,13 @@
         "city": "תל אביב"
       },
       "img": "https://via.placeholder.com/150",
-      "comments": {
-        "name": "אנונימי",
-        "description": "תוצרת טרייה",
-        "ratings": "5"
-      },
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "תוצרת טרייה",
+          "ratings": "5"
+        }
+      ],
       "details": {
         "phone-number": "050-3333333",
         "hours": "8-8",
@@ -98,11 +106,13 @@
         "city": "טבריה"
       },
       "img": "https://via.placeholder.com/150",
-      "comments": {
-        "name": "אנונימי",
-        "description": "מחירים טובים",
-        "ratings": "4"
-      },
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "מחירים טובים",
+          "ratings": "4"
+        }
+      ],
       "details": {
         "phone-number": "050-4444444",
         "hours": "10-7",
@@ -120,11 +130,13 @@
         "city": "אילת"
       },
       "img": "https://via.placeholder.com/150",
-      "comments": {
-        "name": "אנונימי",
-        "description": "אופנה נחמדה",
-        "ratings": "5"
-      },
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "אופנה נחמדה",
+          "ratings": "5"
+        }
+      ],
       "details": {
         "phone-number": "050-5555555",
         "hours": "11-8",
@@ -142,11 +154,13 @@
         "city": "ראשון לציון"
       },
       "img": "https://via.placeholder.com/150",
-      "comments": {
-        "name": "אנונימי",
-        "description": "איכות מעולה",
-        "ratings": "4"
-      },
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "איכות מעולה",
+          "ratings": "4"
+        }
+      ],
       "details": {
         "phone-number": "050-6666666",
         "hours": "10-9",
@@ -164,11 +178,13 @@
         "city": "קריית שמונה"
       },
       "img": "https://via.placeholder.com/150",
-      "comments": {
-        "name": "אנונימי",
-        "description": "כלים נוחים",
-        "ratings": "4"
-      },
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "כלים נוחים",
+          "ratings": "4"
+        }
+      ],
       "details": {
         "phone-number": "050-7777777",
         "hours": "9-6",
@@ -186,11 +202,13 @@
         "city": "אשדוד"
       },
       "img": "https://via.placeholder.com/150",
-      "comments": {
-        "name": "אנונימי",
-        "description": "ילדים אוהבים את זה",
-        "ratings": "5"
-      },
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "ילדים אוהבים את זה",
+          "ratings": "5"
+        }
+      ],
       "details": {
         "phone-number": "050-8888888",
         "hours": "9-5",
@@ -208,11 +226,13 @@
         "city": "פתח תקווה"
       },
       "img": "https://via.placeholder.com/150",
-      "comments": {
-        "name": "אנונימי",
-        "description": "מבחר טוב",
-        "ratings": "4"
-      },
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "מבחר טוב",
+          "ratings": "4"
+        }
+      ],
       "details": {
         "phone-number": "050-9999999",
         "hours": "9-7",
@@ -230,11 +250,13 @@
         "city": "עכו"
       },
       "img": "https://via.placeholder.com/150",
-      "comments": {
-        "name": "אנונימי",
-        "description": "צוות ידידותי",
-        "ratings": "5"
-      },
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "צוות ידידותי",
+          "ratings": "5"
+        }
+      ],
       "details": {
         "phone-number": "050-0000000",
         "hours": "8-8",
@@ -252,11 +274,13 @@
         "city": "אשקלון"
       },
       "img": "https://via.placeholder.com/150",
-      "comments": {
-        "name": "אנונימי",
-        "description": "מאפים טעימים",
-        "ratings": "5"
-      },
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "מאפים טעימים",
+          "ratings": "5"
+        }
+      ],
       "details": {
         "phone-number": "051-1111111",
         "hours": "7-3",
@@ -274,11 +298,13 @@
         "city": "הרצליה"
       },
       "img": "https://via.placeholder.com/150",
-      "comments": {
-        "name": "אנונימי",
-        "description": "פריטים יפים",
-        "ratings": "5"
-      },
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "פריטים יפים",
+          "ratings": "5"
+        }
+      ],
       "details": {
         "phone-number": "051-2222222",
         "hours": "10-6",
@@ -296,11 +322,13 @@
         "city": "צפת"
       },
       "img": "https://via.placeholder.com/150",
-      "comments": {
-        "name": "אנונימי",
-        "description": "כלי נגינה נהדרים",
-        "ratings": "4"
-      },
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "כלי נגינה נהדרים",
+          "ratings": "4"
+        }
+      ],
       "details": {
         "phone-number": "051-3333333",
         "hours": "9-5",
@@ -318,11 +346,13 @@
         "city": "רמת גן"
       },
       "img": "https://via.placeholder.com/150",
-      "comments": {
-        "name": "אנונימי",
-        "description": "מבחר נהדר",
-        "ratings": "5"
-      },
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "מבחר נהדר",
+          "ratings": "5"
+        }
+      ],
       "details": {
         "phone-number": "051-4444444",
         "hours": "10-7",
@@ -340,11 +370,13 @@
         "city": "נהריה"
       },
       "img": "https://via.placeholder.com/150",
-      "comments": {
-        "name": "אנונימי",
-        "description": "אוכל טעים",
-        "ratings": "4"
-      },
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "אוכל טעים",
+          "ratings": "4"
+        }
+      ],
       "details": {
         "phone-number": "051-5555555",
         "hours": "12-10",
@@ -362,11 +394,13 @@
         "city": "באר שבע"
       },
       "img": "https://via.placeholder.com/150",
-      "comments": {
-        "name": "אנונימי",
-        "description": "אווירה נהדרת",
-        "ratings": "5"
-      },
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "אווירה נהדרת",
+          "ratings": "5"
+        }
+      ],
       "details": {
         "phone-number": "051-6666666",
         "hours": "8-2",
@@ -384,11 +418,13 @@
         "city": "רעננה"
       },
       "img": "https://via.placeholder.com/150",
-      "comments": {
-        "name": "אנונימי",
-        "description": "ציוד טוב",
-        "ratings": "4"
-      },
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "ציוד טוב",
+          "ratings": "4"
+        }
+      ],
       "details": {
         "phone-number": "051-7777777",
         "hours": "9-9",
@@ -406,11 +442,13 @@
         "city": "כרמיאל"
       },
       "img": "https://via.placeholder.com/150",
-      "comments": {
-        "name": "אנונימי",
-        "description": "קפה נהדר",
-        "ratings": "5"
-      },
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "קפה נהדר",
+          "ratings": "5"
+        }
+      ],
       "details": {
         "phone-number": "051-8888888",
         "hours": "7-7",
@@ -428,11 +466,13 @@
         "city": "אשדוד"
       },
       "img": "https://via.placeholder.com/150",
-      "comments": {
-        "name": "אנונימי",
-        "description": "לחם טרי",
-        "ratings": "5"
-      },
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "לחם טרי",
+          "ratings": "5"
+        }
+      ],
       "details": {
         "phone-number": "051-9999999",
         "hours": "6-3",
@@ -450,11 +490,13 @@
         "city": "תל אביב"
       },
       "img": "https://via.placeholder.com/150",
-      "comments": {
-        "name": "אנונימי",
-        "description": "גלידה טעימה",
-        "ratings": "5"
-      },
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "גלידה טעימה",
+          "ratings": "5"
+        }
+      ],
       "details": {
         "phone-number": "051-0000000",
         "hours": "10-10",
