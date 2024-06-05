@@ -11,21 +11,14 @@ function onInit() {
 async function onAddStore(ev) {
   ev.preventDefault();
   const newStore = newStoreFunctions.getNewStoreData();
-  //   alert("");
-  console.log(newStore);
   try {
     await storesFunc.postStore(newStore);
     console.log("Store added successfully");
-    // alert(storesFunc.getUserIdFromURL());
-    const owner = await storesFunc.getOwnerByID(storesFunc.getUserIdFromURL());
-
-    owner.stores.push(newStore.id);
-
+    const ownerId = storesFunc.getUserIdFromURL();
     try {
-      await storesFunc.updateOwner(owner);
+      await storesFunc.updateOwnerStores(ownerId);
     } catch (err) {
-      alert(err.message);
-      console.error(err);
+      alert(err);
     }
   } catch (err) {
     alert(err.message);
