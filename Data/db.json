@@ -4,7 +4,7 @@
             "_id":"fake-1234",
             "name":"fake-name",
             "ownerID":"fake-ownerID",
-            "category":["resturant", "bar"],
+            "categories":["resturant", "bar"],
             "location":{
                 "district":"center",
                 "city":"netanya"
@@ -23,7 +23,7 @@
             }
         }
     ],
-    "users":[
+    "owners":[
         {
             "_id":"fake-1234",
             "name":"fake-name",
