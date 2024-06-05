@@ -1,36 +1,507 @@
 {
-    "stores":[
-        {
-            "_id":"fake-1234",
-            "name":"fake-name",
-            "ownerID":"fake-ownerID",
-            "categories":["resturant", "bar"],
-            "location":{
-                "district":"center",
-                "city":"netanya"
-            },
-            "img":"ewrewrf",
-            "comments":{
-                "name":"anonymus",
-                "description":"blah-blah",
-                "ratings":"4"
-            },
-            "details":{
-                "phone-number":"050-1234678",
-                "hours":"option-object",
-                "description":"store-desscription",
-                "link":"optional"
-            }
-        }
-    ],
-    "owners":[
-        {
-            "_id":"fake-1234",
-            "name":"fake-name",
-            "username":"frw",
-            "email":"frere@frfr.vef",
-            "password":"123245423",
-            "stores":["store_ID"]
-        }
-    ]
+  "stores": [
+    {
+      "_id": "fake-1234",
+      "name": "שם מזויף",
+      "ownerID": "owner-1",
+      "categories": ["מסעדה", "בר"],
+      "location": {
+        "district": "מרכז",
+        "city": "נתניה"
+      },
+      "img": "https://via.placeholder.com/150",
+      "comments": {
+        "name": "אנונימי",
+        "description": "בלה בלה",
+        "ratings": "4"
+      },
+      "details": {
+        "phone-number": "050-1234678",
+        "hours": "אובייקט אופציה",
+        "description": "תיאור חנות",
+        "link": "optional"
+      }
+    },
+    {
+      "_id": "store-1",
+      "name": "חנות 1",
+      "ownerID": "owner-1",
+      "categories": ["חנות", "בית קפה"],
+      "location": {
+        "district": "צפון",
+        "city": "חיפה"
+      },
+      "img": "https://via.placeholder.com/150",
+      "comments": {
+        "name": "אנונימי",
+        "description": "מקום נהדר!",
+        "ratings": "5"
+      },
+      "details": {
+        "phone-number": "050-1111111",
+        "hours": "9-5",
+        "description": "חנות מקסימה",
+        "link": "http://example.com/store1"
+      }
+    },
+    {
+      "_id": "store-2",
+      "name": "חנות 2",
+      "ownerID": "owner-1",
+      "categories": ["חנות ספרים", "בית קפה"],
+      "location": {
+        "district": "דרום",
+        "city": "באר שבע"
+      },
+      "img": "https://via.placeholder.com/150",
+      "comments": {
+        "name": "אנונימי",
+        "description": "ספרים נחמדים",
+        "ratings": "4"
+      },
+      "details": {
+        "phone-number": "050-2222222",
+        "hours": "10-6",
+        "description": "חנות ספרים ובית קפה",
+        "link": "http://example.com/store2"
+      }
+    },
+    {
+      "_id": "store-3",
+      "name": "חנות 3",
+      "ownerID": "owner-1",
+      "categories": ["מכולת", "שוק"],
+      "location": {
+        "district": "מרכז",
+        "city": "תל אביב"
+      },
+      "img": "https://via.placeholder.com/150",
+      "comments": {
+        "name": "אנונימי",
+        "description": "תוצרת טרייה",
+        "ratings": "5"
+      },
+      "details": {
+        "phone-number": "050-3333333",
+        "hours": "8-8",
+        "description": "שוק מכולת",
+        "link": "http://example.com/store3"
+      }
+    },
+    {
+      "_id": "store-4",
+      "name": "חנות 4",
+      "ownerID": "owner-1",
+      "categories": ["אלקטרוניקה"],
+      "location": {
+        "district": "צפון",
+        "city": "טבריה"
+      },
+      "img": "https://via.placeholder.com/150",
+      "comments": {
+        "name": "אנונימי",
+        "description": "מחירים טובים",
+        "ratings": "4"
+      },
+      "details": {
+        "phone-number": "050-4444444",
+        "hours": "10-7",
+        "description": "חנות אלקטרוניקה",
+        "link": "http://example.com/store4"
+      }
+    },
+    {
+      "_id": "store-5",
+      "name": "חנות 5",
+      "ownerID": "owner-1",
+      "categories": ["בגדים"],
+      "location": {
+        "district": "דרום",
+        "city": "אילת"
+      },
+      "img": "https://via.placeholder.com/150",
+      "comments": {
+        "name": "אנונימי",
+        "description": "אופנה נחמדה",
+        "ratings": "5"
+      },
+      "details": {
+        "phone-number": "050-5555555",
+        "hours": "11-8",
+        "description": "חנות אופנה",
+        "link": "http://example.com/store5"
+      }
+    },
+    {
+      "_id": "store-6",
+      "name": "חנות 6",
+      "ownerID": "owner-1",
+      "categories": ["רהיטים"],
+      "location": {
+        "district": "מרכז",
+        "city": "ראשון לציון"
+      },
+      "img": "https://via.placeholder.com/150",
+      "comments": {
+        "name": "אנונימי",
+        "description": "איכות מעולה",
+        "ratings": "4"
+      },
+      "details": {
+        "phone-number": "050-6666666",
+        "hours": "10-9",
+        "description": "חנות רהיטים",
+        "link": "http://example.com/store6"
+      }
+    },
+    {
+      "_id": "store-7",
+      "name": "חנות 7",
+      "ownerID": "owner-1",
+      "categories": ["חומרה"],
+      "location": {
+        "district": "צפון",
+        "city": "קריית שמונה"
+      },
+      "img": "https://via.placeholder.com/150",
+      "comments": {
+        "name": "אנונימי",
+        "description": "כלים נוחים",
+        "ratings": "4"
+      },
+      "details": {
+        "phone-number": "050-7777777",
+        "hours": "9-6",
+        "description": "חנות חומרה",
+        "link": "http://example.com/store7"
+      }
+    },
+    {
+      "_id": "store-8",
+      "name": "חנות 8",
+      "ownerID": "owner-1",
+      "categories": ["חנות צעצועים"],
+      "location": {
+        "district": "דרום",
+        "city": "אשדוד"
+      },
+      "img": "https://via.placeholder.com/150",
+      "comments": {
+        "name": "אנונימי",
+        "description": "ילדים אוהבים את זה",
+        "ratings": "5"
+      },
+      "details": {
+        "phone-number": "050-8888888",
+        "hours": "9-5",
+        "description": "חנות צעצועים",
+        "link": "http://example.com/store8"
+      }
+    },
+    {
+      "_id": "store-9",
+      "name": "חנות 9",
+      "ownerID": "owner-1",
+      "categories": ["חנות לחיות מחמד"],
+      "location": {
+        "district": "מרכז",
+        "city": "פתח תקווה"
+      },
+      "img": "https://via.placeholder.com/150",
+      "comments": {
+        "name": "אנונימי",
+        "description": "מבחר טוב",
+        "ratings": "4"
+      },
+      "details": {
+        "phone-number": "050-9999999",
+        "hours": "9-7",
+        "description": "חנות לחיות מחמד",
+        "link": "http://example.com/store9"
+      }
+    },
+    {
+      "_id": "store-10",
+      "name": "חנות 10",
+      "ownerID": "owner-1",
+      "categories": ["בית מרקחת"],
+      "location": {
+        "district": "צפון",
+        "city": "עכו"
+      },
+      "img": "https://via.placeholder.com/150",
+      "comments": {
+        "name": "אנונימי",
+        "description": "צוות ידידותי",
+        "ratings": "5"
+      },
+      "details": {
+        "phone-number": "050-0000000",
+        "hours": "8-8",
+        "description": "בית מרקחת",
+        "link": "http://example.com/store10"
+      }
+    },
+    {
+      "_id": "store-11",
+      "name": "חנות 11",
+      "ownerID": "owner-2",
+      "categories": ["מאפיה"],
+      "location": {
+        "district": "דרום",
+        "city": "אשקלון"
+      },
+      "img": "https://via.placeholder.com/150",
+      "comments": {
+        "name": "אנונימי",
+        "description": "מאפים טעימים",
+        "ratings": "5"
+      },
+      "details": {
+        "phone-number": "051-1111111",
+        "hours": "7-3",
+        "description": "מאפיה",
+        "link": "http://example.com/store11"
+      }
+    },
+    {
+      "_id": "store-12",
+      "name": "חנות 12",
+      "ownerID": "owner-2",
+      "categories": ["תכשיטים"],
+      "location": {
+        "district": "מרכז",
+        "city": "הרצליה"
+      },
+      "img": "https://via.placeholder.com/150",
+      "comments": {
+        "name": "אנונימי",
+        "description": "פריטים יפים",
+        "ratings": "5"
+      },
+      "details": {
+        "phone-number": "051-2222222",
+        "hours": "10-6",
+        "description": "חנות תכשיטים",
+        "link": "http://example.com/store12"
+      }
+    },
+    {
+      "_id": "store-13",
+      "name": "חנות 13",
+      "ownerID": "owner-2",
+      "categories": ["חנות מוזיקה"],
+      "location": {
+        "district": "צפון",
+        "city": "צפת"
+      },
+      "img": "https://via.placeholder.com/150",
+      "comments": {
+        "name": "אנונימי",
+        "description": "כלי נגינה נהדרים",
+        "ratings": "4"
+      },
+      "details": {
+        "phone-number": "051-3333333",
+        "hours": "9-5",
+        "description": "חנות מוזיקה",
+        "link": "http://example.com/store13"
+      }
+    },
+    {
+      "_id": "store-14",
+      "name": "חנות 14",
+      "ownerID": "owner-2",
+      "categories": ["חנות ספרים"],
+      "location": {
+        "district": "מרכז",
+        "city": "רמת גן"
+      },
+      "img": "https://via.placeholder.com/150",
+      "comments": {
+        "name": "אנונימי",
+        "description": "מבחר נהדר",
+        "ratings": "5"
+      },
+      "details": {
+        "phone-number": "051-4444444",
+        "hours": "10-7",
+        "description": "חנות ספרים",
+        "link": "http://example.com/store14"
+      }
+    },
+    {
+      "_id": "store-15",
+      "name": "חנות 15",
+      "ownerID": "owner-2",
+      "categories": ["מסעדה"],
+      "location": {
+        "district": "צפון",
+        "city": "נהריה"
+      },
+      "img": "https://via.placeholder.com/150",
+      "comments": {
+        "name": "אנונימי",
+        "description": "אוכל טעים",
+        "ratings": "4"
+      },
+      "details": {
+        "phone-number": "051-5555555",
+        "hours": "12-10",
+        "description": "מסעדה",
+        "link": "http://example.com/store15"
+      }
+    },
+    {
+      "_id": "store-16",
+      "name": "חנות 16",
+      "ownerID": "owner-2",
+      "categories": ["בר"],
+      "location": {
+        "district": "דרום",
+        "city": "באר שבע"
+      },
+      "img": "https://via.placeholder.com/150",
+      "comments": {
+        "name": "אנונימי",
+        "description": "אווירה נהדרת",
+        "ratings": "5"
+      },
+      "details": {
+        "phone-number": "051-6666666",
+        "hours": "8-2",
+        "description": "בר",
+        "link": "http://example.com/store16"
+      }
+    },
+    {
+      "_id": "store-17",
+      "name": "חנות 17",
+      "ownerID": "owner-2",
+      "categories": ["חנות ספורט"],
+      "location": {
+        "district": "מרכז",
+        "city": "רעננה"
+      },
+      "img": "https://via.placeholder.com/150",
+      "comments": {
+        "name": "אנונימי",
+        "description": "ציוד טוב",
+        "ratings": "4"
+      },
+      "details": {
+        "phone-number": "051-7777777",
+        "hours": "9-9",
+        "description": "חנות ספורט",
+        "link": "http://example.com/store17"
+      }
+    },
+    {
+      "_id": "store-18",
+      "name": "חנות 18",
+      "ownerID": "owner-2",
+      "categories": ["בית קפה"],
+      "location": {
+        "district": "צפון",
+        "city": "כרמיאל"
+      },
+      "img": "https://via.placeholder.com/150",
+      "comments": {
+        "name": "אנונימי",
+        "description": "קפה נהדר",
+        "ratings": "5"
+      },
+      "details": {
+        "phone-number": "051-8888888",
+        "hours": "7-7",
+        "description": "בית קפה",
+        "link": "http://example.com/store18"
+      }
+    },
+    {
+      "_id": "store-19",
+      "name": "חנות 19",
+      "ownerID": "owner-2",
+      "categories": ["מאפיה"],
+      "location": {
+        "district": "דרום",
+        "city": "אשדוד"
+      },
+      "img": "https://via.placeholder.com/150",
+      "comments": {
+        "name": "אנונימי",
+        "description": "לחם טרי",
+        "ratings": "5"
+      },
+      "details": {
+        "phone-number": "051-9999999",
+        "hours": "6-3",
+        "description": "מאפיה",
+        "link": "http://example.com/store19"
+      }
+    },
+    {
+      "_id": "store-20",
+      "name": "חנות 20",
+      "ownerID": "owner-2",
+      "categories": ["גלידריה"],
+      "location": {
+        "district": "מרכז",
+        "city": "תל אביב"
+      },
+      "img": "https://via.placeholder.com/150",
+      "comments": {
+        "name": "אנונימי",
+        "description": "גלידה טעימה",
+        "ratings": "5"
+      },
+      "details": {
+        "phone-number": "051-0000000",
+        "hours": "10-10",
+        "description": "גלידריה",
+        "link": "http://example.com/store20"
+      }
+    }
+  ],
+  "owners": [
+    {
+      "_id": "owner-1",
+      "name": "John Doe",
+      "username": "john123",
+      "email": "john@example.com",
+      "password": "password1",
+      "stores": [
+        "fake-1234",
+        "store-1",
+        "store-2",
+        "store-3",
+        "store-4",
+        "store-5",
+        "store-6",
+        "store-7",
+        "store-8",
+        "store-9",
+        "store-10"
+      ]
+    },
+    {
+      "_id": "owner-2",
+      "name": "Jane Smith",
+      "username": "jane456",
+      "email": "jane@example.com",
+      "password": "password2",
+      "stores": [
+        "store-11",
+        "store-12",
+        "store-13",
+        "store-14",
+        "store-15",
+        "store-16",
+        "store-17",
+        "store-18",
+        "store-19",
+        "store-20"
+      ]
+    }
+  ]
 }
