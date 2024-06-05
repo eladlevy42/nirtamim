@@ -42,6 +42,55 @@
       </ul>
     </nav>
     <main>
+      <div class="popUp" id="addStorePop">
+        <form action="" id="addStoreFrm">
+          <h3>הוסף חנות</h3>
+
+          <label for="newStoreName">שם החנות</label>
+          <input type="text" name="name" id="newStoreName" required />
+
+          <label for="newStoreCategories"
+            >קטגוריות החנות (הפרד באמצעות פסיק)</label
+          >
+          <input
+            type="text"
+            name="categories"
+            id="newStoreCategories"
+            required
+          />
+
+          <label for="newStoreDistrict">מחוז החנות</label>
+          <input type="text" name="district" id="newStoreDistrict" required />
+
+          <label for="newStoreCity">עיר החנות</label>
+          <input type="text" name="city" id="newStoreCity" required />
+
+          <label for="newStoreImage">תמונת החנות</label>
+          <input type="text" name="img" id="newStoreImage" required />
+
+          <h4>פרטי החנות</h4>
+          <label for="newStorePhone">טלפון החנות</label>
+          <input type="text" name="phoneNumber" id="newStorePhone" required />
+
+          <label for="newStoreHours">שעות פעילות</label>
+          <input type="text" name="hours" id="newStoreHours" required />
+
+          <label for="newStoreDescription">תיאור החנות</label>
+          <textarea
+            name="storeDescription"
+            id="newStoreDescription"
+            cols="30"
+            rows="10"
+            required
+          ></textarea>
+
+          <label for="newStoreLink">קישור לאתר החנות</label>
+          <input type="text" name="link" id="newStoreLink" required />
+
+          <button type="submit" id="addStoreBtn">הוסף חנות</button>
+        </form>
+      </div>
+
       <h1>החנויות שלי</h1>
       <div id="displayOwnerStores" class="displayOwnerStores">
         <div id="btnAddStore">

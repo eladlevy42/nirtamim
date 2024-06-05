@@ -503,6 +503,24 @@
         "description": "גלידריה",
         "link": "http://example.com/store20"
       }
+    },
+    {
+      "id": "146c",
+      "name": "שישקבב של נירוס",
+      "ownerID": null,
+      "categories": ["מזון"],
+      "location": {
+        "district": "מרכז",
+        "city": "סביון"
+      },
+      "img": "דגגדכ",
+      "comments": [],
+      "details": {
+        "phone-number": "555555555",
+        "hours": "10-10",
+        "description": "דגגדכדגכ",
+        "link": "דגעכעכד"
+      }
     }
   ],
   "owners": [
@@ -557,6 +575,16 @@
       "password": "Elad123@",
       "description": "sdfgdgfs",
       "profileImg": "dgfsdgfs",
+      "stores": []
+    },
+    {
+      "id": "36eb",
+      "name": "dfghdfgj",
+      "username": "elasd1111",
+      "email": "eladio200222@gmail.com",
+      "password": "Elad123@",
+      "description": "dgjdgfj",
+      "profileImg": "dgfjdgfjdgfj",
       "stores": []
     }
   ]
