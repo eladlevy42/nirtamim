@@ -9,6 +9,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/components/store.css" />
   </head>
 
   <body>
@@ -39,46 +40,81 @@
     </nav>
     <main>
       <h1>השקשוקה של אלעד</h1>
-      <div class="container">
-        <div class="leftStoreContainer">
-          <h2>על הבעלים:</h2>
-          <div class="aboutMeContainer">
-            <image id="ownerImg"></image>
-            <p id="ownerDescription">
-              קוראים לי אלעד אני לוחם בגולני במילואים בעל חנות שקשוקה משגעת
-            </p>
+      <div class="store-container grid-group">
+        <div class="store-wrapper">
+          <div class="store-img">
+            <img
+              src="https://d3o5sihylz93ps.cloudfront.net/wp-content/uploads/2021/06/17100511/cc-1100x733.jpg"
+              alt=""
+            />
+          </div>
+          <div class="store-details flex-group">
+            <div class="storeDataContainer">
+              <div class="categories-container">
+                <h4>קטגוריה:</h4>
+                <p class="categories">מסעדה, בר</p>
+              </div>
+              <div class="rating-container">
+                <h4>דירוג:</h4>
+                <p class="flex-group">
+                  <i class="fa-solid fa-star"></i>
+                  <span class="rating">4.5</span>
+                </p>
+              </div>
+              <div id="storeAdress" class="address">
+                <span class="city">סביון</span>,
+                <span class="address">העגורים 4</span>
+              </div>
+              <div id="storeLinks">
+                <a href="#" class="store__website"
+                  ><i class="fa-solid fa-house-user"></i
+                ></a>
+                <a href="" class="store__phone-number"
+                  ><i class="fa-solid fa-phone"></i
+                ></a>
+                <!-- <i class="fa-solid fa-pen-to-square"></i> -->
+              </div>
+            </div>
+          </div>
+          <div class="reviews-container">
+            <div id="allReviews">
+              <div class="review">
+                <h4>עינת</h4>
+                <span class="reviewRating">
+                  <i class="fa-solid fa-star"></i> 5
+                </span>
+                <p class="reviewParagraph">המקום ממש יפה היה טעים מאוד</p>
+              </div>
+              <div class="review">
+                <h4>עינת</h4>
+                <span class="reviewRating">
+                  <i class="fa-solid fa-star"></i> 5
+                </span>
+                <p class="reviewParagraph">המקום ממש יפה היה טעים מאוד</p>
+              </div>
+              <div class="review">
+                <h4>עינת</h4>
+                <span class="reviewRating">
+                  <i class="fa-solid fa-star"></i> 5
+                </span>
+                <p class="reviewParagraph">המקום ממש יפה היה טעים מאוד</p>
+              </div>
+            </div>
+            <div class="add-review__wrapper flex-group">
+              <button class="btn"><i class="fa-solid fa-plus"></i></button>
+              <p>הוסף תגובה חדשה</p>
+            </div>
           </div>
         </div>
-        <div class="rightStoreContainer">
-          <div id="storeHeader">
-            <i class="fa-solid fa-circle-right"></i>
-            <h2>על העסק:</h2>
-          </div>
-          <div class="storeDataContainer">
-            <img id="storeImg" />
-            <ul id="storeData">
-              <li id="storeCategory">קטגוריה:</li>
-              <li id="storeRatingLi">
-                <i class="fa-solid fa-star"></i>
-                <span id="storeRating"> 5 </span>
-              </li>
-              <li id="storeAdress">עגורים 4 סביון</li>
-              <li id="storeLinks">
-                <i class="fa-solid fa-house-user"
-                  ><i class="fa-solid fa-phone"></i
-                ></i>
-                <i class="fa-solid fa-pen-to-square"></i>
-              </li>
-            </ul>
-          </div>
-          <div id="allReviews">
-            <div class="review">
-              <!--example -->
-              <h4>עינת</h4>
-              <span class="reviewRating">
-                <i class="fa-solid fa-star"></i> 5
-              </span>
-              <p class="reviewParagraph">המקום ממש יפה היה טעים מאוד</p>
+        <div class="about-user-wrapper">
+          <div class="container">
+            <div class="leftStoreContainer">
+              <h2>על הבעלים:</h2>
+              <div class="aboutMeContainer">
+                <p id="ownerDescription">
+                  קוראים לי אלעד אני לוחם בגולני במילואים בעל חנות שקשוקה משגעת
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -1,7 +1,11 @@
 @import url(reset.css);
+
 @import url(../css/components/navbar.css);
-@import url(../css/utils/flex/flex.css);
 @import url(../css/components/footer.css);
+@import url(../css/components/buttons.css);
+
+@import url(../css/utils/grid/grid.css);
+@import url(../css/utils/flex/flex.css);
 
 :root {
   --clr-primary-100: hsl(219, 38%, 90%);
@@ -31,4 +35,8 @@ nav {
 }
 main {
   flex: 1;
+  padding-block: 2rem;
+}
+.fa-star {
+  color: hsl(60, 100%, 40%);
 }
