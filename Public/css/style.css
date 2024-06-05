@@ -1,6 +1,10 @@
 @import url(reset.css);
 
 :root {
+  --clr-primary-100: hsl(0, 14%, 97%);
+  --clr-primary-500: hsl(219, 38%, 90%);
+  --clr-primary-500: hsl(213, 47%, 47%);
+  --clr-primary-700: hsl(212, 64%, 19%);
 }
 body,
 html {
