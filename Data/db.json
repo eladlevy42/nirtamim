@@ -20,6 +20,13 @@
           "ratings": "4"
         }
       ],
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "בלה בלה",
+          "ratings": "4"
+        }
+      ],
       "details": {
         "phone-number": "050-1234678",
         "hours": "אובייקט אופציה",
@@ -40,6 +47,13 @@
         "city": "חיפה"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "מקום נהדר!",
+          "ratings": "5"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -74,6 +88,13 @@
           "ratings": "4"
         }
       ],
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "ספרים נחמדים",
+          "ratings": "4"
+        }
+      ],
       "details": {
         "phone-number": "050-2222222",
         "hours": "10-6",
@@ -94,6 +115,13 @@
         "city": "תל אביב"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "תוצרת טרייה",
+          "ratings": "5"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -127,6 +155,13 @@
           "ratings": "4"
         }
       ],
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "מחירים טובים",
+          "ratings": "4"
+        }
+      ],
       "details": {
         "phone-number": "050-4444444",
         "hours": "10-7",
@@ -146,6 +181,13 @@
         "city": "אילת"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "אופנה נחמדה",
+          "ratings": "5"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -179,6 +221,13 @@
           "ratings": "4"
         }
       ],
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "איכות מעולה",
+          "ratings": "4"
+        }
+      ],
       "details": {
         "phone-number": "050-6666666",
         "hours": "10-9",
@@ -198,6 +247,13 @@
         "city": "קריית שמונה"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "כלים נוחים",
+          "ratings": "4"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -231,6 +287,13 @@
           "ratings": "5"
         }
       ],
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "ילדים אוהבים את זה",
+          "ratings": "5"
+        }
+      ],
       "details": {
         "phone-number": "050-8888888",
         "hours": "9-5",
@@ -250,6 +313,13 @@
         "city": "פתח תקווה"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "מבחר טוב",
+          "ratings": "4"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -283,6 +353,13 @@
           "ratings": "5"
         }
       ],
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "צוות ידידותי",
+          "ratings": "5"
+        }
+      ],
       "details": {
         "phone-number": "050-0000000",
         "hours": "8-8",
@@ -302,6 +379,13 @@
         "city": "אשקלון"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "מאפים טעימים",
+          "ratings": "5"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -335,6 +419,13 @@
           "ratings": "5"
         }
       ],
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "פריטים יפים",
+          "ratings": "5"
+        }
+      ],
       "details": {
         "phone-number": "051-2222222",
         "hours": "10-6",
@@ -354,6 +445,13 @@
         "city": "צפת"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "כלי נגינה נהדרים",
+          "ratings": "4"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -387,6 +485,13 @@
           "ratings": "5"
         }
       ],
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "מבחר נהדר",
+          "ratings": "5"
+        }
+      ],
       "details": {
         "phone-number": "051-4444444",
         "hours": "10-7",
@@ -406,6 +511,13 @@
         "city": "נהריה"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "אוכל טעים",
+          "ratings": "4"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -439,6 +551,13 @@
           "ratings": "5"
         }
       ],
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "אווירה נהדרת",
+          "ratings": "5"
+        }
+      ],
       "details": {
         "phone-number": "051-6666666",
         "hours": "8-2",
@@ -458,6 +577,13 @@
         "city": "רעננה"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "ציוד טוב",
+          "ratings": "4"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -491,6 +617,13 @@
           "ratings": "5"
         }
       ],
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "קפה נהדר",
+          "ratings": "5"
+        }
+      ],
       "details": {
         "phone-number": "051-8888888",
         "hours": "7-7",
@@ -510,6 +643,13 @@
         "city": "אשדוד"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "לחם טרי",
+          "ratings": "5"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
