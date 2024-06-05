@@ -7,7 +7,7 @@ function onInit() {
   // Expose functions to the window object
   window.onChangePage = onChangePage;
   window.onSearch = onSearch;
-  // Add event listener for the form submission
+  window.onFilterByCategory = onFilterByCategory;
 
   document
     .getElementById("prevPage")
@@ -18,11 +18,16 @@ function onInit() {
   document
     .getElementById("searchStoreByName")
     .addEventListener("submit", onSearch);
+
+  document
+    .querySelectorAll(".option")
+    .forEach((option) => option.addEventListener("click", onFilterByCategory));
 }
 
 async function onChangePage(num) {
   storeService.changePage(num);
 }
+
 async function onSearch(ev) {
   ev.preventDefault();
   storeService.search();
