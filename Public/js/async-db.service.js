@@ -11,13 +11,23 @@ const displayStores = document.getElementById("displayStoreBySearch");
 const prevPageButton = document.getElementById("prevPage");
 const nextPageButton = document.getElementById("nextPage");
 const pageNumberElement = document.getElementById("pageNumber");
-const spinner = document.getElementById("spinner");
+const optionContainer = document.querySelector("options-container");
 
-// prevPageButton.addEventListener("click", () => changePage(-1));
-// nextPageButton.addEventListener("click", () => changePage(1));
+// optionContainer.addEventListener("change", () => {
+//   currentPage = 1;
+//   const selectedStores = optionContainer.value;
+//   filteredStores(selectedStores);
+// });
+
+function filteredStores(category) {
+  const filteredStores = allStores.filter(
+    (store) => category === "" || store.categories.join(", ") === category
+  );
+  totalStores = filteredStores.length;
+  displayPage(filteredStores);
+}
 
 async function getAllStores() {
-  spinner.classList.remove("hidden");
   displayStores.innerHTML = "";
   displayStores.classList.add("hidden");
 
@@ -35,7 +45,6 @@ async function getAllStores() {
     console.error("Error fetching stores", error);
   } finally {
     displayStores.classList.remove("hidden");
-    spinner.classList.add("hidden");
   }
 }
 
@@ -96,7 +105,6 @@ const search = async function () {
     return;
   }
 
-  spinner.classList.remove("hidden");
   displayStores.innerHTML = "";
   displayStores.classList.add("hidden");
 
@@ -117,7 +125,6 @@ const search = async function () {
     console.error("Error searching stores", error);
   } finally {
     displayStores.classList.remove("hidden");
-    spinner.classList.add("hidden");
   }
 };
 
@@ -215,6 +222,8 @@ export const storesFunc = {
   search,
   changePage,
   updateOwnerStores,
+  filteredStores,
+  getLocalStores,
 };
 
 async function getOwnerStores(ownerId) {

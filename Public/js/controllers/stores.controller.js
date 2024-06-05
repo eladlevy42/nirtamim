@@ -1,9 +1,11 @@
 import { storesFunc } from "../async-db.service.js";
+
 window.onload = onInit;
 
 function onInit() {
   window.onChangePage = onChangePage;
   window.onSearch = onSearch;
+  window.onFilterByCategory = onFilterByCategory;
 
   document
     .getElementById("prevPage")
@@ -14,12 +16,22 @@ function onInit() {
   document
     .getElementById("searchStoreByName")
     .addEventListener("submit", onSearch);
+
+  document
+    .querySelectorAll(".option")
+    .forEach((option) => option.addEventListener("click", onFilterByCategory));
 }
 
 async function onChangePage(num) {
   storesFunc.changePage(num);
 }
+
 async function onSearch(ev) {
   ev.preventDefault();
   storesFunc.search();
+}
+
+async function onFilterByCategory(ev) {
+  const selectedCategory = ev.target.getAttribute("value");
+  storesFunc.filteredStores(selectedCategory);
 }
