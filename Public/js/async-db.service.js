@@ -205,7 +205,6 @@ async function postComment(storeID, comment) {
     await axios.patch(`${storesUrl}/${storeID}`, {
       comments: commentsArr,
     });
-    // patch
   } catch (err) {
     console.error(err);
   }
