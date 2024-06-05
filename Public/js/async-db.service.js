@@ -131,25 +131,25 @@ function getUsernameFromURL() {
   return params.get("username");
 }
 
-async function getStore() {
+export async function getStore() {
   try {
     const res = await axios.get(storesUrl);
-    console.log(res.data);
+    return res.data;
   } catch (error) {
     console.log(error);
   }
 }
 
-async function getStoreById(storeId) {
+export async function getStoreById(storeId) {
   try {
     const res = await axios.get(`${storesUrl}/${storeId}`);
-    console.log(res.data);
+    return res.data;
   } catch (error) {
     console.log(error);
   }
 }
 
-async function postStore(storeData) {
+export async function postStore(storeData) {
   try {
     await axios.post(storesUrl, storeData);
   } catch (error) {
@@ -157,36 +157,58 @@ async function postStore(storeData) {
   }
 }
 
-async function updateStore(storeId, updateStoreData) {
+export async function updateStore(storeId, updateStoreData) {
   try {
     const res = await axios.put(`${storesUrl}/${storeId}`, updateStoreData);
-    console.log(res.data);
+    return res.data;
   } catch (error) {
     console.log(error);
   }
 }
 
-async function deleteStore(storeId) {
+export async function deleteStore(storeId) {
   try {
     const res = await axios.deleteStore(`${storesUrl}/${storeId}`);
-    console.log(res.data);
+    return res.data;
   } catch (error) {
     console.log(error);
   }
 }
 
-async function getAllOwnerStores(ownersId) {
+export async function getAllOwnerStores(ownersId) {
   try {
     const res = await axios.get(`${ownerUrl}/${ownersId}`);
-    console.log(res.data.stores);
+    return res.data.stores;
   } catch (error) {
     console.log(error);
   }
 }
 
-function getLocalStores() {
-  return allStores;
+////////// store
+
+async function getOwnerByID(ownersId) {
+  try {
+    const res = await axios.get(`${ownerUrl}/${ownersId}`);
+    return res.data;
+  } catch (err) {
+    console.error(err);
+  }
 }
+
+async function postComment(storeID, comment) {
+  try {
+    const store = await getStoreById(storeID);
+    const commentsArr = store.comments;
+    commentsArr.push(comment);
+    await axios.patch(`${storesUrl}/${storeID}`, {
+      comments: commentsArr,
+    });
+    // patch
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 export const storesFunc = {
   getStore,
   getStoreById,
@@ -194,6 +216,6 @@ export const storesFunc = {
   updateStore,
   deleteStore,
   getAllOwnerStores,
-  getAllStores,
-  getLocalStores,
+  getOwnerByID,
+  postComment,
 };

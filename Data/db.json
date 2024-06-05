@@ -4,12 +4,22 @@
       "id": "fake-1234",
       "name": "שם מזויף",
       "ownerID": "owner-1",
-      "categories": ["מסעדה", "בר"],
+      "categories": [
+        "מסעדה",
+        "בר"
+      ],
       "location": {
         "district": "מרכז",
         "city": "נתניה"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "בלה בלה",
+          "ratings": "4"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -28,12 +38,22 @@
       "id": "store-1",
       "name": "חנות 1",
       "ownerID": "owner-1",
-      "categories": ["חנות", "בית קפה"],
+      "categories": [
+        "חנות",
+        "בית קפה"
+      ],
       "location": {
         "district": "צפון",
         "city": "חיפה"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "מקום נהדר!",
+          "ratings": "5"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -52,12 +72,22 @@
       "id": "store-2",
       "name": "חנות 2",
       "ownerID": "owner-1",
-      "categories": ["חנות ספרים", "בית קפה"],
+      "categories": [
+        "חנות ספרים",
+        "בית קפה"
+      ],
       "location": {
         "district": "דרום",
         "city": "באר שבע"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "ספרים נחמדים",
+          "ratings": "4"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -76,12 +106,22 @@
       "id": "store-3",
       "name": "חנות 3",
       "ownerID": "owner-1",
-      "categories": ["מכולת", "שוק"],
+      "categories": [
+        "מכולת",
+        "שוק"
+      ],
       "location": {
         "district": "מרכז",
         "city": "תל אביב"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "תוצרת טרייה",
+          "ratings": "5"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -100,12 +140,21 @@
       "id": "store-4",
       "name": "חנות 4",
       "ownerID": "owner-1",
-      "categories": ["אלקטרוניקה"],
+      "categories": [
+        "אלקטרוניקה"
+      ],
       "location": {
         "district": "צפון",
         "city": "טבריה"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "מחירים טובים",
+          "ratings": "4"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -124,12 +173,21 @@
       "id": "store-5",
       "name": "חנות 5",
       "ownerID": "owner-1",
-      "categories": ["בגדים"],
+      "categories": [
+        "בגדים"
+      ],
       "location": {
         "district": "דרום",
         "city": "אילת"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "אופנה נחמדה",
+          "ratings": "5"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -148,12 +206,21 @@
       "id": "store-6",
       "name": "חנות 6",
       "ownerID": "owner-1",
-      "categories": ["רהיטים"],
+      "categories": [
+        "רהיטים"
+      ],
       "location": {
         "district": "מרכז",
         "city": "ראשון לציון"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "איכות מעולה",
+          "ratings": "4"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -172,12 +239,21 @@
       "id": "store-7",
       "name": "חנות 7",
       "ownerID": "owner-1",
-      "categories": ["חומרה"],
+      "categories": [
+        "חומרה"
+      ],
       "location": {
         "district": "צפון",
         "city": "קריית שמונה"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "כלים נוחים",
+          "ratings": "4"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -196,12 +272,21 @@
       "id": "store-8",
       "name": "חנות 8",
       "ownerID": "owner-1",
-      "categories": ["חנות צעצועים"],
+      "categories": [
+        "חנות צעצועים"
+      ],
       "location": {
         "district": "דרום",
         "city": "אשדוד"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "ילדים אוהבים את זה",
+          "ratings": "5"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -220,12 +305,21 @@
       "id": "store-9",
       "name": "חנות 9",
       "ownerID": "owner-1",
-      "categories": ["חנות לחיות מחמד"],
+      "categories": [
+        "חנות לחיות מחמד"
+      ],
       "location": {
         "district": "מרכז",
         "city": "פתח תקווה"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "מבחר טוב",
+          "ratings": "4"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -244,12 +338,21 @@
       "id": "store-10",
       "name": "חנות 10",
       "ownerID": "owner-1",
-      "categories": ["בית מרקחת"],
+      "categories": [
+        "בית מרקחת"
+      ],
       "location": {
         "district": "צפון",
         "city": "עכו"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "צוות ידידותי",
+          "ratings": "5"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -268,12 +371,21 @@
       "id": "store-11",
       "name": "חנות 11",
       "ownerID": "owner-2",
-      "categories": ["מאפיה"],
+      "categories": [
+        "מאפיה"
+      ],
       "location": {
         "district": "דרום",
         "city": "אשקלון"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "מאפים טעימים",
+          "ratings": "5"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -292,12 +404,21 @@
       "id": "store-12",
       "name": "חנות 12",
       "ownerID": "owner-2",
-      "categories": ["תכשיטים"],
+      "categories": [
+        "תכשיטים"
+      ],
       "location": {
         "district": "מרכז",
         "city": "הרצליה"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "פריטים יפים",
+          "ratings": "5"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -316,12 +437,21 @@
       "id": "store-13",
       "name": "חנות 13",
       "ownerID": "owner-2",
-      "categories": ["חנות מוזיקה"],
+      "categories": [
+        "חנות מוזיקה"
+      ],
       "location": {
         "district": "צפון",
         "city": "צפת"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "כלי נגינה נהדרים",
+          "ratings": "4"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -340,12 +470,21 @@
       "id": "store-14",
       "name": "חנות 14",
       "ownerID": "owner-2",
-      "categories": ["חנות ספרים"],
+      "categories": [
+        "חנות ספרים"
+      ],
       "location": {
         "district": "מרכז",
         "city": "רמת גן"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "מבחר נהדר",
+          "ratings": "5"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -364,12 +503,21 @@
       "id": "store-15",
       "name": "חנות 15",
       "ownerID": "owner-2",
-      "categories": ["מסעדה"],
+      "categories": [
+        "מסעדה"
+      ],
       "location": {
         "district": "צפון",
         "city": "נהריה"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "אוכל טעים",
+          "ratings": "4"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -388,12 +536,21 @@
       "id": "store-16",
       "name": "חנות 16",
       "ownerID": "owner-2",
-      "categories": ["בר"],
+      "categories": [
+        "בר"
+      ],
       "location": {
         "district": "דרום",
         "city": "באר שבע"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "אווירה נהדרת",
+          "ratings": "5"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -412,12 +569,21 @@
       "id": "store-17",
       "name": "חנות 17",
       "ownerID": "owner-2",
-      "categories": ["חנות ספורט"],
+      "categories": [
+        "חנות ספורט"
+      ],
       "location": {
         "district": "מרכז",
         "city": "רעננה"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "ציוד טוב",
+          "ratings": "4"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -436,12 +602,21 @@
       "id": "store-18",
       "name": "חנות 18",
       "ownerID": "owner-2",
-      "categories": ["בית קפה"],
+      "categories": [
+        "בית קפה"
+      ],
       "location": {
         "district": "צפון",
         "city": "כרמיאל"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "קפה נהדר",
+          "ratings": "5"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -460,12 +635,21 @@
       "id": "store-19",
       "name": "חנות 19",
       "ownerID": "owner-2",
-      "categories": ["מאפיה"],
+      "categories": [
+        "מאפיה"
+      ],
       "location": {
         "district": "דרום",
         "city": "אשדוד"
       },
       "img": "https://via.placeholder.com/150",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "לחם טרי",
+          "ratings": "5"
+        }
+      ],
       "comments": [
         {
           "name": "אנונימי",
@@ -484,7 +668,9 @@
       "id": "store-20",
       "name": "חנות 20",
       "ownerID": "owner-2",
-      "categories": ["גלידריה"],
+      "categories": [
+        "גלידריה"
+      ],
       "location": {
         "district": "מרכז",
         "city": "תל אביב"
@@ -495,8 +681,7 @@
           "name": "אנונימי",
           "description": "גלידה טעימה",
           "ratings": "5"
-        }
-      ],
+        }],
       "details": {
         "phone-number": "051-0000000",
         "hours": "10-10",
