@@ -1,0 +1,36 @@
+{
+    "stores":[
+        {
+            "_id":"fake-1234",
+            "name":"fake-name",
+            "ownerID":"fake-ownerID",
+            "category":["resturant", "bar"],
+            "location":{
+                "district":"center",
+                "city":"netanya"
+            },
+            "img":"ewrewrf",
+            "comments":{
+                "name":"anonymus",
+                "description":"blah-blah",
+                "ratings":"4"
+            },
+            "details":{
+                "phone-number":"050-1234678",
+                "hours":"option-object",
+                "description":"store-desscription",
+                "link":"optional"
+            }
+        }
+    ],
+    "users":[
+        {
+            "_id":"fake-1234",
+            "name":"fake-name",
+            "username":"frw",
+            "email":"frere@frfr.vef",
+            "password":"123245423",
+            "stores":["store_ID"]
+        }
+    ]
+}
