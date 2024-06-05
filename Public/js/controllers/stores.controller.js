@@ -7,6 +7,12 @@ function onInit() {
   window.onAddStore = onAddStore;
   // Add event listener for the form submission
   document.querySelector("#addStoreFrm").addEventListener("submit", onAddStore);
+  document
+    .getElementById("prevPage")
+    .addEventListener("click", () => changePage(-1));
+  document
+    .getElementById("nextPage")
+    .addEventListener("click", () => changePage(1));
 }
 async function onAddStore(ev) {
   console.log(1);
