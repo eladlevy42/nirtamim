@@ -1129,6 +1129,26 @@
         "description": "kljklj",
         "link": "kljkljl"
       }
+    },
+    {
+      "id": "b285",
+      "name": "ljkl",
+      "ownerID": "owner-1",
+      "categories": [
+        "jkljl"
+      ],
+      "location": {
+        "district": "kjklj",
+        "city": "kljklj"
+      },
+      "img": "kljlkjlj",
+      "comments": [],
+      "details": {
+        "phone-number": "lkjlkj",
+        "hours": "kljklj",
+        "description": "kljl",
+        "link": "jlkj"
+      }
     }
   ],
   "owners": [
