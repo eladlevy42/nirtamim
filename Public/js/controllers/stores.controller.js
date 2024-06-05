@@ -1,5 +1,5 @@
 import { storesFunc } from "../async-db.service.js";
-import { newStoreFunctions } from "../owners.service.local.js";
+
 window.onload = onInit;
 
 function onInit() {
@@ -7,12 +7,33 @@ function onInit() {
 
   window.onChangePage = onChangePage;
   window.onSearch = onSearch;
-  // Add event listener for the form submission
-  document.querySelector("#addStoreFrm").addEventListener("submit", onAddStore);
+  window.onFilterByCategory = onFilterByCategory;
+
+  document
+    .getElementById("prevPage")
+    .addEventListener("click", () => onChangePage(-1));
+  document
+    .getElementById("nextPage")
+    .addEventListener("click", () => onChangePage(1));
+  document
+    .getElementById("searchStoreByName")
+    .addEventListener("submit", onSearch);
+
+  document
+    .querySelectorAll(".option")
+    .forEach((option) => option.addEventListener("click", onFilterByCategory));
 }
-async function onAddStore(ev) {
-  console.log(1);
+
+async function onChangePage(num) {
+  storesFunc.changePage(num);
+}
+
+async function onSearch(ev) {
   ev.preventDefault();
   storesFunc.search();
 }
 
+async function onFilterByCategory(ev) {
+  const selectedCategory = ev.target.getAttribute("value");
+  storesFunc.filteredStores(selectedCategory);
+}
