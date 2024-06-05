@@ -43,9 +43,8 @@ export async function getStore() {
   
   export async function deleteStore(storeId) {
     try {
-      const res = await axios.deleteStore(`${storesUrl}/${storeId}`);
-      console.log(res.data);
-    } catch (error) {
+     await axios.deleteStore(`${storesUrl}/${storeId}`);
+         } catch (error) {
       console.log(error);
     }
   }
