@@ -9,6 +9,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/components/stores.css" />
   </head>
   <body>
     <nav class="justify__space-between align__center flex-group">
@@ -38,21 +39,144 @@
         </li>
       </ul>
     </nav>
-    <main>
-      <div class="searchBar">
-        <form id="searchStoreByName">
-          <label class="searchText" for="searchInput">חפש חנות</label>
-          <div class="flex">
-            <input id="searchInput" type="text" />
-            <button class="searchButton" type="submit">
-              <i class="far fa-search"></i>
-            </button>
+    <main class="grid-group all-stores__container">
+      <section class="filters-container">
+        <div class="searchBar">
+          <form id="searchStoreByName">
+            <div class="search-wrapper flex-group">
+              <input
+                id="searchInput"
+                type="text"
+                placeholder="חיפוש לפי שם מסעדה .."
+              />
+              <button class="btn" id="searchButton" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="categories-filter">
+          <div class="styled-select">
+            <div class="select-box">Select an option</div>
+            <div class="options-container">
+              <div class="option">Option 1</div>
+              <div class="option">Option 2</div>
+              <div class="option">Option 3</div>
+              <div class="option">Option 4</div>
+              <div class="option">Option 5</div>
+            </div>
           </div>
-        </form>
-      </div>
+        </div>
+        <div class="district-filter">
+          <div class="styled-select">
+            <div class="select-box">Select an option</div>
+            <div class="options-container">
+              <div class="option">Option 1</div>
+              <div class="option">Option 2</div>
+              <div class="option">Option 3</div>
+              <div class="option">Option 4</div>
+              <div class="option">Option 5</div>
+            </div>
+          </div>
+        </div>
+        <div class="city-filter">
+          <div class="styled-select">
+            <div class="select-box">Select an option</div>
+            <div class="options-container">
+              <div class="option">Option 1</div>
+              <div class="option">Option 2</div>
+              <div class="option">Option 3</div>
+              <div class="option">Option 4</div>
+              <div class="option">Option 5</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="stores-container flex-group">
+        <div class="store-card grid-group">
+          <div class="store-img__wrapper flex-group">
+            <img
+              class="store-img"
+              src="https://d3o5sihylz93ps.cloudfront.net/wp-content/uploads/2021/06/17100511/cc-1100x733.jpg"
+              alt=""
+            />
+          </div>
+          <div class="store-details">
+            <h3>שקשוקה שקשוקית</h3>
+            <p class="store-categories">בר, מסעדה</p>
+            <div class="store__sub-details flex-group">
+              <p class="store-rating">
+                <i class="fa-solid fa-star filled"></i>
+                <span class="rating">4.5</span>
+              </p>
+              <p class="store-hours">14:00-22:00</p>
+            </div>
+          </div>
+        </div>
+        <div class="store-card grid-group">
+          <div class="store-img__wrapper flex-group">
+            <img
+              class="store-img"
+              src="https://cdn.goodlifetv.co.il/wp-content/uploads/2021/08/09191051/shakshouka-sausages.jpg"
+              alt=""
+            />
+          </div>
+          <div class="store-details">
+            <h3>שקשוקה שקשוקית</h3>
+            <p class="store-categories">בר, מסעדה</p>
+            <div class="store__sub-details flex-group">
+              <p class="store-rating">
+                <i class="fa-solid fa-star filled"></i>
+                <span class="rating">4.5</span>
+              </p>
+              <p class="store-hours">14:00-22:00</p>
+            </div>
+          </div>
+        </div>
+        <div class="store-card grid-group">
+          <div class="store-img__wrapper flex-group">
+            <img
+              class="store-img"
+              src="https://d3o5sihylz93ps.cloudfront.net/wp-content/uploads/2021/06/17100511/cc-1100x733.jpg"
+              alt=""
+            />
+          </div>
+          <div class="store-details">
+            <h3>שקשוקה שקשוקית</h3>
+            <p class="store-categories">בר, מסעדה</p>
+            <div class="store__sub-details flex-group">
+              <p class="store-rating">
+                <i class="fa-solid fa-star filled"></i>
+                <span class="rating">4.5</span>
+              </p>
+              <p class="store-hours">14:00-22:00</p>
+            </div>
+          </div>
+        </div>
+        <div class="store-card grid-group">
+          <div class="store-img__wrapper flex-group">
+            <img
+              class="store-img"
+              src="https://d3o5sihylz93ps.cloudfront.net/wp-content/uploads/2021/06/17100511/cc-1100x733.jpg"
+              alt=""
+            />
+          </div>
+          <div class="store-details">
+            <h3>שקשוקה שקשוקית</h3>
+            <p class="store-categories">בר, מסעדה</p>
+            <div class="store__sub-details flex-group">
+              <p class="store-rating">
+                <i class="fa-solid fa-star filled"></i>
+                <span class="rating">4.5</span>
+              </p>
+              <p class="store-hours">14:00-22:00</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <div class="spinner hidden" id="spinner"></div>
-      <div class="showCategories hidden">
+      <!-- <div class="spinner hidden" id="spinner"></div> -->
+      <!-- <div class="showCategories hidden">
         <label for="" class="labelCategory">סנן לפי אזור</label>
         <select class="categoryFilter">
           <option value="">כל האזורים</option>
@@ -60,8 +184,8 @@
           <option value="center">אזור מרכז</option>
           <option value="south">אזור דרום</option>
         </select>
-        <!-- dinamicly diplay all select - for categories and for city -->
-        <!-- <select class="categoryFilter">
+        dinamicly diplay all select - for categories and for city
+        <select class="categoryFilter">
         <option value="">בחר עיר</option>
         <option value=""></option>
         <option value="center">אזור מרכז</option>
@@ -73,8 +197,8 @@
         <option value="north">אזור צפון</option>
         <option value="center">אזור מרכז</option>
         <option value="south">אזור דרום</option>
-      </select> -->
-      </div>
+      </select>
+      </div> -->
       <div id="displayStoreBySearch"></div>
       <div class="pagination">
         <button id="prevPage" class="prevPage hidden">
@@ -119,5 +243,38 @@
       type="module"
       src="/Public/js/controllers/stores.controller.js"
     ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const styledSelects = document.querySelectorAll(".styled-select");
+
+        styledSelects.forEach((styledSelect) => {
+          const selectBox = styledSelect.querySelector(".select-box");
+          const optionsContainer =
+            styledSelect.querySelector(".options-container");
+          const optionsList = optionsContainer.querySelectorAll(".option");
+
+          selectBox.addEventListener("click", function () {
+            optionsContainer.classList.toggle("show");
+          });
+
+          optionsList.forEach((option) => {
+            option.addEventListener("click", function () {
+              selectBox.textContent = this.textContent;
+              optionsContainer.classList.remove("show");
+            });
+          });
+        });
+
+        window.addEventListener("click", function (event) {
+          styledSelects.forEach((styledSelect) => {
+            if (!styledSelect.contains(event.target)) {
+              const optionsContainer =
+                styledSelect.querySelector(".options-container");
+              optionsContainer.classList.remove("show");
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>

@@ -130,7 +130,9 @@
               </div>
             </div>
             <div class="add-review__wrapper flex-group">
-              <button class="btn"><i class="fa-solid fa-plus"></i></button>
+              <button id="addNewComment" class="btn">
+                <i class="fa-solid fa-plus"></i>
+              </button>
               <p>הוסף תגובה חדשה</p>
             </div>
           </div>
@@ -225,6 +227,14 @@
           .addEventListener("click", (event) => {
             event.target.parentElement.style.display = "none";
             document.querySelector(".overlay").style.display = "none";
+          });
+
+        document
+          .querySelector("#addNewComment")
+          .addEventListener("click", () => {
+            document.querySelector(".pop-up__container").style.display =
+              "block";
+            document.querySelector(".overlay").style.display = "block";
           });
       });
     </script>

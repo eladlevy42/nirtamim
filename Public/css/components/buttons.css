@@ -16,7 +16,9 @@
   font-size: 0.8rem;
   background-color: var(--clr-primary-500);
 }
-
+#searchButton {
+  padding-inline: 0.5rem;
+}
 .btn:active,
 .close-overlay:active {
   transform: translateY(2px);
