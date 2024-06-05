@@ -1,4 +1,6 @@
 import { loginFunc } from "../async-login.service.js";
+import { dbService } from "../async-db.service.js";
+import { newStoreFunctions } from "../owners.service.local.js";
 
 //login and register
 window.onload = onInit;

@@ -3,17 +3,29 @@ import { toaster } from "/public/js/toast.sevice.js";
 const storesUrl = "http://localhost:8001/stores";
 const ownerUrl = "http://localhost:8001/owners";
 
-let currentPage = 1;
-let allStores = [];
-const storesPerPage = 9;
-let totalStores = 0;
+// let currentPage = 1;
+// let allStores = [];
+// const storesPerPage = 9;
+// let totalStores = 0;
+// const storesContainer = document.querySelector("#allStoresContainer");
 const displayStores = document.getElementById("displayStoreBySearch");
 const prevPageButton = document.getElementById("prevPage");
 const nextPageButton = document.getElementById("nextPage");
 const pageNumberElement = document.getElementById("pageNumber");
 
-// prevPageButton.addEventListener("click", () => changePage(-1));
-// nextPageButton.addEventListener("click", () => changePage(1));
+// optionContainer.addEventListener("change", () => {
+//   currentPage = 1;
+//   const selectedStores = optionContainer.value;
+//   filteredStores(selectedStores);
+// });
+
+function filteredStores(category) {
+  const filteredStores = allStores.filter(
+    (store) => category === "" || store.categories.join(", ") === category
+  );
+  totalStores = filteredStores.length;
+  displayPage(filteredStores);
+}
 
 async function getAllStores() {
   displayStores.innerHTML = "";
@@ -42,30 +54,50 @@ function changePage(direction) {
   displayPage(allStores);
 }
 
+function calculateAvgRating(commentsArray) {
+  const total = commentsArray.reduce((acc, comment) => {
+    acc += Number(comment.ratings);
+    return acc;
+  }, 0);
+  return (total / commentsArray.length).toFixed(1);
+}
+
 function displayPage(stores) {
   const start = (currentPage - 1) * storesPerPage;
   const end = start + storesPerPage;
   const paginatedStores = stores.slice(start, end);
 
-  displayStores.innerHTML = paginatedStores
-    .map(
-      (store) =>
-        `<div class="store">
-      <img src="${store.img}" alt="${store.name}" class="store-image"/>
-      <h4 class="store-name">${store.name}</h4>
-      <p class="store-description">${store.details.description}</p>
-      <p class="store-location">${store.location.district}, ${
-          store.location.city
-        }</p>
-      <p class="store-phone">Phone: ${store.details["phone-number"]}</p>
-      <p class="store-hours">Hours: ${store.details.hours}</p>
-      <p class="store-categories">Categories: ${store.categories.join(", ")}</p>
-      <p class="store-rating">Rating: ${store.comments.ratings} - ${
-          store.comments.description
-        } (${store.comments.name})</p>
-      <a href="${store.details.link}" class="store-link">Visit Store</a>
-    </div>`
-    )
+  storesContainer.innerHTML = paginatedStores
+    .map((store) => {
+      return `<div class="store-card grid-group">
+      <div class="store-img__wrapper flex-group">
+      <img
+              class="store-img"
+              src="${store.img}"
+              alt="${store.name}"
+          />
+      </div>
+      <div class="store-details">
+        <h3>${store.name}</h3>
+        <div class="group-details flex-group">
+          <p class="store-categories">${store.categories.join(", ")}</p>
+        </div>
+        <div class="store__sub-details flex-group">
+          <p class="store-hours">${store.details.hours}</p>
+          <p class="store-location">
+            <span class="city">${
+              store.location.city
+            }</span>,<span class="district"
+              >${store.location.district}
+          </p>
+        </div>
+        <p class="store-rating">
+            <i class="fa-solid fa-star filled"></i>
+            <span class="rating">${calculateAvgRating(store.comments)}</span>
+          </p>
+      </div>
+    </div>`;
+    })
     .join("");
 
   const maxPage = Math.ceil(totalStores / storesPerPage);
@@ -83,6 +115,7 @@ function displayPage(stores) {
 
   pageNumberElement.innerText = currentPage;
 }
+
 const search = async function () {
   const searchQuery = document
     .getElementById("searchInput")
@@ -115,13 +148,14 @@ const search = async function () {
     displayStores.classList.remove("hidden");
   }
 };
+////////////
 
 function getUserIdFromURL() {
   const params = new URLSearchParams(window.location.search);
   return params.get("userId");
 }
 
-export async function getStore() {
+async function getStore() {
   try {
     const res = await axios.get(storesUrl);
     return res.data;
@@ -139,7 +173,7 @@ async function getStoreById(storeId) {
   }
 }
 
-export async function postStore(storeData) {
+async function postStore(storeData) {
   try {
     await axios.post(storesUrl, storeData);
   } catch (error) {
@@ -147,7 +181,7 @@ export async function postStore(storeData) {
   }
 }
 
-export async function updateStore(storeId, updateStoreData) {
+async function updateStore(storeId, updateStoreData) {
   try {
     const res = await axios.put(`${storesUrl}/${storeId}`, updateStoreData);
     return res.data;
@@ -201,20 +235,6 @@ export async function getAllOwnerStores(ownersId) {
 function getLocalStores() {
   return allStores;
 }
-export const storesFunc = {
-  getStore,
-  getStoreById,
-  postStore,
-  updateStore,
-  deleteStore,
-  getAllOwnerStores,
-  getOwnerByID,
-  postComment,
-  getUserIdFromURL,
-  search,
-  changePage,
-  updateOwnerStores,
-};
 
 async function getOwnerStores(ownerId) {
   try {
@@ -265,3 +285,16 @@ async function postComment(storeID, comment) {
     toaster.showErrorToaster(err.message);
   }
 }
+
+export const dbService = {
+  getStore,
+  getStoreById,
+  postStore,
+  updateStore,
+  deleteStore,
+  getAllOwnerStores,
+  getOwnerByID,
+  postComment,
+  getUserIdFromURL,
+  updateOwnerStores,
+};
