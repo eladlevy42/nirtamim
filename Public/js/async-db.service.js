@@ -128,7 +128,7 @@ document
 
 function getUsernameFromURL() {
   const params = new URLSearchParams(window.location.search);
-  return params.get("username");
+  return params.get("userId");
 }
 
 export async function getStore() {
