@@ -1,18 +1,17 @@
 import { renderHTML } from "./renderHTML.service.js";
-
+import { toaster } from "/public/js/toast.sevice.js";
 const storesUrl = "http://localhost:8001/stores";
 const ownerUrl = "http://localhost:8001/owners";
 
-let currentPage = 1;
-let allStores = [];
-const storesPerPage = 9;
-let totalStores = 0;
-const storesContainer = document.querySelector("#allStoresContainer");
+// let currentPage = 1;
+// let allStores = [];
+// const storesPerPage = 9;
+// let totalStores = 0;
+// const storesContainer = document.querySelector("#allStoresContainer");
 const displayStores = document.getElementById("displayStoreBySearch");
 const prevPageButton = document.getElementById("prevPage");
 const nextPageButton = document.getElementById("nextPage");
 const pageNumberElement = document.getElementById("pageNumber");
-const optionContainer = document.querySelector("options-container");
 
 // optionContainer.addEventListener("change", () => {
 //   currentPage = 1;
@@ -37,13 +36,13 @@ async function getAllStores() {
     allStores = response.data;
     totalStores = allStores.length;
     if (totalStores === 0) {
-      console.error("No stores found");
+      toaster.showErrorToaster("no stores found");
     } else {
       currentPage = 1;
       displayPage(allStores);
     }
   } catch (error) {
-    console.error("Error fetching stores", error);
+    toaster.showErrorToaster("Error fetching stores");
   } finally {
     displayStores.classList.remove("hidden");
   }
@@ -55,7 +54,13 @@ function changePage(direction) {
   displayPage(allStores);
 }
 
-function calculateAvgRating(store_id) {}
+function calculateAvgRating(commentsArray) {
+  const total = commentsArray.reduce((acc, comment) => {
+    acc += Number(comment.ratings);
+    return acc;
+  }, 0);
+  return (total / commentsArray.length).toFixed(1);
+}
 
 function displayPage(stores) {
   const start = (currentPage - 1) * storesPerPage;
@@ -63,9 +68,8 @@ function displayPage(stores) {
   const paginatedStores = stores.slice(start, end);
 
   storesContainer.innerHTML = paginatedStores
-    .map(
-      (store) =>
-        `<div class="store-card grid-group">
+    .map((store) => {
+      return `<div class="store-card grid-group">
       <div class="store-img__wrapper flex-group">
       <img
               class="store-img"
@@ -89,11 +93,11 @@ function displayPage(stores) {
         </div>
         <p class="store-rating">
             <i class="fa-solid fa-star filled"></i>
-            <span class="rating">4.5</span>
+            <span class="rating">${calculateAvgRating(store.comments)}</span>
           </p>
       </div>
-    </div>`
-    )
+    </div>`;
+    })
     .join("");
 
   const maxPage = Math.ceil(totalStores / storesPerPage);
@@ -139,23 +143,24 @@ const search = async function () {
       displayPage(allStores);
     }
   } catch (error) {
-    console.error("Error searching stores", error);
+    toaster.showErrorToaster("Error searching stores: " + error.message);
   } finally {
     displayStores.classList.remove("hidden");
   }
 };
+////////////
 
 function getUserIdFromURL() {
   const params = new URLSearchParams(window.location.search);
   return params.get("userId");
 }
 
-export async function getStore() {
+async function getStore() {
   try {
     const res = await axios.get(storesUrl);
     return res.data;
   } catch (error) {
-    console.log(error);
+    toaster.showErrorToaster(error.message);
   }
 }
 
@@ -164,24 +169,24 @@ async function getStoreById(storeId) {
     const res = await axios.get(`${storesUrl}/${storeId}`);
     return res.data;
   } catch (error) {
-    console.log(error);
+    toaster.showErrorToaster(error.message);
   }
 }
 
-export async function postStore(storeData) {
+async function postStore(storeData) {
   try {
     await axios.post(storesUrl, storeData);
   } catch (error) {
-    console.log(error);
+    toaster.showErrorToaster(error.message);
   }
 }
 
-export async function updateStore(storeId, updateStoreData) {
+async function updateStore(storeId, updateStoreData) {
   try {
     const res = await axios.put(`${storesUrl}/${storeId}`, updateStoreData);
     return res.data;
   } catch (error) {
-    console.log(error);
+    toaster.showErrorToaster(error.message);
   }
 }
 
@@ -195,7 +200,7 @@ async function deleteStore(storeId) {
     // Delete the store
     await axios.delete(`${storesUrl}/${storeId}`);
   } catch (error) {
-    console.log("Error deleting store", error);
+    toaster.showErrorToaster("Error deleting store: " + error.message);
   }
   try {
     // Get the owner's data
@@ -208,9 +213,13 @@ async function deleteStore(storeId) {
       ...ownerData,
       stores: updatedStores,
     });
-    console.log(`Store ${storeId} deleted and removed from owner ${ownerId}`);
+    toaster.showSuccessToaster(
+      `Store ${storeId} deleted and removed from owner ${ownerId}`
+    );
   } catch (error) {
-    console.log("Error deleting store from owner", error);
+    toaster.showErrorToaster(
+      "Error deleting store from owner: " + error.message
+    );
   }
 }
 
@@ -219,38 +228,21 @@ export async function getAllOwnerStores(ownersId) {
     const res = await axios.get(`${ownerUrl}/${ownersId}`);
     return res.data.stores;
   } catch (error) {
-    console.log(error);
+    toaster.showErrorToaster(error.message);
   }
 }
 
 function getLocalStores() {
   return allStores;
 }
-export const storesFunc = {
-  getStore,
-  getStoreById,
-  postStore,
-  updateStore,
-  deleteStore,
-  getAllOwnerStores,
-  getOwnerByID,
-  postComment,
-  getUserIdFromURL,
-  search,
-  changePage,
-  updateOwnerStores,
-  filteredStores,
-  getLocalStores,
-};
 
 async function getOwnerStores(ownerId) {
   try {
     const res = await axios.get(`${storesUrl}/?ownerID=${ownerId}`);
-    alert(res.data);
+
     return extractStoreName(res.data);
   } catch (err) {
-    alert(err);
-    console.error(err);
+    toaster.showErrorToaster(err.message);
   }
 }
 function extractStoreName(array) {
@@ -259,18 +251,16 @@ function extractStoreName(array) {
 async function updateOwnerStores(ownerId) {
   try {
     const userStores = await getOwnerStores(ownerId);
-    alert(userStores);
+
     try {
       await axios.patch(`${ownerUrl}/${ownerId}`, {
         stores: userStores,
       });
-      alert("Updated");
     } catch (err) {
-      alert(err);
+      toaster.showErrorToaster(err.message);
     }
   } catch (err) {
-    alert(err);
-    console.error(err);
+    toaster.showErrorToaster(err.message);
   }
 }
 
@@ -279,8 +269,7 @@ async function getOwnerByID(ownersId) {
     const res = await axios.get(`${ownerUrl}/?id=${ownersId}`);
     return res.data[0];
   } catch (err) {
-    alert(err);
-    console.error(err);
+    toaster.showErrorToaster(err.message);
   }
 }
 
@@ -293,6 +282,19 @@ async function postComment(storeID, comment) {
       comments: commentsArr,
     });
   } catch (err) {
-    console.error(err);
+    toaster.showErrorToaster(err.message);
   }
 }
+
+export const dbService = {
+  getStore,
+  getStoreById,
+  postStore,
+  updateStore,
+  deleteStore,
+  getAllOwnerStores,
+  getOwnerByID,
+  postComment,
+  getUserIdFromURL,
+  updateOwnerStores,
+};

@@ -1,5 +1,5 @@
 @import url(reset.css);
-
+@import url(../css/components/toaster.css);
 @import url(../css/components/navbar.css);
 @import url(../css/components/footer.css);
 @import url(../css/components/buttons.css);
@@ -36,6 +36,7 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
+  font-family: 'Alef', sans-serif;
 }
 footer,
 main > *,

@@ -12,20 +12,23 @@ nav {
   color: var(--clr--neutral-100);
   background-color: var(--clr-primary-500);
 }
-.navbar-brand h3 {
+.navbar-brand {
+  display: flex;
+  align-items: center;
   font-size: 1.5rem;
   position: relative;
 }
-.navbar-brand h3::after {
-  background-color: var(--clr-primary-350);
-  content: "";
-  position: absolute;
-  left: -8px;
-  bottom: 8px;
-  width: 3%;
-  height: 4px;
-  border-radius: 50%;
+
+.navbar-brand h3 {
+  font-family: 'Alef', sans-serif;
+  color: #333; 
 }
+
+.fa-star-of-david {
+  font-size: 48px; 
+  color: rgb(0, 97, 0); 
+}
+
 
 .navbar-options {
   gap: 0.5rem;
@@ -43,3 +46,6 @@ nav {
     display: inline-block;
   }
 }
+
+
+

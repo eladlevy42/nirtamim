@@ -1,10 +1,10 @@
-import { storesFunc } from "../async-db.service.js";
-
+import { dbService } from "../async-db.service.js";
+import { storeService } from "../stores.service.local.js";
+import { newStoreFunctions } from "../owners.service.local.js";
 window.onload = onInit;
 
 function onInit() {
   // Expose functions to the window object
-
   window.onChangePage = onChangePage;
   window.onSearch = onSearch;
   window.onFilterByCategory = onFilterByCategory;
@@ -25,15 +25,10 @@ function onInit() {
 }
 
 async function onChangePage(num) {
-  storesFunc.changePage(num);
+  storeService.changePage(num);
 }
 
 async function onSearch(ev) {
   ev.preventDefault();
-  storesFunc.search();
-}
-
-async function onFilterByCategory(ev) {
-  const selectedCategory = ev.target.getAttribute("value");
-  storesFunc.filteredStores(selectedCategory);
+  storeService.search();
 }

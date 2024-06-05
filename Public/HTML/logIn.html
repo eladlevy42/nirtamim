@@ -11,9 +11,11 @@
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
+    <div id="toaster"></div>
     <nav class="justify__space-between align__center flex-group">
       <div class="navbar-brand">
         <h3>נרתמים למילואים</h3>
+        <i class='fa-solid fa-star-of-david'></i>
       </div>
       <ul class="navbar-options flex-group">
         <li>
@@ -86,6 +88,9 @@
         <div class="company-info">
           <p><i class="fa-solid fa-location-dot"></i> הברוש 13, ירושלים</p>
           <p></p>
+        <div class="company-info">
+          <p><i class="fa-solid fa-location-dot"></i> הברוש 13, ירושלים</p>
+          <p></p>
           <p>
             <span class="icon-title"><i class="fa-solid fa-envelope"></i></span>
             nirtamim@yourcompany.com
@@ -126,6 +131,7 @@
         });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+    <script src="https://unpkg.com/pdf-lib"></script>
     <script
       type="module"
       src="/Public/js/controllers/owners.controllers.js"
