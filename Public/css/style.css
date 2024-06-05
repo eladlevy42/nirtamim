@@ -4,6 +4,7 @@
 @import url(../css/components/footer.css);
 @import url(../css/components/buttons.css);
 @import url(../css/components/overlay-popup.css);
+@import url(../css/components/owner-stores.css);
 
 @import url(../css/utils/grid/grid.css);
 @import url(../css/utils/flex/flex.css);
@@ -45,7 +46,6 @@ main {
   padding-block: 2rem;
 }
 .filled {
-  /* cursor: pointer; */
   color: hsl(60, 100%, 40%);
 }
 

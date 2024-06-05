@@ -130,7 +130,9 @@
               </div>
             </div>
             <div class="add-review__wrapper flex-group">
-              <button class="btn"><i class="fa-solid fa-plus"></i></button>
+              <button id="addNewComment" class="btn">
+                <i class="fa-solid fa-plus"></i>
+              </button>
               <p>הוסף תגובה חדשה</p>
             </div>
           </div>
@@ -153,7 +155,9 @@
       <h3>נרתמים למילואים בע"מ</h3>
       <div class="footer-details flex-group">
         <div class="company-info">
-          <p>הברוש 13, ירושלים</p>
+          <p><i class="fa-solid fa-location-dot"></i>
+            הברוש 13, ירושלים
+          </p>
           <p>
             <span class="icon-title"><i class="fa-solid fa-envelope"></i></span>
             nirtamim@yourcompany.com
@@ -226,6 +230,14 @@
           .addEventListener("click", (event) => {
             event.target.parentElement.style.display = "none";
             document.querySelector(".overlay").style.display = "none";
+          });
+
+        document
+          .querySelector("#addNewComment")
+          .addEventListener("click", () => {
+            document.querySelector(".pop-up__container").style.display =
+              "block";
+            document.querySelector(".overlay").style.display = "block";
           });
       });
     </script>

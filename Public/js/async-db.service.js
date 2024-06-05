@@ -215,14 +215,34 @@ export const storesFunc = {
   getUserIdFromURL,
   search,
   changePage,
-  updateOwner,
+  updateOwnerStores,
 };
-async function updateOwner(newOwner) {
-  alert(newOwner);
-  const id = newOwner.id;
+
+async function getOwnerStores(ownerId) {
   try {
-    alert(`Owner ${newOwner}`);
-    await axios.put(`${ownerUrl}/${id}`, newOwner);
+    const res = await axios.get(`${storesUrl}/?ownerID=${ownerId}`);
+    alert(res.data);
+    return extractStoreName(res.data);
+  } catch (err) {
+    alert(err);
+    console.error(err);
+  }
+}
+function extractStoreName(array) {
+  return array.map((obj) => obj["id"]);
+}
+async function updateOwnerStores(ownerId) {
+  try {
+    const userStores = await getOwnerStores(ownerId);
+    alert(userStores);
+    try {
+      await axios.patch(`${ownerUrl}/${ownerId}`, {
+        stores: userStores,
+      });
+      alert("Updated");
+    } catch (err) {
+      alert(err);
+    }
   } catch (err) {
     alert(err);
     console.error(err);
@@ -230,12 +250,9 @@ async function updateOwner(newOwner) {
 }
 
 async function getOwnerByID(ownersId) {
-  alert(`Owner ${ownersId}`);
   try {
-    alert(`${ownerUrl}/${ownersId}`);
-    const res = await axios.get(`${ownerUrl}/${ownersId}`);
-    alert(res);
-    return res.data;
+    const res = await axios.get(`${ownerUrl}/?id=${ownersId}`);
+    return res.data[0];
   } catch (err) {
     alert(err);
     console.error(err);
