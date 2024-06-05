@@ -19,11 +19,16 @@ html {
 * {
   direction: rtl;
 }
-main,
+body {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
 footer,
+main > *,
 nav {
   padding-inline: 2rem;
 }
-body {
-  position: relative;
+main {
+  flex: 1;
 }

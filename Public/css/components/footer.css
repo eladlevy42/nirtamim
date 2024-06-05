@@ -10,7 +10,6 @@ footer {
   gap: 0.25rem;
   padding-block: 2rem;
   width: 100%;
-  position: fixed;
   bottom: 0;
   color: var(--clr--neutral-100);
   background-color: var(--clr-primary-700);
