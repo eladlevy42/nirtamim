@@ -18,9 +18,7 @@ async function onAddStore(ev) {
     console.log("Store added successfully");
     // alert(storesFunc.getUserIdFromURL());
     const owner = await storesFunc.getOwnerByID(storesFunc.getUserIdFromURL());
-
     owner.stores.push(newStore.id);
-
     try {
       await storesFunc.updateOwner(owner);
     } catch (err) {

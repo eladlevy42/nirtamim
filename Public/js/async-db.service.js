@@ -11,13 +11,8 @@ const displayStores = document.getElementById("displayStoreBySearch");
 const prevPageButton = document.getElementById("prevPage");
 const nextPageButton = document.getElementById("nextPage");
 const pageNumberElement = document.getElementById("pageNumber");
-const spinner = document.getElementById("spinner");
-
-// prevPageButton.addEventListener("click", () => changePage(-1));
-// nextPageButton.addEventListener("click", () => changePage(1));
 
 async function getAllStores() {
-  spinner.classList.remove("hidden");
   displayStores.innerHTML = "";
   displayStores.classList.add("hidden");
 
@@ -35,7 +30,6 @@ async function getAllStores() {
     console.error("Error fetching stores", error);
   } finally {
     displayStores.classList.remove("hidden");
-    spinner.classList.add("hidden");
   }
 }
 
@@ -53,21 +47,18 @@ function displayPage(stores) {
   displayStores.innerHTML = paginatedStores
     .map(
       (store) =>
-        `<div class="store">
-      <img src="${store.img}" alt="${store.name}" class="store-image"/>
-      <h4 class="store-name">${store.name}</h4>
-      <p class="store-description">${store.details.description}</p>
-      <p class="store-location">${store.location.district}, ${
-          store.location.city
-        }</p>
-      <p class="store-phone">Phone: ${store.details["phone-number"]}</p>
-      <p class="store-hours">Hours: ${store.details.hours}</p>
-      <p class="store-categories">Categories: ${store.categories.join(", ")}</p>
-      <p class="store-rating">Rating: ${store.comments.ratings} - ${
-          store.comments.description
-        } (${store.comments.name})</p>
-      <a href="${store.details.link}" class="store-link">Visit Store</a>
-    </div>`
+        ` <div class="store-details">
+      <h3> ${store.name}</h3>
+      <p class="store-categories">${store.categories.join(", ")}</p>
+      <div class="store__sub-details flex-group">
+        <p class="store-rating">
+          <i class="fa-solid fa-star filled"></i>
+          <span class="rating">${store.comments}</span>
+        </p>
+        <p class="store-hours">Hours: ${store.details.hours}</p>
+      </div>
+    </div>
+    `
     )
     .join("");
 
@@ -96,7 +87,6 @@ const search = async function () {
     return;
   }
 
-  spinner.classList.remove("hidden");
   displayStores.innerHTML = "";
   displayStores.classList.add("hidden");
 
@@ -117,7 +107,6 @@ const search = async function () {
     console.error("Error searching stores", error);
   } finally {
     displayStores.classList.remove("hidden");
-    spinner.classList.add("hidden");
   }
 };
 
@@ -231,8 +220,8 @@ async function updateOwner(newOwner) {
 async function getOwnerByID(ownersId) {
   alert(`Owner ${ownersId}`);
   try {
-    alert(`${ownerUrl}/${ownersId}`);
-    const res = await axios.get(`${ownerUrl}/${ownersId}`);
+    alert(`${ownerUrl}/?id=${ownersId}`);
+    const res = await axios.get(`${ownerUrl}/?id=${ownersId}`);
     alert(res);
     return res.data;
   } catch (err) {

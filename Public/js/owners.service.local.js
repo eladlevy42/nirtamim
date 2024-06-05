@@ -1,4 +1,4 @@
-function getUsernameFromURL() {
+function getUserIdFromURL() {
   const params = new URLSearchParams(window.location.search);
   return params.get("userId");
 }
@@ -11,7 +11,7 @@ function getNewStoreData() {
     .map((item) => item.trim());
   const newStore = {
     name: formData.get("name"),
-    ownerID: getUsernameFromURL(),
+    ownerID: getUserIdFromURL(),
     categories: categoriesArray,
     location: {
       district: formData.get("district"),
@@ -29,4 +29,4 @@ function getNewStoreData() {
   return newStore;
 }
 
-export const newStoreFunctions = { getNewStoreData, getUsernameFromURL };
+export const newStoreFunctions = { getNewStoreData, getUserIdFromURL };
