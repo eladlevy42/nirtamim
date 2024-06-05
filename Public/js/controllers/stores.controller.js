@@ -1,10 +1,10 @@
-import { storesFunc } from "../async-db.service.js";
+import { dbService } from "../async-db.service.js";
+import { storeService } from "../stores.service.local.js";
 import { newStoreFunctions } from "../owners.service.local.js";
 window.onload = onInit;
 
 function onInit() {
   // Expose functions to the window object
-
   window.onChangePage = onChangePage;
   window.onSearch = onSearch;
   // Add event listener for the form submission
@@ -21,9 +21,9 @@ function onInit() {
 }
 
 async function onChangePage(num) {
-  storesFunc.changePage(num);
+  storeService.changePage(num);
 }
 async function onSearch(ev) {
   ev.preventDefault();
-  storesFunc.search();
+  storeService.search();
 }

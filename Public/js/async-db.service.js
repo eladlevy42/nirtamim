@@ -3,11 +3,11 @@ import { renderHTML } from "./renderHTML.service.js";
 const storesUrl = "http://localhost:8001/stores";
 const ownerUrl = "http://localhost:8001/owners";
 
-let currentPage = 1;
-let allStores = [];
-const storesPerPage = 9;
-let totalStores = 0;
-const storesContainer = document.querySelector("#allStoresContainer");
+// let currentPage = 1;
+// let allStores = [];
+// const storesPerPage = 9;
+// let totalStores = 0;
+// const storesContainer = document.querySelector("#allStoresContainer");
 const displayStores = document.getElementById("displayStoreBySearch");
 const prevPageButton = document.getElementById("prevPage");
 const nextPageButton = document.getElementById("nextPage");
@@ -49,8 +49,12 @@ function changePage(direction) {
   displayPage(allStores);
 }
 
-function calculateAvgRating(store_id) {
-  
+function calculateAvgRating(commentsArray) {
+  const total = commentsArray.reduce((acc, comment) => {
+    acc += Number(comment.ratings);
+    return acc;
+  }, 0);
+  return (total / commentsArray.length).toFixed(1);
 }
 
 function displayPage(stores) {
@@ -59,9 +63,8 @@ function displayPage(stores) {
   const paginatedStores = stores.slice(start, end);
 
   storesContainer.innerHTML = paginatedStores
-    .map(
-      (store) =>
-        `<div class="store-card grid-group">
+    .map((store) => {
+      return `<div class="store-card grid-group">
       <div class="store-img__wrapper flex-group">
       <img
               class="store-img"
@@ -85,11 +88,11 @@ function displayPage(stores) {
         </div>
         <p class="store-rating">
             <i class="fa-solid fa-star filled"></i>
-            <span class="rating">4.5</span>
+            <span class="rating">${calculateAvgRating(store.comments)}</span>
           </p>
       </div>
-    </div>`
-    )
+    </div>`;
+    })
     .join("");
 
   const maxPage = Math.ceil(totalStores / storesPerPage);
@@ -118,7 +121,6 @@ const search = async function () {
     return;
   }
 
-  // spinner.classList.remove("hidden");
   displayStores.innerHTML = "";
   displayStores.classList.add("hidden");
 
@@ -139,9 +141,9 @@ const search = async function () {
     console.error("Error searching stores", error);
   } finally {
     displayStores.classList.remove("hidden");
-    // spinner.classList.add("hidden");
   }
 };
+////////////
 
 function getUserIdFromURL() {
   const params = new URLSearchParams(window.location.search);
@@ -224,20 +226,6 @@ export async function getAllOwnerStores(ownersId) {
 function getLocalStores() {
   return allStores;
 }
-export const storesFunc = {
-  getStore,
-  getStoreById,
-  postStore,
-  updateStore,
-  deleteStore,
-  getAllOwnerStores,
-  getOwnerByID,
-  postComment,
-  getUserIdFromURL,
-  search,
-  changePage,
-  updateOwnerStores,
-};
 
 async function getOwnerStores(ownerId) {
   try {
@@ -292,3 +280,16 @@ async function postComment(storeID, comment) {
     console.error(err);
   }
 }
+
+export const dbService = {
+  getStore,
+  getStoreById,
+  postStore,
+  updateStore,
+  deleteStore,
+  getAllOwnerStores,
+  getOwnerByID,
+  postComment,
+  getUserIdFromURL,
+  updateOwnerStores,
+};
