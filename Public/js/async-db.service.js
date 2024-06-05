@@ -3,11 +3,11 @@ import { renderHTML } from "./renderHTML.service.js";
 const storesUrl = "http://localhost:8001/stores";
 const ownerUrl = "http://localhost:8001/owners";
 
-let currentPage = 1;
-let allStores = [];
-const storesPerPage = 9;
-let totalStores = 0;
-const storesContainer = document.querySelector("#allStoresContainer");
+// let currentPage = 1;
+// let allStores = [];
+// const storesPerPage = 9;
+// let totalStores = 0;
+// const storesContainer = document.querySelector("#allStoresContainer");
 const displayStores = document.getElementById("displayStoreBySearch");
 const prevPageButton = document.getElementById("prevPage");
 const nextPageButton = document.getElementById("nextPage");
@@ -55,7 +55,13 @@ function changePage(direction) {
   displayPage(allStores);
 }
 
-function calculateAvgRating(store_id) {}
+function calculateAvgRating(commentsArray) {
+  const total = commentsArray.reduce((acc, comment) => {
+    acc += Number(comment.ratings);
+    return acc;
+  }, 0);
+  return (total / commentsArray.length).toFixed(1);
+}
 
 function displayPage(stores) {
   const start = (currentPage - 1) * storesPerPage;
@@ -63,9 +69,8 @@ function displayPage(stores) {
   const paginatedStores = stores.slice(start, end);
 
   storesContainer.innerHTML = paginatedStores
-    .map(
-      (store) =>
-        `<div class="store-card grid-group">
+    .map((store) => {
+      return `<div class="store-card grid-group">
       <div class="store-img__wrapper flex-group">
       <img
               class="store-img"
@@ -89,11 +94,11 @@ function displayPage(stores) {
         </div>
         <p class="store-rating">
             <i class="fa-solid fa-star filled"></i>
-            <span class="rating">4.5</span>
+            <span class="rating">${calculateAvgRating(store.comments)}</span>
           </p>
       </div>
-    </div>`
-    )
+    </div>`;
+    })
     .join("");
 
   const maxPage = Math.ceil(totalStores / storesPerPage);
@@ -144,6 +149,7 @@ const search = async function () {
     displayStores.classList.remove("hidden");
   }
 };
+////////////
 
 function getUserIdFromURL() {
   const params = new URLSearchParams(window.location.search);
@@ -227,23 +233,6 @@ function getLocalStores() {
   return allStores;
 }
 
-export const storesFunc = {
-  getStore,
-  getStoreById,
-  postStore,
-  updateStore,
-  deleteStore,
-  getAllOwnerStores,
-  getOwnerByID,
-  postComment,
-  getUserIdFromURL,
-  search,
-  changePage,
-  updateOwnerStores,
-  filteredStores,
-  getLocalStores,
-};
-
 async function getOwnerStores(ownerId) {
   try {
     const res = await axios.get(`${storesUrl}/?ownerID=${ownerId}`);
@@ -297,3 +286,16 @@ async function postComment(storeID, comment) {
     console.error(err);
   }
 }
+
+export const dbService = {
+  getStore,
+  getStoreById,
+  postStore,
+  updateStore,
+  deleteStore,
+  getAllOwnerStores,
+  getOwnerByID,
+  postComment,
+  getUserIdFromURL,
+  updateOwnerStores,
+};

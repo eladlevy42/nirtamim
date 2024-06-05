@@ -1,5 +1,5 @@
 import { loginFunc } from "../async-login.service.js";
-import { storesFunc } from "../async-db.service.js";
+import { dbService } from "../async-db.service.js";
 import { newStoreFunctions } from "../owners.service.local.js";
 window.onload = onInit;
 function onInit() {
@@ -12,11 +12,11 @@ async function onAddStore(ev) {
   ev.preventDefault();
   const newStore = newStoreFunctions.getNewStoreData();
   try {
-    await storesFunc.postStore(newStore);
+    await dbService.postStore(newStore);
     console.log("Store added successfully");
-    const ownerId = storesFunc.getUserIdFromURL();
+    const ownerId = dbService.getUserIdFromURL();
     try {
-      await storesFunc.updateOwnerStores(ownerId);
+      await dbService.updateOwnerStores(ownerId);
     } catch (err) {
       alert(err);
     }
