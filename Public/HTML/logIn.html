@@ -39,51 +39,53 @@
         </li>
       </ul>
     </nav>
-    <main>
-      <div class="logInContainer">
-        <h1>הכנס כבעל עסק</h1>
-        <form id="loginFrm">
-          <lable>שם משתמש: </lable
-          ><input required type="text" id="usernameLog" /> <br />
-          <label>סיסמא: </label
-          ><input required type="password" id="passwordLog" /><br />
+    <main id="mainLogin">
+      <div class="logInContainer active" id="logInContainer">
+        <h1 class="loginHeader">הכנס כבעל עסק</h1>
+        <form id="loginFrm" class="loginForm">
+          <lable>שם משתמש: </lable>
+          <input required type="text" id="usernameLog" /> <br />
+          <label>סיסמא: </label>
+          <input required type="password" id="passwordLog" /><br />
           <button type="submit" id="logInBtn">התחבר</button>
         </form>
-        <a href="">לא רשום? הרשם כאן:</a>
+        <a href="#" id="toggleForm" class="loginLink">לא רשום? הרשם כאן:</a>
       </div>
-      <div class="signInContainer">
-        <form id="registerFrm">
-          <lable>שם משתמש: </lable
-          ><input required type="text" id="usernameReg" />
+      <div class="signInContainer" id="signInContainer">
+        <h1 class="loginHeader">הרשם</h1>
+        <form id="registerFrm" class="loginForm">
+          <lable>שם משתמש: </lable>
+          <input required type="text" id="usernameReg" />
           <br />
-          <label>סיסמא: </label
-          ><input type="password" required id="passwordSign1" /><br />
-          <label>אמת סיסמא: </label
-          ><input type="password" required id="passwordSign2" /><br />
-          <lable>כתובת דוא"ל: </lable
-          ><input required type="email" id="emailSign" />
+          <label>סיסמא: </label>
+          <input type="password" required id="passwordSign1" /><br />
+          <label>אמת סיסמא: </label>
+          <input type="password" required id="passwordSign2" /><br />
+          <lable>כתובת דוא"ל: </lable>
+          <input required type="email" id="emailSign" />
           <br />
           <lable>הכנס טופס 3010 (קובץ PDF בלבד!): </lable>
-
           <input type="file" required id="fileUpload" name="fileUpload" /><br />
-          <label>שם מלא: </label><input type="text" required id="ownerName" />
+          <label>שם מלא: </label>
+          <input type="text" required id="ownerName" />
           <br />
           <label
             >הסבר על עצמך (איפה משרת, וכו'), טקסט זה יופיע בעמודי החנויות</label
-          ><textarea id="userAbout" required></textarea><br />
-          <label>תמונת פרופיל: </label
-          ><input type="link" required id="userImage" /><br />
+          >
+          <textarea id="userAbout" required></textarea><br />
+          <label>תמונת פרופיל: </label>
+          <input type="link" required id="userImage" /><br />
           <button type="submit" id="signInBtn">הרשם</button>
         </form>
+        <a href="#" id="toggleBack" class="loginLink">כבר רשום? התחבר כאן:</a>
       </div>
     </main>
     <footer class="footer">
       <h3>נרתמים למילואים בע"מ</h3>
       <div class="footer-details flex-group">
-        <div class="company-info">          
-          <p><i class="fa-solid fa-location-dot"></i>
-          הברוש 13, ירושלים</p>
-          <p>
+        <div class="company-info">
+          <p><i class="fa-solid fa-location-dot"></i> הברוש 13, ירושלים</p>
+          <p></p>
           <p>
             <span class="icon-title"><i class="fa-solid fa-envelope"></i></span>
             nirtamim@yourcompany.com
@@ -106,6 +108,23 @@
         </div>
       </div>
     </footer>
+    <script>
+      document
+        .getElementById("toggleForm")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          document.getElementById("logInContainer").classList.toggle("active");
+          document.getElementById("signInContainer").classList.toggle("active");
+        });
+
+      document
+        .getElementById("toggleBack")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          document.getElementById("logInContainer").classList.toggle("active");
+          document.getElementById("signInContainer").classList.toggle("active");
+        });
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
     <script
       type="module"
