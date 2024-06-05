@@ -13,8 +13,8 @@ const nextPageButton = document.getElementById("nextPage");
 const pageNumberElement = document.getElementById("pageNumber");
 const spinner = document.getElementById("spinner");
 
-prevPageButton.addEventListener("click", () => changePage(-1));
-nextPageButton.addEventListener("click", () => changePage(1));
+// prevPageButton.addEventListener("click", () => changePage(-1));
+// nextPageButton.addEventListener("click", () => changePage(1));
 
 async function getAllStores() {
   spinner.classList.remove("hidden");
@@ -86,46 +86,43 @@ function displayPage(stores) {
 
   pageNumberElement.innerText = currentPage;
 }
+const search = async function (event) {
+  event.preventDefault();
+  const searchQuery = document
+    .getElementById("searchInput")
+    .value.trim()
+    .toLowerCase();
+  if (!searchQuery) {
+    await getAllStores();
+    return;
+  }
 
-document
-  .getElementById("searchStoreByName")
-  .addEventListener("submit", async function (event) {
-    event.preventDefault();
-    const searchQuery = document
-      .getElementById("searchInput")
-      .value.trim()
-      .toLowerCase();
-    if (!searchQuery) {
-      await getAllStores();
-      return;
+  spinner.classList.remove("hidden");
+  displayStores.innerHTML = "";
+  displayStores.classList.add("hidden");
+
+  try {
+    const response = await axios.get(storesUrl);
+    allStores = response.data.filter((store) =>
+      store.name.toLowerCase().includes(searchQuery)
+    );
+
+    totalStores = allStores.length;
+    if (totalStores === 0) {
+      displayStores.innerHTML = "<p>No stores found</p>";
+    } else {
+      currentPage = 1;
+      displayPage(allStores);
     }
+  } catch (error) {
+    console.error("Error searching stores", error);
+  } finally {
+    displayStores.classList.remove("hidden");
+    spinner.classList.add("hidden");
+  }
+};
 
-    spinner.classList.remove("hidden");
-    displayStores.innerHTML = "";
-    displayStores.classList.add("hidden");
-
-    try {
-      const response = await axios.get(storesUrl);
-      allStores = response.data.filter((store) =>
-        store.name.toLowerCase().includes(searchQuery)
-      );
-
-      totalStores = allStores.length;
-      if (totalStores === 0) {
-        displayStores.innerHTML = "<p>No stores found</p>";
-      } else {
-        currentPage = 1;
-        displayPage(allStores);
-      }
-    } catch (error) {
-      console.error("Error searching stores", error);
-    } finally {
-      displayStores.classList.remove("hidden");
-      spinner.classList.add("hidden");
-    }
-  });
-
-function getUsernameFromURL() {
+function getUserIdFromURL() {
   const params = new URLSearchParams(window.location.search);
   return params.get("userId");
 }
@@ -196,12 +193,25 @@ export const storesFunc = {
   getOwnerByID,
   postComment,
   getLocalStores,
+  search,
 };
-
+async function postComment(storeID, comment) {
+  try {
+    const store = await getStoreById(storeID);
+    const commentsArr = store.comments;
+    commentsArr.push(comment);
+    await axios.patch(`${storesUrl}/${storeID}`, {
+      comments: commentsArr,
+    });
+  } catch (err) {
+    console.error(err);
+  }
+}
 async function getOwnerByID(ownerId) {
   try {
     alert(`${ownerUrl}/${ownerId}`);
     const res = await axios.get(`${ownerUrl}/${ownerId}`);
+    alert("");
     return res.data;
   } catch (error) {
     console.log(error);
