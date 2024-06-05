@@ -78,9 +78,6 @@ function displayPage(stores) {
     "hidden",
     currentPage === maxPage || totalStores <= storesPerPage
   );
-  if (currentPage === 1) {
-    pageNumberElement.classList.toggle("hidden");
-  }
 
   if (maxPage <= 1) {
     prevPageButton.classList.add("hidden");
