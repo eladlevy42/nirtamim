@@ -1,6 +1,7 @@
 @import url(reset.css);
 @import url(../css/components/navbar.css);
 @import url(../css/utils/flex/flex.css);
+@import url(../css/components/footer.css);
 
 :root {
   --clr-primary-100: hsl(219, 38%, 90%);
@@ -17,4 +18,12 @@ html {
 }
 * {
   direction: rtl;
+}
+main,
+footer,
+nav {
+  padding-inline: 2rem;
+}
+body {
+  position: relative;
 }
