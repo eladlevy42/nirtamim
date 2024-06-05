@@ -1,9 +1,25 @@
 import { storesFunc } from "../async-db.service.js";
+import { newStoreFunctions } from "../owners.service.local.js";
+window.onload = onInit;
 
-// Example usage (you can remove these after testing)
-// storesFunc.getStore(); // Test get all stores function
-// // storesFunc.getStoreById("store-1"); // Test get store by ID function
-// }); // Test post store function
-// storesFunc.updateStore("store-1", { name: "Updated Store" }); // Test update store function
-// storesFunc.deleteStore("store-5"); // Test delete store function
-// storesFunc.getAllOwnerStores("owner-1"); // Test get all stores for a specific owner function
+function onInit() {
+  // Expose functions to the window object
+  window.onAddStore = onAddStore;
+  // Add event listener for the form submission
+  document.querySelector("#addStoreFrm").addEventListener("submit", onAddStore);
+}
+async function onAddStore(ev) {
+  console.log(1);
+  ev.preventDefault();
+  console.log(2);
+  let newStore = newStoreFunctions.getNewStoreData();
+  console.log(newStore);
+  try {
+    await storesFunc.postStore(newStore);
+    console.log("Store added successfully");
+    //close the div
+    //render the new storeList
+  } catch (err) {
+    console.error(err);
+  }
+}
