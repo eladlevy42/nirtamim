@@ -36,7 +36,39 @@
         </li>
       </ul>
     </nav>
-    <main></main>
+    <main>
+      <div class="logInContainer">
+        <h1>הכנס כבעל עסק</h1>
+        <form>
+          <lable>שם משתמש: </lable><input type="text" id="usernameLog" /> <br />
+          <label>סיסמא: </label><input type="password" id="passwordLog" /><br />
+          <button type="submit" id="logInBtn">התחבר</button>
+        </form>
+        <a href="">לא רשום? הרשם כאן:</a>
+      </div>
+      <div class="signInContainer">
+        <form>
+          <lable>שם משתמש: </lable><input type="text" id="usernameSign" />
+          <br />
+          <label>סיסמא: </label
+          ><input type="password" id="passwordSign" /><br />
+          <label>אמת סיסמא: </label
+          ><input type="password" id="passwordSign" /><br />
+          <lable>כתובת דוא"ל: </lable><input type="email" id="emailSign" />
+          <br />
+          <lable>הכנס טופס 3010 (קובץ PDF בלבד!): </lable>
+
+          <input type="file" id="fileUpload" name="fileUpload" /><br />
+          <label>שם מלא: </label><input type="text" id="ownerName" /> <br />
+          <label
+            >הסבר על עצמך (איפה משרת, וכו'), טקסט זה יופיע בעמודי החנויות</label
+          ><textarea id="userAbout"></textarea><br />
+          <label>תמונת פרופיל: </label
+          ><input type="link" id="userImage" /><br />
+          <button type="submit" id="signInBtn">הרשם</button>
+        </form>
+      </div>
+    </main>
     <footer class="footer">
       <div class="container">
         <div class="company-info">
