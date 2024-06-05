@@ -4,7 +4,10 @@
       "id": "fake-1234",
       "name": "שם מזויף",
       "ownerID": "owner-1",
-      "categories": ["מסעדה", "בר"],
+      "categories": [
+        "מסעדה",
+        "בר"
+      ],
       "location": {
         "district": "מרכז",
         "city": "נתניה"
@@ -28,7 +31,10 @@
       "id": "store-1",
       "name": "חנות 1",
       "ownerID": "owner-1",
-      "categories": ["חנות", "בית קפה"],
+      "categories": [
+        "חנות",
+        "בית קפה"
+      ],
       "location": {
         "district": "צפון",
         "city": "חיפה"
@@ -52,7 +58,10 @@
       "id": "store-2",
       "name": "חנות 2",
       "ownerID": "owner-1",
-      "categories": ["חנות ספרים", "בית קפה"],
+      "categories": [
+        "חנות ספרים",
+        "בית קפה"
+      ],
       "location": {
         "district": "דרום",
         "city": "באר שבע"
@@ -76,7 +85,10 @@
       "id": "store-3",
       "name": "חנות 3",
       "ownerID": "owner-1",
-      "categories": ["מכולת", "שוק"],
+      "categories": [
+        "מכולת",
+        "שוק"
+      ],
       "location": {
         "district": "מרכז",
         "city": "תל אביב"
@@ -100,7 +112,9 @@
       "id": "store-4",
       "name": "חנות 4",
       "ownerID": "owner-1",
-      "categories": ["אלקטרוניקה"],
+      "categories": [
+        "אלקטרוניקה"
+      ],
       "location": {
         "district": "צפון",
         "city": "טבריה"
@@ -124,7 +138,9 @@
       "id": "store-5",
       "name": "חנות 5",
       "ownerID": "owner-1",
-      "categories": ["בגדים"],
+      "categories": [
+        "בגדים"
+      ],
       "location": {
         "district": "דרום",
         "city": "אילת"
@@ -148,7 +164,9 @@
       "id": "store-6",
       "name": "חנות 6",
       "ownerID": "owner-1",
-      "categories": ["רהיטים"],
+      "categories": [
+        "רהיטים"
+      ],
       "location": {
         "district": "מרכז",
         "city": "ראשון לציון"
@@ -172,7 +190,9 @@
       "id": "store-7",
       "name": "חנות 7",
       "ownerID": "owner-1",
-      "categories": ["חומרה"],
+      "categories": [
+        "חומרה"
+      ],
       "location": {
         "district": "צפון",
         "city": "קריית שמונה"
@@ -196,7 +216,9 @@
       "id": "store-8",
       "name": "חנות 8",
       "ownerID": "owner-1",
-      "categories": ["חנות צעצועים"],
+      "categories": [
+        "חנות צעצועים"
+      ],
       "location": {
         "district": "דרום",
         "city": "אשדוד"
@@ -220,7 +242,9 @@
       "id": "store-9",
       "name": "חנות 9",
       "ownerID": "owner-1",
-      "categories": ["חנות לחיות מחמד"],
+      "categories": [
+        "חנות לחיות מחמד"
+      ],
       "location": {
         "district": "מרכז",
         "city": "פתח תקווה"
@@ -244,7 +268,9 @@
       "id": "store-10",
       "name": "חנות 10",
       "ownerID": "owner-1",
-      "categories": ["בית מרקחת"],
+      "categories": [
+        "בית מרקחת"
+      ],
       "location": {
         "district": "צפון",
         "city": "עכו"
@@ -268,7 +294,9 @@
       "id": "store-11",
       "name": "חנות 11",
       "ownerID": "owner-2",
-      "categories": ["מאפיה"],
+      "categories": [
+        "מאפיה"
+      ],
       "location": {
         "district": "דרום",
         "city": "אשקלון"
@@ -292,7 +320,9 @@
       "id": "store-12",
       "name": "חנות 12",
       "ownerID": "owner-2",
-      "categories": ["תכשיטים"],
+      "categories": [
+        "תכשיטים"
+      ],
       "location": {
         "district": "מרכז",
         "city": "הרצליה"
@@ -316,7 +346,9 @@
       "id": "store-13",
       "name": "חנות 13",
       "ownerID": "owner-2",
-      "categories": ["חנות מוזיקה"],
+      "categories": [
+        "חנות מוזיקה"
+      ],
       "location": {
         "district": "צפון",
         "city": "צפת"
@@ -340,7 +372,9 @@
       "id": "store-14",
       "name": "חנות 14",
       "ownerID": "owner-2",
-      "categories": ["חנות ספרים"],
+      "categories": [
+        "חנות ספרים"
+      ],
       "location": {
         "district": "מרכז",
         "city": "רמת גן"
@@ -364,7 +398,9 @@
       "id": "store-15",
       "name": "חנות 15",
       "ownerID": "owner-2",
-      "categories": ["מסעדה"],
+      "categories": [
+        "מסעדה"
+      ],
       "location": {
         "district": "צפון",
         "city": "נהריה"
@@ -388,7 +424,9 @@
       "id": "store-16",
       "name": "חנות 16",
       "ownerID": "owner-2",
-      "categories": ["בר"],
+      "categories": [
+        "בר"
+      ],
       "location": {
         "district": "דרום",
         "city": "באר שבע"
@@ -412,7 +450,9 @@
       "id": "store-17",
       "name": "חנות 17",
       "ownerID": "owner-2",
-      "categories": ["חנות ספורט"],
+      "categories": [
+        "חנות ספורט"
+      ],
       "location": {
         "district": "מרכז",
         "city": "רעננה"
@@ -436,7 +476,9 @@
       "id": "store-18",
       "name": "חנות 18",
       "ownerID": "owner-2",
-      "categories": ["בית קפה"],
+      "categories": [
+        "בית קפה"
+      ],
       "location": {
         "district": "צפון",
         "city": "כרמיאל"
@@ -460,7 +502,9 @@
       "id": "store-19",
       "name": "חנות 19",
       "ownerID": "owner-2",
-      "categories": ["מאפיה"],
+      "categories": [
+        "מאפיה"
+      ],
       "location": {
         "district": "דרום",
         "city": "אשדוד"
@@ -484,7 +528,9 @@
       "id": "store-20",
       "name": "חנות 20",
       "ownerID": "owner-2",
-      "categories": ["גלידריה"],
+      "categories": [
+        "גלידריה"
+      ],
       "location": {
         "district": "מרכז",
         "city": "תל אביב"
@@ -505,21 +551,583 @@
       }
     },
     {
-      "id": "146c",
-      "name": "שישקבב של נירוס",
-      "ownerID": null,
-      "categories": ["מזון"],
+      "id": "bb11",
+      "name": "חנות החרא של עדן",
+      "ownerID": "owner-1",
+      "categories": [
+        "חרא"
+      ],
       "location": {
         "district": "מרכז",
-        "city": "סביון"
+        "city": "דכד"
       },
-      "img": "דגגדכ",
+      "img": "דדג",
       "comments": [],
       "details": {
-        "phone-number": "555555555",
-        "hours": "10-10",
-        "description": "דגגדכדגכ",
-        "link": "דגעכעכד"
+        "phone-number": "דגכד",
+        "hours": "דכגכד",
+        "description": "דגכדג",
+        "link": "דדכ"
+      }
+    },
+    {
+      "id": "9527",
+      "name": "sdfggfs",
+      "ownerID": "owner-1",
+      "categories": [
+        "jj"
+      ],
+      "location": {
+        "district": "kjkj",
+        "city": "kjk"
+      },
+      "img": "kjkj",
+      "comments": [],
+      "details": {
+        "phone-number": "kjkj",
+        "hours": "kjhkjh",
+        "description": "kjhkjh",
+        "link": "kjhkj"
+      }
+    },
+    {
+      "id": "8330",
+      "name": "sdfsdf",
+      "ownerID": "owner-1",
+      "categories": [
+        "khk"
+      ],
+      "location": {
+        "district": "kjhkj",
+        "city": "kjkjh"
+      },
+      "img": "khkjhkj",
+      "comments": [],
+      "details": {
+        "phone-number": "kjhkjh",
+        "hours": "khkhkj",
+        "description": "hkjhkjhkh",
+        "link": "kjhk"
+      }
+    },
+    {
+      "id": "b6b5",
+      "name": "jhbg",
+      "ownerID": "owner-1",
+      "categories": [
+        "hjvghjg"
+      ],
+      "location": {
+        "district": "jhhj",
+        "city": "jhgjg"
+      },
+      "img": "jhgjhgj",
+      "comments": [],
+      "details": {
+        "phone-number": "gjhg",
+        "hours": "hjg",
+        "description": "jhg",
+        "link": "jhg"
+      }
+    },
+    {
+      "id": "f61e",
+      "name": "jhbg",
+      "ownerID": "owner-1",
+      "categories": [
+        "hjvghjg"
+      ],
+      "location": {
+        "district": "jhhj",
+        "city": "jhgjg"
+      },
+      "img": "jhgjhgj",
+      "comments": [],
+      "details": {
+        "phone-number": "gjhg",
+        "hours": "hjg",
+        "description": "jhg",
+        "link": "jhg"
+      }
+    },
+    {
+      "id": "3d3f",
+      "name": "לחלח",
+      "ownerID": "owner-1",
+      "categories": [
+        "לחנלח"
+      ],
+      "location": {
+        "district": "לחלח",
+        "city": "לחיל"
+      },
+      "img": "ילחי",
+      "comments": [],
+      "details": {
+        "phone-number": "לחילח",
+        "hours": "לילחי",
+        "description": "לילחי",
+        "link": "ילחי"
+      }
+    },
+    {
+      "id": "087d",
+      "name": "jbkj",
+      "ownerID": "owner-1",
+      "categories": [
+        "lh"
+      ],
+      "location": {
+        "district": "kjbhkjh",
+        "city": "kjhkjh"
+      },
+      "img": "kjhkjh",
+      "comments": [],
+      "details": {
+        "phone-number": "kjhkjh",
+        "hours": "khkjh",
+        "description": "kjhkjh",
+        "link": "kjh"
+      }
+    },
+    {
+      "id": "f633",
+      "name": "jbkjb",
+      "ownerID": "owner-1",
+      "categories": [
+        "kjbkjb"
+      ],
+      "location": {
+        "district": "kjbkjb",
+        "city": "kjb"
+      },
+      "img": "kjbkjb",
+      "comments": [],
+      "details": {
+        "phone-number": "kjb",
+        "hours": "kjbkjb",
+        "description": "kjb",
+        "link": "kjb"
+      }
+    },
+    {
+      "id": "612e",
+      "name": "hjv",
+      "ownerID": "owner-1",
+      "categories": [
+        "jhvjv"
+      ],
+      "location": {
+        "district": "ljvhjh",
+        "city": "ljvjj"
+      },
+      "img": "lvjhv",
+      "comments": [],
+      "details": {
+        "phone-number": "jhvhj",
+        "hours": "ljvhj",
+        "description": "ljvhjv",
+        "link": "ljvj"
+      }
+    },
+    {
+      "id": "8d4b",
+      "name": "kjbk",
+      "ownerID": "owner-1",
+      "categories": [
+        "kjbkjb"
+      ],
+      "location": {
+        "district": "bkjb",
+        "city": "kjbkjb"
+      },
+      "img": ";kbb",
+      "comments": [],
+      "details": {
+        "phone-number": ";kbkjb",
+        "hours": ";kbkjb",
+        "description": "kjbkb",
+        "link": "kbk"
+      }
+    },
+    {
+      "id": "0da6",
+      "name": "khh",
+      "ownerID": "owner-1",
+      "categories": [
+        "kjhkjh"
+      ],
+      "location": {
+        "district": "kjhkjh",
+        "city": "kjhkjh"
+      },
+      "img": "kjhkjhk",
+      "comments": [],
+      "details": {
+        "phone-number": "hkjhkjh",
+        "hours": "kjhkjh",
+        "description": "kjhkh",
+        "link": "kjhhk"
+      }
+    },
+    {
+      "id": "2c02",
+      "name": "kjbh",
+      "ownerID": "owner-1",
+      "categories": [
+        "kjbhkj"
+      ],
+      "location": {
+        "district": "hkjh",
+        "city": "kjhkj"
+      },
+      "img": "hkjh",
+      "comments": [],
+      "details": {
+        "phone-number": "kjh",
+        "hours": "kjh",
+        "description": "kjh",
+        "link": "h"
+      }
+    },
+    {
+      "id": "7d41",
+      "name": "bhkj",
+      "ownerID": "owner-1",
+      "categories": [
+        "kjhkj"
+      ],
+      "location": {
+        "district": "kjhkjh",
+        "city": "kjhkjh"
+      },
+      "img": "kjhkjh",
+      "comments": [],
+      "details": {
+        "phone-number": "kjhkjh",
+        "hours": "kjhkjhkjh",
+        "description": "kjhkjh",
+        "link": "kjkh"
+      }
+    },
+    {
+      "id": "c2af",
+      "name": "kjh",
+      "ownerID": "owner-1",
+      "categories": [
+        "khkjh"
+      ],
+      "location": {
+        "district": "kjh",
+        "city": "khkjh"
+      },
+      "img": "kjh",
+      "comments": [],
+      "details": {
+        "phone-number": "kjh",
+        "hours": "kjhkj",
+        "description": "hkj",
+        "link": "kjh"
+      }
+    },
+    {
+      "id": "38ba",
+      "name": "kjhkjh",
+      "ownerID": "owner-1",
+      "categories": [
+        "kjhkj"
+      ],
+      "location": {
+        "district": "hkjh",
+        "city": "kj"
+      },
+      "img": "kjh",
+      "comments": [],
+      "details": {
+        "phone-number": "kjhkjh",
+        "hours": "kjhk",
+        "description": "jhkjh",
+        "link": "kjhkjh"
+      }
+    },
+    {
+      "id": "a03a",
+      "name": "kjhn",
+      "ownerID": "owner-1",
+      "categories": [
+        "khkj"
+      ],
+      "location": {
+        "district": "kjhkj",
+        "city": "kjhkjh"
+      },
+      "img": "kjhkjh",
+      "comments": [],
+      "details": {
+        "phone-number": "kjhkh",
+        "hours": "kjhkjk",
+        "description": "hkjkjhkjh",
+        "link": "khkh"
+      }
+    },
+    {
+      "id": "e3c4",
+      "name": "vhj",
+      "ownerID": "owner-1",
+      "categories": [
+        "jgjhgj"
+      ],
+      "location": {
+        "district": "ghjg",
+        "city": "hjghjg"
+      },
+      "img": "hjgjhg",
+      "comments": [],
+      "details": {
+        "phone-number": "hjgjg",
+        "hours": "hjg",
+        "description": "jhghjg",
+        "link": "hjgjhg"
+      }
+    },
+    {
+      "id": "671d",
+      "name": "kgkhkj",
+      "ownerID": "owner-1",
+      "categories": [
+        "kjhkjhkjh"
+      ],
+      "location": {
+        "district": "kjhkjhkjh",
+        "city": "kjhkjhkjh"
+      },
+      "img": "kjhkjhkjh",
+      "comments": [],
+      "details": {
+        "phone-number": "kjhkjhkj",
+        "hours": "kjhkjhkj",
+        "description": "kjhkjhkj",
+        "link": "hkjhkj"
+      }
+    },
+    {
+      "id": "ad79",
+      "name": "kiuhkj",
+      "ownerID": "owner-1",
+      "categories": [
+        "hkjhkj"
+      ],
+      "location": {
+        "district": "hkjh",
+        "city": "kjhkjh"
+      },
+      "img": "kjhkjh",
+      "comments": [],
+      "details": {
+        "phone-number": "kjhkjh",
+        "hours": "kjh",
+        "description": "kjhkjh",
+        "link": "kjh"
+      }
+    },
+    {
+      "id": "1605",
+      "name": "kjhjh",
+      "ownerID": "owner-1",
+      "categories": [
+        "kjhkjhkj"
+      ],
+      "location": {
+        "district": "kjhkjhkjh",
+        "city": "kjhkjkj"
+      },
+      "img": "kjhkjh",
+      "comments": [],
+      "details": {
+        "phone-number": "kjhkjhkj",
+        "hours": "hkjhkjh",
+        "description": "khkjh",
+        "link": "kjh"
+      }
+    },
+    {
+      "id": "960a",
+      "name": "kljlk",
+      "ownerID": "owner-1",
+      "categories": [
+        "kljlk"
+      ],
+      "location": {
+        "district": "kljlkj",
+        "city": "kljklj"
+      },
+      "img": "lkjl",
+      "comments": [],
+      "details": {
+        "phone-number": "kjkl",
+        "hours": "jklj",
+        "description": "lkj",
+        "link": "kljkl"
+      }
+    },
+    {
+      "id": "7f28",
+      "name": "kllj",
+      "ownerID": "owner-1",
+      "categories": [
+        "ljlkjlkj"
+      ],
+      "location": {
+        "district": "ljkllkj",
+        "city": "kljkljlkj"
+      },
+      "img": "kljkljlkj",
+      "comments": [],
+      "details": {
+        "phone-number": "lkjlkj",
+        "hours": "kljkljkl",
+        "description": "jkljkj",
+        "link": "lkjllj"
+      }
+    },
+    {
+      "id": "a0ec",
+      "name": "kjh",
+      "ownerID": "owner-1",
+      "categories": [
+        "kjhkjh"
+      ],
+      "location": {
+        "district": "kjhkjh",
+        "city": "kjhkjh"
+      },
+      "img": "kjhkjh",
+      "comments": [],
+      "details": {
+        "phone-number": "kjhkjh",
+        "hours": "kjhkjh",
+        "description": "kjhkjh",
+        "link": "kjhkj"
+      }
+    },
+    {
+      "id": "3325",
+      "name": "kjhkjh",
+      "ownerID": "owner-1",
+      "categories": [
+        "kjhkjh"
+      ],
+      "location": {
+        "district": "kjhkjhkj",
+        "city": "hkjh"
+      },
+      "img": "kjhkh",
+      "comments": [],
+      "details": {
+        "phone-number": "kjhkj",
+        "hours": "kjhkj",
+        "description": "hkjhkj",
+        "link": "kjhk"
+      }
+    },
+    {
+      "id": "8cce",
+      "name": "bbkjh",
+      "ownerID": "owner-1",
+      "categories": [
+        "kjhkjh"
+      ],
+      "location": {
+        "district": "kjhkj",
+        "city": "hkjh"
+      },
+      "img": "kjhkjh",
+      "comments": [],
+      "details": {
+        "phone-number": "kjhkj",
+        "hours": "hkjh",
+        "description": "kjhkjh",
+        "link": "kjk"
+      }
+    },
+    {
+      "id": "3170",
+      "name": "klj",
+      "ownerID": "owner-1",
+      "categories": [
+        "lkjlkj"
+      ],
+      "location": {
+        "district": "klj",
+        "city": "lkjlkj"
+      },
+      "img": "lkjlk",
+      "comments": [],
+      "details": {
+        "phone-number": "jljkl",
+        "hours": "jkljlk",
+        "description": "jkljlkj",
+        "link": "kljkllkj"
+      }
+    },
+    {
+      "id": "35c4",
+      "name": "kjhkjh",
+      "ownerID": "owner-1",
+      "categories": [
+        "kjh"
+      ],
+      "location": {
+        "district": "khkjh",
+        "city": "kjhkjh"
+      },
+      "img": "kjhk",
+      "comments": [],
+      "details": {
+        "phone-number": "jhkjh",
+        "hours": "kjhkjh",
+        "description": "kjhkh",
+        "link": "kjhk"
+      }
+    },
+    {
+      "id": "ca15",
+      "name": "jkkjh",
+      "ownerID": "owner-1",
+      "categories": [
+        "kjhkjhkh"
+      ],
+      "location": {
+        "district": "kjhkh",
+        "city": "kjhk"
+      },
+      "img": "kjhkj",
+      "comments": [],
+      "details": {
+        "phone-number": "kjhkjh",
+        "hours": "kjhkjh",
+        "description": "kjhkj",
+        "link": "kjhkj"
+      }
+    },
+    {
+      "id": "be32",
+      "name": "kljkl",
+      "ownerID": "owner-1",
+      "categories": [
+        "jkljklj"
+      ],
+      "location": {
+        "district": "kljklj",
+        "city": "kljklj"
+      },
+      "img": "kljklj",
+      "comments": [],
+      "details": {
+        "phone-number": "kljklj",
+        "hours": "kljklj",
+        "description": "kljklj",
+        "link": "kljkljl"
       }
     }
   ],
@@ -566,26 +1174,6 @@
         "store-19",
         "store-20"
       ]
-    },
-    {
-      "id": "3b50",
-      "name": "dshdhfs",
-      "username": "asdfasdf",
-      "email": "eladio2002@gmail.com",
-      "password": "Elad123@",
-      "description": "sdfgdgfs",
-      "profileImg": "dgfsdgfs",
-      "stores": []
-    },
-    {
-      "id": "36eb",
-      "name": "dfghdfgj",
-      "username": "elasd1111",
-      "email": "eladio200222@gmail.com",
-      "password": "Elad123@",
-      "description": "dgjdgfj",
-      "profileImg": "dgfjdgfjdgfj",
-      "stores": []
     }
   ]
 }
