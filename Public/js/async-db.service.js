@@ -131,7 +131,7 @@ function getUsernameFromURL() {
   return params.get("username");
 }
 
-export async function getStore() {
+async function getStore() {
   try {
     const res = await axios.get(storesUrl);
     console.log(res.data);
@@ -140,7 +140,7 @@ export async function getStore() {
   }
 }
 
-export async function getStoreById(storeId) {
+async function getStoreById(storeId) {
   try {
     const res = await axios.get(`${storesUrl}/${storeId}`);
     console.log(res.data);
@@ -149,7 +149,7 @@ export async function getStoreById(storeId) {
   }
 }
 
-export async function postStore(storeData) {
+async function postStore(storeData) {
   try {
     await axios.post(storesUrl, storeData);
   } catch (error) {
@@ -157,7 +157,7 @@ export async function postStore(storeData) {
   }
 }
 
-export async function updateStore(storeId, updateStoreData) {
+async function updateStore(storeId, updateStoreData) {
   try {
     const res = await axios.put(`${storesUrl}/${storeId}`, updateStoreData);
     console.log(res.data);
@@ -166,7 +166,7 @@ export async function updateStore(storeId, updateStoreData) {
   }
 }
 
-export async function deleteStore(storeId) {
+async function deleteStore(storeId) {
   try {
     const res = await axios.deleteStore(`${storesUrl}/${storeId}`);
     console.log(res.data);
@@ -175,7 +175,7 @@ export async function deleteStore(storeId) {
   }
 }
 
-export async function getAllOwnerStores(ownersId) {
+async function getAllOwnerStores(ownersId) {
   try {
     const res = await axios.get(`${ownerUrl}/${ownersId}`);
     console.log(res.data.stores);
@@ -184,6 +184,9 @@ export async function getAllOwnerStores(ownersId) {
   }
 }
 
+function getLocalStores() {
+  return allStores;
+}
 export const storesFunc = {
   getStore,
   getStoreById,
@@ -191,4 +194,6 @@ export const storesFunc = {
   updateStore,
   deleteStore,
   getAllOwnerStores,
+  getAllStores,
+  getLocalStores,
 };
