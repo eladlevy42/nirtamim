@@ -73,9 +73,11 @@ async function getOwnerByID(ownersId) {
 async function postComment(storeID, comment) {
   try {
     const store = await getStoreById(storeID);
-    console.log(store.comments);
-    // get the store
-    // update the array
+    const commentsArr = store.comments;
+    commentsArr.push(comment);
+    await axios.patch(`${storesUrl}/${storeID}`, {
+      comments: commentsArr,
+    });
     // patch
   } catch (err) {
     console.error(err);
