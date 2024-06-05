@@ -4,24 +4,15 @@ window.onload = onInit;
 
 function onInit() {
   // Expose functions to the window object
-  window.onAddStore = onAddStore;
-  // Add event listener for the form submission
-  // document.querySelector("#addStoreFrm").addEventListener("submit", onAddStore);
-}
 
+  window.onChangePage = onChangePage;
+  window.onSearch = onSearch;
+  // Add event listener for the form submission
+  document.querySelector("#addStoreFrm").addEventListener("submit", onAddStore);
+}
 async function onAddStore(ev) {
   console.log(1);
   ev.preventDefault();
-  console.log(2);
-  let newStore = newStoreFunctions.getNewStoreData();
-  console.log(newStore);
-  try {
-    await storesFunc.postStore(newStore);
-    console.log("Store added successfully");
-    //close the div
-    //render the new storeList
-  } catch (err) {
-    console.error(err);
-  }
+  storesFunc.search();
 }
 

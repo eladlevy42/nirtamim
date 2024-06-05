@@ -1,10 +1,17 @@
 import { loginFunc } from "../async-login.service.js";
-
+import { storesFunc } from "../async-db.service.js";
+import { newStoreFunctions } from "../owners.service.local.js";
 //login and register
+window.onload = onInit;
 
-const loginFrm = document.getElementById("loginFrm");
-const registerFrm = document.getElementById("registerFrm");
+function onInit() {
+  const loginFrm = document.getElementById("loginFrm");
+  const registerFrm = document.getElementById("registerFrm");
 
-loginFrm.addEventListener("submit", loginFunc.userAuth);
+  // Expose functions to the window object
 
-registerFrm.addEventListener("submit", loginFunc.registerUser);
+  // Add event listener for the form submission
+
+  loginFrm.addEventListener("submit", loginFunc.userAuth);
+  registerFrm.addEventListener("submit", loginFunc.registerUser);
+}
