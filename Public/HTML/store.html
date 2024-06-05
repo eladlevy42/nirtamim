@@ -15,18 +15,30 @@
   <body>
     <div class="overlay"></div>
     <div class="pop-up__container">
+      <i class="close-overlay fa-solid fa-xmark"></i>
       <div class="comment-form">
         <form id="feedbackForm" class="flex-group">
           <div class="form-group">
-            <label for="name">שם:</label>
+            <label for="name">שם</label>
             <input type="text" id="name" name="name" required />
           </div>
           <div class="form-group">
             <label for="message">תגובה</label>
             <textarea id="message" name="message" rows="4" required></textarea>
           </div>
-          <div class="form-group"><button type="submit">Submit</button></div>
-          
+          <div class="form-group">
+            <label for="message">ציון</label>
+            <div class="star-rating">
+              <i id="1" class="fa-solid fa-star non-filled"></i>
+              <i id="2" class="fa-solid fa-star non-filled"></i>
+              <i id="3" class="fa-solid fa-star non-filled"></i>
+              <i id="4" class="fa-solid fa-star non-filled"></i>
+              <i id="5" class="fa-solid fa-star non-filled"></i>
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="btn" type="submit">Submit</button>
+          </div>
         </form>
       </div>
     </div>
@@ -74,7 +86,7 @@
               <div class="rating-container">
                 <h4>דירוג:</h4>
                 <p class="flex-group">
-                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star filled"></i>
                   <span class="rating">4.5</span>
                 </p>
               </div>
@@ -98,21 +110,21 @@
               <div class="review">
                 <h4>עינת</h4>
                 <span class="reviewRating">
-                  <i class="fa-solid fa-star"></i> 5
+                  <i class="fa-solid fa-star filled"></i> 5
                 </span>
                 <p class="reviewParagraph">המקום ממש יפה היה טעים מאוד</p>
               </div>
               <div class="review">
                 <h4>עינת</h4>
                 <span class="reviewRating">
-                  <i class="fa-solid fa-star"></i> 5
+                  <i class="fa-solid fa-star filled"></i> 5
                 </span>
                 <p class="reviewParagraph">המקום ממש יפה היה טעים מאוד</p>
               </div>
               <div class="review">
                 <h4>עינת</h4>
                 <span class="reviewRating">
-                  <i class="fa-solid fa-star"></i> 5
+                  <i class="fa-solid fa-star filled"></i> 5
                 </span>
                 <p class="reviewParagraph">המקום ממש יפה היה טעים מאוד</p>
               </div>
@@ -169,6 +181,52 @@
       type="module"
       src="/nirtamim/Public/js/controllers/stores.controller.js"
     ></script>
-    <script></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const stars = document.querySelectorAll(".star-rating .fa-star");
+        let selectedRating = 0;
+
+        stars.forEach((star) => {
+          star.addEventListener("mouseover", function () {
+            const starId = parseInt(this.id);
+            fillStars(starId);
+          });
+
+          star.addEventListener("mouseout", function () {
+            resetStars();
+            if (selectedRating > 0) {
+              fillStars(selectedRating);
+            }
+          });
+
+          star.addEventListener("click", function () {
+            selectedRating = parseInt(this.id);
+            fillStars(selectedRating);
+          });
+        });
+
+        function fillStars(starId) {
+          stars.forEach((star) => {
+            if (parseInt(star.id) <= starId) {
+              star.style.color = "hsl(60, 100%, 40%)";
+            } else {
+              star.style.color = "#ccc";
+            }
+          });
+        }
+
+        function resetStars() {
+          stars.forEach((star) => {
+            star.style.color = "#ccc";
+          });
+        }
+        document
+          .querySelector(".close-overlay")
+          .addEventListener("click", (event) => {
+            event.target.parentElement.style.display = "none";
+            document.querySelector(".overlay").style.display = "none";
+          });
+      });
+    </script>
   </body>
 </html>
