@@ -135,8 +135,6 @@
       }
     },
     {
-<<<<<<< HEAD
-=======
       "id": "store-5",
       "name": "חנות 5",
       "ownerID": "owner-1",
@@ -189,7 +187,6 @@
       }
     },
     {
->>>>>>> 308b6312443daa5da639f9a79afd3a76d215ef66
       "id": "store-7",
       "name": "חנות 7",
       "ownerID": "owner-1",
@@ -554,19 +551,11 @@
       }
     },
     {
-<<<<<<< HEAD
-      "id": "146c",
-      "name": "שישקבב של נירוס",
-      "ownerID": null,
-      "categories": [
-        "מזון"
-=======
       "id": "bb11",
       "name": "חנות החרא של עדן",
       "ownerID": "owner-1",
       "categories": [
         "חרא"
->>>>>>> 308b6312443daa5da639f9a79afd3a76d215ef66
       ],
       "location": {
         "district": "מרכז",
