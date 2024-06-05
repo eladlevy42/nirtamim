@@ -13,8 +13,8 @@ const nextPageButton = document.getElementById("nextPage");
 const pageNumberElement = document.getElementById("pageNumber");
 const spinner = document.getElementById("spinner");
 
-prevPageButton.addEventListener("click", () => changePage(-1));
-nextPageButton.addEventListener("click", () => changePage(1));
+// prevPageButton.addEventListener("click", () => changePage(-1));
+// nextPageButton.addEventListener("click", () => changePage(1));
 
 async function getAllStores() {
   spinner.classList.remove("hidden");
@@ -78,9 +78,6 @@ function displayPage(stores) {
     "hidden",
     currentPage === maxPage || totalStores <= storesPerPage
   );
-  if (currentPage === 1) {
-    pageNumberElement.classList.toggle("hidden");
-  }
 
   if (maxPage <= 1) {
     prevPageButton.classList.add("hidden");
@@ -89,46 +86,42 @@ function displayPage(stores) {
 
   pageNumberElement.innerText = currentPage;
 }
+const search = async function () {
+  const searchQuery = document
+    .getElementById("searchInput")
+    .value.trim()
+    .toLowerCase();
+  if (!searchQuery) {
+    await getAllStores();
+    return;
+  }
 
-document
-  .getElementById("searchStoreByName")
-  .addEventListener("submit", async function (event) {
-    event.preventDefault();
-    const searchQuery = document
-      .getElementById("searchInput")
-      .value.trim()
-      .toLowerCase();
-    if (!searchQuery) {
-      await getAllStores();
-      return;
+  spinner.classList.remove("hidden");
+  displayStores.innerHTML = "";
+  displayStores.classList.add("hidden");
+
+  try {
+    const response = await axios.get(storesUrl);
+    allStores = response.data.filter((store) =>
+      store.name.toLowerCase().includes(searchQuery)
+    );
+
+    totalStores = allStores.length;
+    if (totalStores === 0) {
+      displayStores.innerHTML = "<p>No stores found</p>";
+    } else {
+      currentPage = 1;
+      displayPage(allStores);
     }
+  } catch (error) {
+    console.error("Error searching stores", error);
+  } finally {
+    displayStores.classList.remove("hidden");
+    spinner.classList.add("hidden");
+  }
+};
 
-    spinner.classList.remove("hidden");
-    displayStores.innerHTML = "";
-    displayStores.classList.add("hidden");
-
-    try {
-      const response = await axios.get(storesUrl);
-      allStores = response.data.filter((store) =>
-        store.name.toLowerCase().includes(searchQuery)
-      );
-
-      totalStores = allStores.length;
-      if (totalStores === 0) {
-        displayStores.innerHTML = "<p>No stores found</p>";
-      } else {
-        currentPage = 1;
-        displayPage(allStores);
-      }
-    } catch (error) {
-      console.error("Error searching stores", error);
-    } finally {
-      displayStores.classList.remove("hidden");
-      spinner.classList.add("hidden");
-    }
-  });
-
-function getUsernameFromURL() {
+function getUserIdFromURL() {
   const params = new URLSearchParams(window.location.search);
   return params.get("userId");
 }
@@ -142,7 +135,7 @@ export async function getStore() {
   }
 }
 
-export async function getStoreById(storeId) {
+async function getStoreById(storeId) {
   try {
     const res = await axios.get(`${storesUrl}/${storeId}`);
     return res.data;
@@ -168,12 +161,32 @@ export async function updateStore(storeId, updateStoreData) {
   }
 }
 
-export async function deleteStore(storeId) {
+async function deleteStore(storeId) {
+  let ownerId;
   try {
-    const res = await axios.deleteStore(`${storesUrl}/${storeId}`);
-    return res.data;
+    // Get the store details to find the ownerID
+    const storeResponse = await axios.get(`${storesUrl}/${storeId}`);
+    const storeData = storeResponse.data;
+    ownerId = storeData.ownerID;
+    // Delete the store
+    await axios.delete(`${storesUrl}/${storeId}`);
   } catch (error) {
-    console.log(error);
+    console.log("Error deleting store", error);
+  }
+  try {
+    // Get the owner's data
+    const ownerResponse = await axios.get(`${ownerUrl}/${ownerId}`);
+    const ownerData = ownerResponse.data;
+    // Remove the store from the owner's stores array
+    const updatedStores = ownerData.stores.filter((id) => id !== storeId);
+    // Update the owner's data
+    await axios.put(`${ownerUrl}/${ownerId}`, {
+      ...ownerData,
+      stores: updatedStores,
+    });
+    console.log(`Store ${storeId} deleted and removed from owner ${ownerId}`);
+  } catch (error) {
+    console.log("Error deleting store from owner", error);
   }
 }
 
@@ -186,13 +199,44 @@ export async function getAllOwnerStores(ownersId) {
   }
 }
 
-////////// store
+function getLocalStores() {
+  return allStores;
+}
+export const storesFunc = {
+  getStore,
+  getStoreById,
+  postStore,
+  updateStore,
+  deleteStore,
+  getAllOwnerStores,
+  getOwnerByID,
+  postComment,
+  getUserIdFromURL,
+  search,
+  changePage,
+  updateOwner,
+};
+async function updateOwner(newOwner) {
+  alert(newOwner);
+  const id = newOwner.id;
+  try {
+    alert(`Owner ${newOwner}`);
+    await axios.put(`${ownerUrl}/${id}`, newOwner);
+  } catch (err) {
+    alert(err);
+    console.error(err);
+  }
+}
 
 async function getOwnerByID(ownersId) {
+  alert(`Owner ${ownersId}`);
   try {
+    alert(`${ownerUrl}/${ownersId}`);
     const res = await axios.get(`${ownerUrl}/${ownersId}`);
+    alert(res);
     return res.data;
   } catch (err) {
+    alert(err);
     console.error(err);
   }
 }
@@ -209,14 +253,3 @@ async function postComment(storeID, comment) {
     console.error(err);
   }
 }
-
-export const storesFunc = {
-  getStore,
-  getStoreById,
-  postStore,
-  updateStore,
-  deleteStore,
-  getAllOwnerStores,
-  getOwnerByID,
-  postComment,
-};

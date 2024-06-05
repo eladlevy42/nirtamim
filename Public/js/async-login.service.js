@@ -6,8 +6,9 @@ async function userAuth(ev) {
   const userPassword = document.querySelector("#passwordLog").value;
   const username = document.querySelector("#usernameLog").value;
   if (await matchUsernameToPassword(userPassword, username)) {
-    window.location.href = `http://127.0.0.1:5500/Public/HTML/ownerStores.html?username=${encodeURIComponent(
-      username
+    const user = await getUserByUsername(username);
+    window.location.href = `http://127.0.0.1:5500/Public/HTML/ownerStores.html?userId=${encodeURIComponent(
+      user.id
     )}`;
   } else {
     alert("incorrect username or password");
@@ -18,7 +19,6 @@ async function getUserByUsername(username) {
   try {
     console.log(`${ownerUrl}/?username=${username}`);
     const response = await axios.get(`${ownerUrl}/?username=${username}`);
-    console.log(response);
     return response.data[0];
   } catch (err) {
     console.error(err);
@@ -30,7 +30,7 @@ async function matchUsernameToPassword(userPassword, username) {
   console.log(userPassword + " " + username);
   try {
     const user = await getUserByUsername(username);
-
+    console.log(user.password);
     console.log(user);
     if (user.password == userPassword) {
       return true;
@@ -56,6 +56,7 @@ async function checkEmailExists(email) {
     return false;
   }
 }
+
 function checkPassword(password) {
   // Regular expressions for different character types
   const upperCaseRegExp = /[A-Z]/;
@@ -138,14 +139,14 @@ async function postOwner(owner) {
     await axios.post(ownerUrl, owner);
     console.log("owner posted");
     window.location.href = `http://localhost:3000/ownerStores.html?userId=${encodeURIComponent(
-      owner.username
+      owner.id
     )}`;
   } catch (err) {
     throw err;
   }
 }
 
-function getUsernameFromURL() {
+function getUserIdFromURL() {
   const params = new URLSearchParams(window.location.search);
   return params.get("userId");
 }
@@ -157,6 +158,6 @@ export const loginFunc = {
   checkPassword,
   checkEmailExists,
   registerUser,
-  getUsernameFromURL,
+  getUserIdFromURL,
   postOwner,
 };
