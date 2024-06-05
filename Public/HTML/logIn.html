@@ -39,32 +39,37 @@
     <main>
       <div class="logInContainer">
         <h1>הכנס כבעל עסק</h1>
-        <form>
-          <lable>שם משתמש: </lable><input type="text" id="usernameLog" /> <br />
-          <label>סיסמא: </label><input type="password" id="passwordLog" /><br />
+        <form id="loginFrm">
+          <lable>שם משתמש: </lable
+          ><input required type="text" id="usernameLog" /> <br />
+          <label>סיסמא: </label
+          ><input required type="password" id="passwordLog" /><br />
           <button type="submit" id="logInBtn">התחבר</button>
         </form>
         <a href="">לא רשום? הרשם כאן:</a>
       </div>
       <div class="signInContainer">
-        <form>
-          <lable>שם משתמש: </lable><input type="text" id="usernameSign" />
+        <form id="registerFrm">
+          <lable>שם משתמש: </lable
+          ><input required type="text" id="usernameReg" />
           <br />
           <label>סיסמא: </label
-          ><input type="password" id="passwordSign" /><br />
+          ><input type="password" required id="passwordSign1" /><br />
           <label>אמת סיסמא: </label
-          ><input type="password" id="passwordSign" /><br />
-          <lable>כתובת דוא"ל: </lable><input type="email" id="emailSign" />
+          ><input type="password" required id="passwordSign2" /><br />
+          <lable>כתובת דוא"ל: </lable
+          ><input required type="email" id="emailSign" />
           <br />
           <lable>הכנס טופס 3010 (קובץ PDF בלבד!): </lable>
 
-          <input type="file" id="fileUpload" name="fileUpload" /><br />
-          <label>שם מלא: </label><input type="text" id="ownerName" /> <br />
+          <input type="file" required id="fileUpload" name="fileUpload" /><br />
+          <label>שם מלא: </label><input type="text" required id="ownerName" />
+          <br />
           <label
             >הסבר על עצמך (איפה משרת, וכו'), טקסט זה יופיע בעמודי החנויות</label
-          ><textarea id="userAbout"></textarea><br />
+          ><textarea id="userAbout" required></textarea><br />
           <label>תמונת פרופיל: </label
-          ><input type="link" id="userImage" /><br />
+          ><input type="link" required id="userImage" /><br />
           <button type="submit" id="signInBtn">הרשם</button>
         </form>
       </div>
