@@ -1,9 +1,8 @@
 import { storesFunc } from "./async-db.service.js";
 
-const allStores = storesFunc.getLocalStores();
-
 function renderStoreUsers() {
-  allStores
+  const allStores = storesFunc.getLocalStores();
+  return allStores
     .map(
       (store) =>
         `<div class="store">
@@ -26,7 +25,8 @@ function renderStoreUsers() {
 }
 
 function renderStoreForOwners() {
-  allStores
+  const allStores = storesFunc.getLocalStores();
+  return allStores
     .map(
       (store) =>
         `<div class="store">
@@ -50,7 +50,18 @@ function renderStoreForOwners() {
     .join("");
 }
 
+function renderComments() {
+  return `<div class="review">
+    <h4>/h4>
+    <span class="reviewRating">
+      <i class="fa-solid fa-star"></i> 
+    </span>
+    <p class="reviewParagraph"></p>
+  </div>`;
+}
+
 export const renderHTML = {
   renderStoreUsers,
   renderStoreForOwners,
+  renderComments,
 };

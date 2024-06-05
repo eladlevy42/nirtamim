@@ -1,3 +1,5 @@
+import { renderHTML } from "./renderHTML.service.js";
+
 const storesUrl = "http://localhost:8001/stores";
 const ownerUrl = "http://localhost:8001/owners";
 
@@ -128,7 +130,7 @@ document
 
 function getUsernameFromURL() {
   const params = new URLSearchParams(window.location.search);
-  return params.get("username");
+  return params.get("userId");
 }
 
 export async function getStore() {
