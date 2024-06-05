@@ -1,3 +1,5 @@
+import { renderHTML } from "./renderHTML.service.js";
+
 const storesUrl = "http://localhost:8001/stores";
 const ownerUrl = "http://localhost:8001/owners";
 
