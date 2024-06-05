@@ -16,7 +16,10 @@ async function userAuth(ev) {
 
 async function getUserByUsername(username) {
   try {
-    return await axios.get(`${ownerUrl}/?username=${username}`).data[0];
+    console.log(`${ownerUrl}/?username=${username}`);
+    const response = await axios.get(`${ownerUrl}/?username=${username}`);
+    console.log(response);
+    return response.data[0];
   } catch (err) {
     console.error(err);
     return null;
@@ -26,9 +29,8 @@ async function getUserByUsername(username) {
 async function matchUsernameToPassword(userPassword, username) {
   console.log(userPassword + " " + username);
   try {
-    const res = await getUserByUsername(username);
-    console.log(res);
-    const user = res.data[0];
+    const user = await getUserByUsername(username);
+
     console.log(user);
     if (user.password == userPassword) {
       return true;
