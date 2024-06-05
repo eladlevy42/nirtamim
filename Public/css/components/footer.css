@@ -1,0 +1,41 @@
+:root {
+  --clr-primary-100: hsl(219, 38%, 90%);
+  --clr-primary-350: hsl(74, 29%, 66%);
+  --clr-primary-500: hsl(213, 47%, 47%);
+  --clr-primary-700: hsl(212, 64%, 19%);
+
+  --clr--neutral-100: hsl(0, 0%, 100%);
+}
+footer {
+  gap: 0.25rem;
+  padding-block: 2rem;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  color: var(--clr--neutral-100);
+  background-color: var(--clr-primary-700);
+}
+
+.footer-details {
+  flex-direction: column;
+  gap: 0.25rem;
+}
+@media (min-width: 750px) {
+  .footer-details {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.company-info {
+  gap: 1rem;
+}
+
+.icon-title {
+  margin-left: 0.5rem;
+}
+
+.social-icons {
+  gap: 0.5rem;
+}
