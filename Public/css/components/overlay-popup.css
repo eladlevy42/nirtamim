@@ -11,6 +11,7 @@
 }
 
 .overlay {
+  display: none;
   background-color: var(--clr-neutral-700);
   position: fixed;
   inset: 0;
@@ -19,6 +20,7 @@
 }
 
 .pop-up__container {
+  display: none;
   position: fixed;
   z-index: 1000;
   background-color: var(--clr-neutral-110);
@@ -30,21 +32,21 @@
   border-radius: var(--border-radius-light);
 }
 .close-overlay {
-    cursor: pointer;
-    position: absolute;
-    top: 8px;
-    right: 8px;
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 8px;
 }
 .pop-up__container input,
 textarea {
   width: 200px;
 }
-.form-group{
-    display: flex;
-    flex-direction: column;
-    border-radius: var(--border-radius-light);
+.form-group {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--border-radius-light);
 }
-.non-filled{
-    cursor: pointer;
-    color: var(--clr-neutral-300);
+.non-filled {
+  cursor: pointer;
+  color: var(--clr-neutral-300);
 }
