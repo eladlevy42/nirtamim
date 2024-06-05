@@ -549,26 +549,6 @@
         "description": "גלידריה",
         "link": "http://example.com/store20"
       }
-    },
-    {
-      "id": "93e7",
-      "name": "גדחי",
-      "ownerID": "owner-1",
-      "categories": [
-        "לחילח"
-      ],
-      "location": {
-        "district": "ילחי",
-        "city": "לחילחי"
-      },
-      "img": "לחי",
-      "comments": [],
-      "details": {
-        "phone-number": "לחילחי",
-        "hours": "לחי",
-        "description": "לחילחי",
-        "link": "לחילח"
-      }
     }
   ],
   "owners": [
@@ -615,6 +595,26 @@
         "store-19",
         "store-20"
       ]
+    },
+    {
+      "id": "3574",
+      "name": "elad levy",
+      "username": "elad",
+      "email": "eladio2002@gmail.com",
+      "password": "Elad123@",
+      "description": "sdfdfs",
+      "profileImg": "sddsfdsf",
+      "stores": []
+    },
+    {
+      "id": "d8e5",
+      "name": "eladiosd",
+      "username": "eeee",
+      "email": "efdssdfds@sdfdfs",
+      "password": "Elad123@",
+      "description": "dsafdfs",
+      "profileImg": "sddf",
+      "stores": []
     }
   ]
 }

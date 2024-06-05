@@ -5,6 +5,7 @@ window.onload = onInit;
 function onInit() {
   // Expose functions to the window object
   window.onAddStore = onAddStore;
+  window.checkWordInPDF = checkWordInPDF;
   // Add event listener for the form submission
   document.getElementById("addStoreFrm").addEventListener("submit", onAddStore);
 }
@@ -18,10 +19,9 @@ async function onAddStore(ev) {
     try {
       await storesFunc.updateOwnerStores(ownerId);
     } catch (err) {
-      alert(err);
+      toaster.showErrorToaster(err.message);
     }
   } catch (err) {
-    alert(err.message);
-    console.error(err);
+    toaster.showErrorToaster(err.message);
   }
 }

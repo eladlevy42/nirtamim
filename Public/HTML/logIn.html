@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
+    <div id="toaster"></div>
     <nav class="justify__space-between align__center flex-group">
       <div class="navbar-brand">
         <h3>נרתמים למילואים</h3>
@@ -65,7 +66,13 @@
           <br />
           <lable>הכנס טופס 3010 (קובץ PDF בלבד!): </lable>
 
-          <input type="file" required id="fileUpload" name="fileUpload" /><br />
+          <input
+            type="file"
+            required
+            id="fileUpload"
+            name="fileUpload"
+            id="3010up"
+          /><br />
           <label>שם מלא: </label><input type="text" required id="ownerName" />
           <br />
           <label
@@ -80,10 +87,9 @@
     <footer class="footer">
       <h3>נרתמים למילואים בע"מ</h3>
       <div class="footer-details flex-group">
-        <div class="company-info">          
-          <p><i class="fa-solid fa-location-dot"></i>
-          הברוש 13, ירושלים</p>
-          <p>
+        <div class="company-info">
+          <p><i class="fa-solid fa-location-dot"></i> הברוש 13, ירושלים</p>
+          <p></p>
           <p>
             <span class="icon-title"><i class="fa-solid fa-envelope"></i></span>
             nirtamim@yourcompany.com
@@ -107,6 +113,7 @@
       </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+    <script src="https://unpkg.com/pdf-lib"></script>
     <script
       type="module"
       src="/Public/js/controllers/owners.controllers.js"

@@ -1,6 +1,6 @@
 const storesUrl = "http://localhost:8001/stores";
 const ownerUrl = "http://localhost:8001/owners";
-
+import { toaster } from "/public/js/toast.sevice.js";
 async function userAuth(ev) {
   ev.preventDefault();
   const userPassword = document.querySelector("#passwordLog").value;
@@ -11,34 +11,49 @@ async function userAuth(ev) {
       user.id
     )}`;
   } else {
-    alert("incorrect username or password");
+    toaster.showErrorToast("incorrect username or password");
   }
 }
 
+// async function checkWordInPDF() {
+//   const fileInput = document.getElementById("3010up");
+//   const word = "3010";
+//   const file = fileInput.files[0];
+
+//   const arrayBuffer = await file.arrayBuffer();
+//   const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
+
+//   let text = "";
+//   const pages = pdfDoc.getPages();
+//   for (const page of pages) {
+//     const textContent = await page.getTextContent();
+//     text += textContent.items.map((item) => item.str).join(" ");
+//   }
+//   alert(text.includes(word));
+//   return text.includes(word);
+// }
+
 async function getUserByUsername(username) {
   try {
-    console.log(`${ownerUrl}/?username=${username}`);
     const response = await axios.get(`${ownerUrl}/?username=${username}`);
     return response.data[0];
   } catch (err) {
-    console.error(err);
+    toaster.showErrorToaster(err.message);
     return null;
   }
 }
 
 async function matchUsernameToPassword(userPassword, username) {
-  console.log(userPassword + " " + username);
   try {
     const user = await getUserByUsername(username);
-    console.log(user.password);
-    console.log(user);
+
     if (user.password == userPassword) {
       return true;
     } else {
       return false;
     }
   } catch (err) {
-    console.error(err);
+    toaster.showErrorToaster(err.message);
   }
 }
 
@@ -46,13 +61,13 @@ async function matchUsernameToPassword(userPassword, username) {
 async function checkEmailExists(email) {
   try {
     const res = await axios.get(`${ownerUrl}/?email=${email}`);
-    console.log(res.data[0]);
+
     if (res.data[0] == null) {
       return false;
     }
     return true;
   } catch (err) {
-    console.log(err);
+    toaster.showErrorToaster(err.message);
     return false;
   }
 }
@@ -89,32 +104,35 @@ function checkPassword(password) {
 async function registerUser(ev) {
   ev.preventDefault();
   const username = document.querySelector("#usernameReg").value;
-  console.log(username);
-  console.log(await getUserByUsername(username));
+
   if ((await getUserByUsername(username)) != null) {
-    alert("username already exists");
+    toaster.showErrorToast("שם משתמש כבר בשימוש ע''י משתמש אחר, בחר אחד חדש");
+
     return;
   }
   const password1 = document.querySelector("#passwordSign1").value;
   if (!checkPassword(password1)) {
-    alert(
+    toaster.showErrorToast(
       "הסיסמה חייבת להיות באורך של לפחות 8 תווים, להכיל לפחות אות גדולה אחת, אות קטנה אחת, מספר אחד ותו מיוחד אחד."
     );
     return;
   }
   const password2 = document.querySelector("#passwordSign2").value;
-  console.log(password1 + "" + password2);
   if (password1 != password2) {
-    alert("passwords do not match");
+    toaster.showErrorToast("סיסמאות אינן תואמות");
+
     return;
   }
   const email = document.querySelector("#emailSign").value;
-  console.log(email);
-  console.log(await checkEmailExists(email));
   if (await checkEmailExists(email)) {
-    alert("email already exists");
+    toaster.showErrorToast('כתובת דוא"ל כבר בשימוש!');
+
     return;
   }
+  // if (!checkWordInPDF()) {
+  //   alert("file not 3010");
+  //   return;
+  // }
   const Name = document.querySelector("#ownerName").value;
   const desc = document.querySelector("#userAbout").value;
   const image = document.querySelector("#userImage").value;
@@ -129,15 +147,14 @@ async function registerUser(ev) {
   };
   try {
     await postOwner(newOwner);
-  } catch {
-    console.log(err);
+  } catch (err) {
+    toaster.showErrorToaster(err.message);
   }
 }
 
 async function postOwner(owner) {
   try {
     await axios.post(ownerUrl, owner);
-    console.log("owner posted");
     window.location.href = `http://localhost:3000/ownerStores.html?userId=${encodeURIComponent(
       owner.id
     )}`;
