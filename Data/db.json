@@ -465,6 +465,32 @@
       }
     },
     {
+      "id": "store-me",
+      "name": "בית קפה של ג'יין",
+      "ownerID": "owner-2",
+      "categories": [
+        "בית קפה"
+      ],
+      "location": {
+        "district": "מרכז",
+        "city": "תל אביב"
+      },
+      "img": "https://images.unsplash.com/photo-1517685352821-92cf88aee5a5",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "קפה מצוין ואווירה נעימה.",
+          "ratings": 5
+        }
+      ],
+      "details": {
+        "phone-number": "051-8888888",
+        "hours": "07:00-22:00",
+        "description": "בית קפה עם קפה מעולה.",
+        "link": "http://example.com/store18"
+      }
+    },
+    {
       "id": "store-19",
       "name": "מאפיית ג'יין",
       "ownerID": "owner-2",
@@ -514,6 +540,32 @@
         "hours": "18:00-02:00",
         "description": "בר עם מגוון משקאות.",
         "link": "http://example.com/store20"
+      }
+    },
+    {
+      "id": "fbb2",
+      "name": "אמילי ",
+      "ownerID": "owner-4",
+      "categories": [
+        "מסעדה",
+        "בר"
+      ],
+      "location": {
+        "district": "מרכז",
+        "city": "רעננה"
+      },
+      "img": "https://hezi-luski-woodwork.co.il/wp-content/uploads/2022/08/hezi_luski_woodwork_284849282_169345048841541_7736090743643568299_n.jpg",
+      "comments": [
+        {
+          "name": "אניע",
+          "description": "אחלה מקום !!",
+          "ratings": 5
+        }
+      ],
+      "details": {
+        "phone-number": "32434231",
+        "hours": "10:00-20:00",
+        "link": "ק'רק'ר"
       }
     }
   ],
@@ -578,7 +630,9 @@
       "password": "password4",
       "description": "אמילי היא בעלת חנויות עם תשוקה לעיצוב פנים.",
       "profileImg": "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d",
-      "stores": []
+      "stores": [
+        "fbb2"
+      ]
     }
   ]
 }
