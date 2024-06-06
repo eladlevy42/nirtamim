@@ -227,7 +227,7 @@ async function deleteStore(storeId) {
   }
 }
 
-export async function getAllOwnerStores(ownersId) {
+async function getAllOwnerStores(ownersId) {
   try {
     const res = await axios.get(`${ownerUrl}/${ownersId}`);
     return res.data.stores;
