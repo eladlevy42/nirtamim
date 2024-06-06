@@ -1,10 +1,10 @@
 import { dbService } from "./async-db.service.js";
 const storesUrl = "http://localhost:8001/stores";
 const ownerUrl = "http://localhost:8001/owners";
-let currentPage = 1;
+let currentPage = 0;
 
 let allRelevantStores = [];
-const storesPerPage = 9;
+const storesPerPage = 10;
 let totalStores = 0;
 const storesContainer = document.querySelector("#allStoresContainer");
 const prevPageButton = document.getElementById("prevPage");
@@ -14,40 +14,16 @@ let filteredByDistrict;
 let filteredByCategory;
 let filteredByCity;
 
-// filter by district
-const districtFilterOption = document.querySelectorAll(".district-option");
-districtFilterOption.forEach((districtOption) => {
-  districtOption.addEventListener("click", async (event) => {
-    const district = event.target.getAttribute("data-value");
-    filteredByDistrict = district;
-    await resetDistrictFilter();
-    await filterByDistrict(district);
-    displayPage(allRelevantStores);
-  });
-});
-async function resetDistrictFilter() {
-  if (filterByDistrict) {
-    allRelevantStores = await dbService.getAllStores();
-  }
-}
-async function filterByDistrict(district) {
-  try {
-    allRelevantStores = allRelevantStores.filter((store) => {
-      return district === store.location.district;
-    });
-  } catch (err) {
-    console.error(err);
-  }
-}
 // filter by category
 const categoryFilterOption = document.querySelectorAll(".category-option");
 categoryFilterOption.forEach((categoryOption) => {
   categoryOption.addEventListener("click", async (event) => {
+    currentPage = 0;
     const category = event.target.innerText.trim();
     filteredByCategory = category;
     await resetCategoryFilter();
     await filterByCategory(category);
-    displayPage(allRelevantStores);
+    displayStores();
   });
 });
 async function resetCategoryFilter() {
@@ -64,15 +40,43 @@ async function filterByCategory(category) {
     console.error(err);
   }
 }
+// filter by district
+const districtFilterOption = document.querySelectorAll(".district-option");
+districtFilterOption.forEach((districtOption) => {
+  districtOption.addEventListener("click", async (event) => {
+    currentPage = 0;
+    const district = event.target.getAttribute("data-value");
+    filteredByDistrict = district;
+    await resetDistrictFilter();
+    await filterByDistrict(district);
+    displayStores();
+  });
+});
+async function resetDistrictFilter() {
+  if (filterByDistrict) {
+    allRelevantStores = await dbService.getAllStores();
+  }
+}
+async function filterByDistrict(district) {
+  try {
+    allRelevantStores = allRelevantStores.filter((store) => {
+      return district === store.location.district;
+    });
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 // filter by city
 const cityFilterOption = document.querySelectorAll(".city-option");
 cityFilterOption.forEach((cityOption) => {
   cityOption.addEventListener("click", async (event) => {
+    currentPage = 0;
     const city = event.target.innerText.trim();
     filteredByCity = city;
     await resetCityFilter();
     await filterByCity(city);
-    displayPage(allRelevantStores);
+    displayStores();
   });
 });
 async function resetCityFilter() {
@@ -89,9 +93,13 @@ async function filterByCity(city) {
     console.error(err);
   }
 }
+
 function openStorePage(storeId) {
   window.location.href = `http://127.0.0.1:5500/Public/HTML/store.html?storeId=${storeId}`;
 }
+// pagination
+// pull all, insert to the allRelevant first
+// get the first 10, update current page
 function displayPage(stores) {
   const start = (currentPage - 1) * storesPerPage;
   const end = start + storesPerPage;
@@ -147,6 +155,55 @@ function displayPage(stores) {
 
   pageNumberElement.innerText = currentPage;
 }
+async function displayStores() {
+  storesContainer.innerHTML = "";
+  let startStoreIndex = storesPerPage * currentPage;
+  const endStoreIndex = storesPerPage * (currentPage + 1);
+  const flagIndex =
+    endStoreIndex > allRelevantStores.length
+      ? allRelevantStores.length
+      : endStoreIndex;
+  displayPaginationButtons();
+  while (startStoreIndex < flagIndex) {
+    const element = allRelevantStores[startStoreIndex];
+    storesContainer.innerHTML += renderStoreElement(element);
+    startStoreIndex++;
+  }
+}
+function renderStoreElement(storeObject) {
+  return `<div class="store-card grid-group"  id="${storeObject.id}">
+              <div class="store-img__wrapper flex-group">
+              <img
+                      class="store-img"
+                      src="${storeObject.img}"
+                      alt="${storeObject.name}"
+                  />
+              </div>
+              <div class="store-details">
+                <h3>${storeObject.name}</h3>
+                <div class="group-details flex-group">
+                  <p class="store-categories">${storeObject.categories.join(
+                    ", "
+                  )}</p>
+                </div>
+                <div class="store__sub-details flex-group">
+                  <p class="store-hours">${storeObject.details.hours}</p>
+                  <p class="store-location">
+                    <span class="city">${
+                      storeObject.location.city
+                    }</span>,<span class="district"
+                      >${storeObject.location.district}
+                  </p>
+                </div>
+                <p class="store-rating">
+                    <i class="fa-solid fa-star filled"></i>
+                    <span class="rating">${calculateAvgRating(
+                      storeObject.comments
+                    )}</span>
+                  </p>
+              </div>
+            </div>`;
+}
 async function displayAllStores() {
   storesContainer.innerHTML = "";
   storesContainer.classList.add("hidden");
@@ -165,6 +222,37 @@ async function displayAllStores() {
   } finally {
     storesContainer.classList.remove("hidden");
   }
+}
+function displayPaginationButtons(params) {
+  // next
+  if (
+    allRelevantStores.length === 0 ||
+    (currentPage + 1) * storesPerPage > allRelevantStores.length
+  ) {
+    document.querySelector("#nextPage").style.visibility = "hidden";
+  } else {
+    document.querySelector("#nextPage").style.visibility = "visible";
+  }
+  // prev
+  if (allRelevantStores.length === 0 || currentPage === 0) {
+    document.querySelector("#prevPage").style.visibility = "hidden";
+  } else {
+    document.querySelector("#prevPage").style.visibility = "visible";
+  }
+}
+document.getElementById("nextPage").addEventListener("click", () => {
+  nextPage();
+});
+document.getElementById("prevPage").addEventListener("click", () => {
+  prevPage();
+});
+function nextPage() {
+  currentPage++;
+  displayStores();
+}
+function prevPage() {
+  currentPage--;
+  displayStores();
 }
 
 function changePage(direction) {
@@ -204,8 +292,8 @@ const search = async function () {
     if (totalStores === 0) {
       storesContainer.innerHTML = "<p>No stores found</p>";
     } else {
-      currentPage = 1;
-      displayPage(allRelevantStores);
+      currentPage = 0;
+      displayStores();
     }
   } catch (error) {
     console.error("Error searching stores", error);
@@ -214,10 +302,23 @@ const search = async function () {
     // spinner.classList.add("hidden");
   }
 };
+async function resetLocalStore() {
+  try {
+    allRelevantStores = await dbService.getAllStores();
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 export const storeService = {
   search,
   changePage,
   displayPage,
   calculateAvgRating,
   displayAllStores,
+  displayStores,
+  resetLocalStore,
+  nextPage,
+  prevPage,
+  displayPaginationButtons,
 };
