@@ -11,6 +11,10 @@ const prevPageButton = document.getElementById("prevPage");
 const nextPageButton = document.getElementById("nextPage");
 const pageNumberElement = document.getElementById("pageNumber");
 
+function openStorePage(storeId) {
+  window.location.href = `http://127.0.0.1:5500/Public/HTML/store.html?storeId=${storeId}`;
+}
+
 function displayPage(stores) {
   const start = (currentPage - 1) * storesPerPage;
   const end = start + storesPerPage;
@@ -18,7 +22,7 @@ function displayPage(stores) {
 
   storesContainer.innerHTML = paginatedStores
     .map((store) => {
-      return `<div class="store-card grid-group">
+      return `<div class="store-card grid-group" id="${store.id}">
             <div class="store-img__wrapper flex-group">
             <img
                     class="store-img"
@@ -50,7 +54,10 @@ function displayPage(stores) {
           </div>`;
     })
     .join("");
-
+  paginatedStores.forEach((store) => {
+    const storeElement = document.getElementById(`${store.id}`);
+    storeElement.addEventListener("click", () => openStorePage(store.id));
+  });
   const maxPage = Math.ceil(totalStores / storesPerPage);
 
   prevPageButton.classList.toggle("hidden", currentPage === 1);
@@ -66,6 +73,7 @@ function displayPage(stores) {
 
   pageNumberElement.innerText = currentPage;
 }
+
 async function getAllStores() {
   storesContainer.innerHTML = "";
   storesContainer.classList.add("hidden");
