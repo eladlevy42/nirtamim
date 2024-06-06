@@ -46,8 +46,8 @@ function renderStoreForOwners() {
     .map(
       (store) =>
         `<div class="store">
-      <button onclick="editBook(this)" class="edit" id="editButton">
-      <button onclick="deleteBook(this)" class="delete" id="DeleteButton">
+      <button onclick="updateStore(this)" class="edit" id="editButton">
+      <button onclick="deleteStore(this)" class="delete" id="DeleteButton">
       <img src="${store.img}" alt="${store.name}" class="store-image"/>
       <h4 class="store-name">${store.name}</h4>
       <p class="store-description">${store.details.description}</p>
