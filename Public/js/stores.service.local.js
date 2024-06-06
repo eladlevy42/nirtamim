@@ -1,8 +1,8 @@
 import { dbService } from "./async-db.service.js";
-
 const storesUrl = "http://localhost:8001/stores";
 const ownerUrl = "http://localhost:8001/owners";
 let currentPage = 1;
+
 let allRelevantStores = [];
 const storesPerPage = 9;
 let totalStores = 0;
@@ -39,7 +39,6 @@ async function filterByDistrict(district) {
     console.error(err);
   }
 }
-
 // filter by category
 const categoryFilterOption = document.querySelectorAll(".category-option");
 categoryFilterOption.forEach((categoryOption) => {
@@ -95,53 +94,46 @@ function displayPage(stores) {
   const start = (currentPage - 1) * storesPerPage;
   const end = start + storesPerPage;
   const paginatedStores = stores.slice(start, end);
-
   storesContainer.innerHTML = paginatedStores
     .map((store) => {
-      return `<div class="store-card grid-group" id="${store.id}">
-            <div class="store-img__wrapper flex-group">
-            <img
-                    class="store-img"
-                    src="${store.img}"
-                    alt="${store.name}"
-                />
-            </div>
-            <div class="store-details">
-              <h3>${store.name}</h3>
-              <div class="group-details flex-group">
-                <p class="store-categories">${store.categories.join(", ")}</p>
+      return `<div class="store-card grid-group">
+              <div class="store-img__wrapper flex-group">
+              <img
+                      class="store-img"
+                      src="${store.img}"
+                      alt="${store.name}"
+                  />
               </div>
-              <div class="store__sub-details flex-group">
-                <p class="store-hours">${store.details.hours}</p>
-                <p class="store-location">
-                  <span class="city">${
-                    store.location.city
-                  }</span>,<span class="district"
-                    >${store.location.district}
-                </p>
+              <div class="store-details">
+                <h3>${store.name}</h3>
+                <div class="group-details flex-group">
+                  <p class="store-categories">${store.categories.join(", ")}</p>
+                </div>
+                <div class="store__sub-details flex-group">
+                  <p class="store-hours">${store.details.hours}</p>
+                  <p class="store-location">
+                    <span class="city">${
+                      store.location.city
+                    }</span>,<span class="district"
+                      >${store.location.district}
+                  </p>
+                </div>
+                <p class="store-rating">
+                    <i class="fa-solid fa-star filled"></i>
+                    <span class="rating">${calculateAvgRating(
+                      store.comments
+                    )}</span>
+                  </p>
               </div>
-              <p class="store-rating">
-                  <i class="fa-solid fa-star filled"></i>
-                  <span class="rating">${calculateAvgRating(
-                    store.comments
-                  )}</span>
-                </p>
-            </div>
-          </div>`;
+            </div>`;
     })
     .join("");
-  paginatedStores.forEach((store) => {
-    const storeElement = document.getElementById(`${store.id}`);
-    storeElement.addEventListener("click", () => openStorePage(store.id));
-  });
   const maxPage = Math.ceil(totalStores / storesPerPage);
-
   prevPageButton.classList.toggle("hidden", currentPage === 1);
   nextPageButton.classList.toggle(
     "hidden",
     currentPage === maxPage || totalStores <= storesPerPage
   );
-
   if (maxPage <= 1) {
     prevPageButton.classList.add("hidden");
     nextPageButton.classList.add("hidden");
@@ -174,6 +166,7 @@ function changePage(direction) {
   currentPage = Math.min(Math.max(currentPage + direction, 1), maxPage);
   displayPage(allRelevantStores);
 }
+
 function calculateAvgRating(commentsArray) {
   const total = commentsArray.reduce((acc, comment) => {
     acc += Number(comment.ratings);
@@ -215,7 +208,6 @@ const search = async function () {
     // spinner.classList.add("hidden");
   }
 };
-
 export const storeService = {
   search,
   changePage,

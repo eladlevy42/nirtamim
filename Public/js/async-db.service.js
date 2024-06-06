@@ -14,46 +14,37 @@ function getUserIdFromURL() {
   const params = new URLSearchParams(window.location.search);
   return params.get("userId");
 }
-function getStoreIdFromURL() {
-  const params = new URLSearchParams(window.location.search);
-  return params.get("storeId");
-}
-async function getStore() {
+export async function getStore() {
   try {
     const res = await axios.get(storesUrl);
     return res.data;
   } catch (error) {
-    toaster.showErrorToast("error.message");
+    console.log(error);
   }
 }
-
 async function getStoreById(storeId) {
   try {
     const res = await axios.get(`${storesUrl}/${storeId}`);
-    console.log(res.data);
     return res.data;
   } catch (error) {
-    toaster.showErrorToast("error.message");
+    console.log(error);
   }
 }
-
-async function postStore(storeData) {
+export async function postStore(storeData) {
   try {
     await axios.post(storesUrl, storeData);
   } catch (error) {
-    toaster.showErrorToaster(error.message);
+    console.log(error);
   }
 }
-
-async function updateStore(storeId, updateStoreData) {
+export async function updateStore(storeId, updateStoreData) {
   try {
     const res = await axios.put(`${storesUrl}/${storeId}`, updateStoreData);
     return res.data;
   } catch (error) {
-    toaster.showErrorToaster(error.message);
+    console.log(error);
   }
 }
-
 async function deleteStore(storeId) {
   let ownerId;
   try {
@@ -64,7 +55,7 @@ async function deleteStore(storeId) {
     // Delete the store
     await axios.delete(`${storesUrl}/${storeId}`);
   } catch (error) {
-    toaster.showErrorToaster("Error deleting store: " + error.message);
+    console.log("Error deleting store", error);
   }
   try {
     // Get the owner's data
@@ -77,25 +68,19 @@ async function deleteStore(storeId) {
       ...ownerData,
       stores: updatedStores,
     });
-    toaster.showSuccessToaster(
-      `Store ${storeId} deleted and removed from owner ${ownerId}`
-    );
+    console.log(`Store ${storeId} deleted and removed from owner ${ownerId}`);
   } catch (error) {
-    toaster.showErrorToaster(
-      "Error deleting store from owner: " + error.message
-    );
+    console.log("Error deleting store from owner", error);
   }
 }
-
-async function getAllOwnerStores(ownersId) {
+export async function getAllOwnerStores(ownersId) {
   try {
     const res = await axios.get(`${ownerUrl}/${ownersId}`);
     return res.data.stores;
   } catch (error) {
-    toaster.showErrorToaster(error.message);
+    console.log(error);
   }
 }
-
 function getLocalStores() {
   return allStores;
 }
@@ -139,16 +124,15 @@ async function updateOwnerStores(ownerId) {
     console.error(err);
   }
 }
-
 async function getOwnerByID(ownersId) {
   try {
     const res = await axios.get(`${ownerUrl}/?id=${ownersId}`);
     return res.data[0];
   } catch (err) {
-    toaster.showErrorToaster(err.message);
+    alert(err);
+    console.error(err);
   }
 }
-
 async function postComment(storeID, comment) {
   try {
     const store = await getStoreById(storeID);
@@ -158,37 +142,9 @@ async function postComment(storeID, comment) {
       comments: commentsArr,
     });
   } catch (err) {
-    toaster.showErrorToaster(err.message);
+    console.error(err);
   }
 }
-async function getOwnerStores(ownerId) {
-  try {
-    const res = await axios.get(`${storesUrl}/?ownerID=${ownerId}`);
-
-    return extractStoreName(res.data);
-  } catch (err) {
-    toaster.showErrorToaster(err.message);
-  }
-}
-function extractStoreName(array) {
-  return array.map((obj) => obj["id"]);
-}
-async function updateOwnerStores(ownerId) {
-  try {
-    const userStores = await getOwnerStores(ownerId);
-
-    try {
-      await axios.patch(`${ownerUrl}/${ownerId}`, {
-        stores: userStores,
-      });
-    } catch (err) {
-      toaster.showErrorToaster(err.message);
-    }
-  } catch (err) {
-    toaster.showErrorToaster(err.message);
-  }
-}
-
 export const dbService = {
   getStore,
   getStoreById,
@@ -200,6 +156,5 @@ export const dbService = {
   postComment,
   getUserIdFromURL,
   updateOwnerStores,
-  getStoreIdFromURL,
-  calculateAvgRating,
+  getAllStores,
 };
