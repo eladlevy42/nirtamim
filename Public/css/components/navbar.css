@@ -23,6 +23,10 @@ nav {
   color: #ffffff; 
 }
 
+.navbar-options.flex-group{
+  gap: 1.5rem;
+}
+
 .fa-star-of-david {
   font-size: 36px; 
   color: rgb(49, 177, 49);

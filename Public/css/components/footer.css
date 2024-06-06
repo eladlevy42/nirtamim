@@ -15,6 +15,10 @@ footer {
   background-color: var(--clr-primary-700);
 }
 
+.footer h3{
+  color: rgb(49, 177, 49);
+}
+
 .footer-details {
   flex-direction: column;
   gap: 0.25rem;
