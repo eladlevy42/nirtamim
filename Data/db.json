@@ -4,7 +4,10 @@
       "id": "store-1",
       "name": "מסעדת ג'ון",
       "ownerID": "owner-1",
-      "categories": ["מסעדה", "בר"],
+      "categories": [
+        "מסעדה",
+        "בר"
+      ],
       "location": {
         "district": "מרכז",
         "city": "נתניה"
@@ -30,39 +33,13 @@
       }
     },
     {
-      "id": "store-2",
-      "name": "חנות הספרים של ג'ון",
-      "ownerID": "owner-1",
-      "categories": ["חנות ספרים", "בית קפה"],
-      "location": {
-        "district": "צפון",
-        "city": "חיפה"
-      },
-      "img": "https://images.unsplash.com/photo-1512820790803-83ca734da794",
-      "comments": [
-        {
-          "name": "אנונימי",
-          "description": "ספרים מעניינים וקפה מעולה.",
-          "ratings": 5
-        },
-        {
-          "name": "דנה",
-          "description": "מקום שקט ונעים.",
-          "ratings": 4
-        }
-      ],
-      "details": {
-        "phone-number": "050-1111111",
-        "hours": "08:00-20:00",
-        "description": "חנות ספרים ובית קפה באווירה נעימה.",
-        "link": "http://example.com/store2"
-      }
-    },
-    {
       "id": "store-3",
       "name": "מכולת ג'ון",
       "ownerID": "owner-1",
-      "categories": ["מכולת", "שוק"],
+      "categories": [
+        "מכולת",
+        "שוק"
+      ],
       "location": {
         "district": "מרכז",
         "city": "תל אביב"
@@ -86,7 +63,9 @@
       "id": "store-4",
       "name": "חנות האלקטרוניקה של ג'ון",
       "ownerID": "owner-1",
-      "categories": ["אלקטרוניקה"],
+      "categories": [
+        "אלקטרוניקה"
+      ],
       "location": {
         "district": "צפון",
         "city": "טבריה"
@@ -110,7 +89,9 @@
       "id": "store-5",
       "name": "חנות האופנה של ג'ון",
       "ownerID": "owner-1",
-      "categories": ["בגדים"],
+      "categories": [
+        "בגדים"
+      ],
       "location": {
         "district": "דרום",
         "city": "אילת"
@@ -134,7 +115,9 @@
       "id": "store-6",
       "name": "חנות הרהיטים של ג'יין",
       "ownerID": "owner-2",
-      "categories": ["רהיטים"],
+      "categories": [
+        "רהיטים"
+      ],
       "location": {
         "district": "מרכז",
         "city": "ראשון לציון"
@@ -158,7 +141,9 @@
       "id": "store-7",
       "name": "חנות הצעצועים של ג'יין",
       "ownerID": "owner-2",
-      "categories": ["צעצועים"],
+      "categories": [
+        "צעצועים"
+      ],
       "location": {
         "district": "דרום",
         "city": "אשדוד"
@@ -182,7 +167,9 @@
       "id": "store-8",
       "name": "חנות התכשיטים של ג'יין",
       "ownerID": "owner-2",
-      "categories": ["תכשיטים"],
+      "categories": [
+        "תכשיטים"
+      ],
       "location": {
         "district": "מרכז",
         "city": "הרצליה"
@@ -206,7 +193,9 @@
       "id": "store-9",
       "name": "חנות הספורט של ג'יין",
       "ownerID": "owner-2",
-      "categories": ["ספורט"],
+      "categories": [
+        "ספורט"
+      ],
       "location": {
         "district": "צפון",
         "city": "כרמיאל"
@@ -230,7 +219,9 @@
       "id": "store-10",
       "name": "חנות המוזיקה של ג'יין",
       "ownerID": "owner-2",
-      "categories": ["מוזיקה"],
+      "categories": [
+        "מוזיקה"
+      ],
       "location": {
         "district": "מרכז",
         "city": "רמת גן"
@@ -254,7 +245,9 @@
       "id": "store-11",
       "name": "קפה של ג'יין",
       "ownerID": "owner-2",
-      "categories": ["בית קפה"],
+      "categories": [
+        "בית קפה"
+      ],
       "location": {
         "district": "צפון",
         "city": "נהריה"
@@ -278,7 +271,9 @@
       "id": "store-12",
       "name": "מסעדת ג'יין",
       "ownerID": "owner-2",
-      "categories": ["מסעדה"],
+      "categories": [
+        "מסעדה"
+      ],
       "location": {
         "district": "דרום",
         "city": "באר שבע"
@@ -302,7 +297,9 @@
       "id": "store-13",
       "name": "המאפייה של ג'ון",
       "ownerID": "owner-1",
-      "categories": ["מאפיה"],
+      "categories": [
+        "מאפיה"
+      ],
       "location": {
         "district": "מרכז",
         "city": "פתח תקווה"
@@ -326,7 +323,9 @@
       "id": "store-14",
       "name": "בית מרקחת של ג'ון",
       "ownerID": "owner-1",
-      "categories": ["בית מרקחת"],
+      "categories": [
+        "בית מרקחת"
+      ],
       "location": {
         "district": "צפון",
         "city": "עכו"
@@ -350,7 +349,9 @@
       "id": "store-15",
       "name": "חנות החיות של ג'יין",
       "ownerID": "owner-2",
-      "categories": ["חנות לחיות מחמד"],
+      "categories": [
+        "חנות לחיות מחמד"
+      ],
       "location": {
         "district": "דרום",
         "city": "אשקלון"
@@ -374,7 +375,9 @@
       "id": "store-16",
       "name": "חנות בגדים של ג'יין",
       "ownerID": "owner-2",
-      "categories": ["בגדים"],
+      "categories": [
+        "בגדים"
+      ],
       "location": {
         "district": "מרכז",
         "city": "רעננה"
@@ -398,7 +401,9 @@
       "id": "store-17",
       "name": "חנות פרחים של ג'יין",
       "ownerID": "owner-2",
-      "categories": ["פרחים"],
+      "categories": [
+        "פרחים"
+      ],
       "location": {
         "district": "צפון",
         "city": "נהריה"
@@ -422,7 +427,9 @@
       "id": "store-18",
       "name": "בית קפה של ג'יין",
       "ownerID": "owner-2",
-      "categories": ["בית קפה"],
+      "categories": [
+        "בית קפה"
+      ],
       "location": {
         "district": "מרכז",
         "city": "תל אביב"
@@ -446,7 +453,9 @@
       "id": "store-19",
       "name": "מאפיית ג'יין",
       "ownerID": "owner-2",
-      "categories": ["מאפיה"],
+      "categories": [
+        "מאפיה"
+      ],
       "location": {
         "district": "דרום",
         "city": "אשדוד"
@@ -470,7 +479,9 @@
       "id": "store-20",
       "name": "בר של ג'יין",
       "ownerID": "owner-2",
-      "categories": ["בר"],
+      "categories": [
+        "בר"
+      ],
       "location": {
         "district": "מרכז",
         "city": "תל אביב"

@@ -1,6 +1,7 @@
 import { loginFunc } from "../async-login.service.js";
 import { dbService } from "../async-db.service.js";
 import { newStoreFunctions } from "../owners.service.local.js";
+import { renderHTML } from "../renderHTML.service.js";
 
 window.onload = onInit;
 function onInit() {
@@ -12,8 +13,9 @@ function onInit() {
   window.onAddStore = onAddStore;
   document.querySelector("#addNewStore").addEventListener("click", addNewStore);
   document.getElementById("addStoreFrm").addEventListener("submit", onAddStore);
+
   OnRenderOwnerStores();
-  renderSpecificStore();
+  // renderSpecificStore();
 }
 function addNewStore() {
   document.querySelector(".overlay").style.display = "block";
@@ -21,13 +23,13 @@ function addNewStore() {
   document
     .querySelector(".close-overlay")
     .addEventListener("click", closeOverlay);
-  document.querySelector(".pop-up__container").style.display = "block";
+  document.querySelector("#addStorePop").style.display = "flex";
 }
 
 function closeOverlay() {
   document.querySelector(".overlay").style.display = "none";
   document.querySelector(".close-overlay").style.display = "none";
-  document.querySelector(".pop-up__container").style.display = "none";
+  document.querySelector("#addStorePop").style.display = "none";
 }
 async function onAddStore(ev) {
   ev.preventDefault();
@@ -48,10 +50,11 @@ async function onAddStore(ev) {
 
 async function OnRenderOwnerStores() {
   const ownerId = dbService.getUserIdFromURL();
+  console.log(ownerId);
   const storesContainer = document.querySelector(".stores-container");
   try {
     const storeIds = await dbService.getAllOwnerStores(ownerId);
-    console.log(storeIds);
+
     if (storeIds.length === 0) {
       storesContainer.innerHTML = "<p>אין עוד חנויות /p>";
       return;
@@ -61,9 +64,8 @@ async function OnRenderOwnerStores() {
       dbService.getStoreById(storeId)
     );
 
-    console.log(storePromises);
     const stores = await Promise.all(storePromises);
-    console.log(stores);
+
     const storeCards = stores
       .map(
         (store) =>
@@ -103,21 +105,24 @@ async function OnRenderOwnerStores() {
       )
       .join("");
 
-    console.log(storeCards);
     storesContainer.innerHTML = storeCards;
+    stores.forEach((store) => {
+      const storeElement = document.querySelector(`#${store.id}`);
+      storeElement.addEventListener("click", () => {
+        renderSpecificStore(store);
+      });
+    });
   } catch (err) {
     console.error(err);
   }
 }
 
-async function renderSpecificStore() {
-  const ownerId = dbService.getUserIdFromURL();
+async function renderSpecificStore(store) {
+  console.log(store);
   try {
-    const store = await dbService.getStoreById(storeId);
-    const owner = await dbService.getOwnerByID(ownerId);
+    const owner = dbService.getOwnerByID(store.ownerID);
     const popupHTML = `
-      <div class="overlay" onclick="closePopUp()"></div>
-      <div class="pop-up__container">
+     
         <i class="close-overlay fa-solid fa-xmark" onclick="closePopUp()"></i>
         <h1>${store.name}</h1>
         <div class="store-container grid-group">
@@ -126,8 +131,12 @@ async function renderSpecificStore() {
               <img src="${store.img}" alt="${store.name}" />
             </div>
             <div class="btnsEdit">
-              <button onclick="editStore('${storeId}')" class="edit" id="editButton">Edit</button>
-              <button onclick="deleteStore('${storeId}')" class="delete" id="deleteButton">Delete</button>
+              <button onclick="editStore('${
+                store.id
+              }')" class="edit" id="editButton">Edit</button>
+              <button onclick="deleteStore('${
+                store.id
+              }')" class="delete" id="deleteButton">Delete</button>
             </div>
             <div class="store-details flex-group">
               <div class="storeDataContainer">
@@ -139,7 +148,7 @@ async function renderSpecificStore() {
                   <h4>דירוג:</h4>
                   <p class="flex-group">
                     <i class="fa-solid fa-star filled"></i>
-                    <span class="rating">${calculateAvgRating(
+                    <span class="rating">${dbService.calculateAvgRating(
                       store.comments
                     )}</span>
                   </p>
@@ -160,7 +169,7 @@ async function renderSpecificStore() {
             </div>
             <div class="reviews-container">
               <div id="allReviews">
-                ${renderComments(store.comments)}
+                ${renderHTML.renderComments(store.comments)}
               </div>
               <div class="add-review__wrapper flex-group">
                 <button id="addNewComment" class="btn"><i class="fa-solid fa-plus"></i></button>
@@ -178,18 +187,27 @@ async function renderSpecificStore() {
               </div>
             </div>
           </div>
-        </div>
-      </div>`;
-    const popupContainer = document.getElementById("storePopupContainer");
+      `;
+
+    const popupContainer = document.querySelector("#popupStore");
     popupContainer.innerHTML = popupHTML;
-    popupContainer.classList.remove("hidden");
+    console.log(popupContainer);
+    document.querySelector(".overlay").style.display = "block";
+    document.querySelector(".overlay").style.display = "block";
+    document.querySelector(".close-overlay").style.display = "block";
+    document
+      .querySelector(".close-overlay")
+      .addEventListener("click", closeOverlay);
+    document.querySelector("#popupStore").style.display = "block !important";
   } catch (err) {
+    console.log(err);
     // toaster.showErrorToast("err.message");
   }
 }
 
 function closePopUp() {
   const popupContainer = document.getElementById("storePopupContainer");
+
   popupContainer.classList.add("hidden");
 }
 
@@ -202,7 +220,7 @@ async function handleDeleteStore(storeId) {
     const updatedStores = owner.stores.filter((id) => id !== storeId);
     await dbService.updateOwnerStores(ownerId, updatedStores);
     closePopUp();
-    OnRenderOwnerStores(ownerId);
+    OnRenderOwnerStores();
   } catch (error) {
     toaster.showErrorToast("Error deleting store: " + error.message);
   }
@@ -253,7 +271,7 @@ async function handleEditStore(storeId) {
         try {
           await dbService.updateStore(storeId, updatedStore);
           closePopUp();
-          OnRenderOwnerStores(store.ownerID);
+          OnRenderOwnerStores();
         } catch (error) {
           toaster.showErrorToast("Error updating store: " + error.message);
         }
