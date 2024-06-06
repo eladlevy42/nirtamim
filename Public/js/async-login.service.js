@@ -156,7 +156,7 @@ async function registerUser(ev) {
 async function postOwner(owner) {
   try {
     await axios.post(ownerUrl, owner);
-    window.location.href = `http://localhost:3000/ownerStores.html?userId=${encodeURIComponent(
+    window.location.href = `http://localhost:8001/ownerStores.html?userId=${encodeURIComponent(
       owner.id
     )}`;
   } catch (err) {

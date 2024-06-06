@@ -1,5 +1,5 @@
 import { renderHTML } from "./renderHTML.service.js";
-import { toaster } from "/public/js/toast.sevice.js";
+import { toaster } from "./toast.sevice.js";
 const storesUrl = "http://localhost:8001/stores";
 const ownerUrl = "http://localhost:8001/owners";
 
@@ -154,22 +154,26 @@ function getUserIdFromURL() {
   const params = new URLSearchParams(window.location.search);
   return params.get("userId");
 }
-
+function getStoreIdFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("storeId");
+}
 async function getStore() {
   try {
     const res = await axios.get(storesUrl);
     return res.data;
   } catch (error) {
-    toaster.showErrorToaster(error.message);
+    toaster.showErrorToast("error.message");
   }
 }
 
 async function getStoreById(storeId) {
   try {
     const res = await axios.get(`${storesUrl}/${storeId}`);
+    console.log(res.data);
     return res.data;
   } catch (error) {
-    toaster.showErrorToast(error.message);
+    toaster.showErrorToast("error.message");
   }
 }
 
@@ -236,6 +240,27 @@ function getLocalStores() {
   return allStores;
 }
 
+async function getOwnerByID(ownersId) {
+  try {
+    const res = await axios.get(`${ownerUrl}/?id=${ownersId}`);
+    return res.data[0];
+  } catch (err) {
+    toaster.showErrorToaster(err.message);
+  }
+}
+
+async function postComment(storeID, comment) {
+  try {
+    const store = await getStoreById(storeID);
+    const commentsArr = store.comments;
+    commentsArr.push(comment);
+    await axios.patch(`${storesUrl}/${storeID}`, {
+      comments: commentsArr,
+    });
+  } catch (err) {
+    toaster.showErrorToaster(err.message);
+  }
+}
 async function getOwnerStores(ownerId) {
   try {
     const res = await axios.get(`${storesUrl}/?ownerID=${ownerId}`);
@@ -264,28 +289,6 @@ async function updateOwnerStores(ownerId) {
   }
 }
 
-async function getOwnerByID(ownersId) {
-  try {
-    const res = await axios.get(`${ownerUrl}/?id=${ownersId}`);
-    return res.data[0];
-  } catch (err) {
-    toaster.showErrorToaster(err.message);
-  }
-}
-
-async function postComment(storeID, comment) {
-  try {
-    const store = await getStoreById(storeID);
-    const commentsArr = store.comments;
-    commentsArr.push(comment);
-    await axios.patch(`${storesUrl}/${storeID}`, {
-      comments: commentsArr,
-    });
-  } catch (err) {
-    toaster.showErrorToaster(err.message);
-  }
-}
-
 export const dbService = {
   getStore,
   getStoreById,
@@ -297,5 +300,6 @@ export const dbService = {
   postComment,
   getUserIdFromURL,
   updateOwnerStores,
+  getStoreIdFromURL,
   calculateAvgRating,
 };
