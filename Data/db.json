@@ -4,10 +4,7 @@
       "id": "store-1",
       "name": "מסעדת ג'ון",
       "ownerID": "owner-1",
-      "categories": [
-        "מסעדה",
-        "בר"
-      ],
+      "categories": ["מסעדה", "בר"],
       "location": {
         "district": "מרכז",
         "city": "נתניה"
@@ -51,10 +48,7 @@
       "id": "store-2",
       "name": "חנות הספרים של ג'ון",
       "ownerID": "owner-1",
-      "categories": [
-        "חנות ספרים",
-        "בית קפה"
-      ],
+      "categories": ["חנות ספרים", "בית קפה"],
       "location": {
         "district": "צפון",
         "city": "חיפה"
@@ -83,9 +77,7 @@
       "id": "store-4",
       "name": "חנות האלקטרוניקה של ג'ון",
       "ownerID": "owner-1",
-      "categories": [
-        "אלקטרוניקה"
-      ],
+      "categories": ["אלקטרוניקה"],
       "location": {
         "district": "צפון",
         "city": "טבריה"
@@ -109,9 +101,7 @@
       "id": "store-5",
       "name": "חנות האופנה של ג'ון",
       "ownerID": "owner-1",
-      "categories": [
-        "בגדים"
-      ],
+      "categories": ["בגדים"],
       "location": {
         "district": "דרום",
         "city": "אילת"
@@ -135,9 +125,7 @@
       "id": "store-6",
       "name": "חנות הרהיטים של ג'יין",
       "ownerID": "owner-2",
-      "categories": [
-        "רהיטים"
-      ],
+      "categories": ["רהיטים"],
       "location": {
         "district": "מרכז",
         "city": "ראשון לציון"
@@ -161,9 +149,7 @@
       "id": "store-7",
       "name": "חנות הצעצועים של ג'יין",
       "ownerID": "owner-2",
-      "categories": [
-        "צעצועים"
-      ],
+      "categories": ["צעצועים"],
       "location": {
         "district": "דרום",
         "city": "אשדוד"
@@ -187,9 +173,7 @@
       "id": "store-8",
       "name": "חנות התכשיטים של ג'יין",
       "ownerID": "owner-2",
-      "categories": [
-        "תכשיטים"
-      ],
+      "categories": ["תכשיטים"],
       "location": {
         "district": "מרכז",
         "city": "הרצליה"
@@ -213,9 +197,7 @@
       "id": "store-9",
       "name": "חנות הספורט של ג'יין",
       "ownerID": "owner-2",
-      "categories": [
-        "ספורט"
-      ],
+      "categories": ["ספורט"],
       "location": {
         "district": "צפון",
         "city": "כרמיאל"
@@ -239,9 +221,7 @@
       "id": "store-10",
       "name": "חנות המוזיקה של ג'יין",
       "ownerID": "owner-2",
-      "categories": [
-        "מוזיקה"
-      ],
+      "categories": ["מוזיקה"],
       "location": {
         "district": "מרכז",
         "city": "רמת גן"
@@ -265,9 +245,7 @@
       "id": "store-11",
       "name": "קפה של ג'יין",
       "ownerID": "owner-2",
-      "categories": [
-        "בית קפה"
-      ],
+      "categories": ["בית קפה"],
       "location": {
         "district": "צפון",
         "city": "נהריה"
@@ -291,9 +269,7 @@
       "id": "store-12",
       "name": "מסעדת ג'יין",
       "ownerID": "owner-2",
-      "categories": [
-        "מסעדה"
-      ],
+      "categories": ["מסעדה"],
       "location": {
         "district": "דרום",
         "city": "באר שבע"
@@ -317,9 +293,7 @@
       "id": "store-13",
       "name": "המאפייה של ג'ון",
       "ownerID": "owner-1",
-      "categories": [
-        "מאפיה"
-      ],
+      "categories": ["מאפיה"],
       "location": {
         "district": "מרכז",
         "city": "פתח תקווה"
@@ -343,9 +317,7 @@
       "id": "store-14",
       "name": "בית מרקחת של ג'ון",
       "ownerID": "owner-1",
-      "categories": [
-        "בית מרקחת"
-      ],
+      "categories": ["בית מרקחת"],
       "location": {
         "district": "צפון",
         "city": "עכו"
@@ -369,9 +341,7 @@
       "id": "store-15",
       "name": "חנות החיות של ג'יין",
       "ownerID": "owner-2",
-      "categories": [
-        "חנות לחיות מחמד"
-      ],
+      "categories": ["חנות לחיות מחמד"],
       "location": {
         "district": "דרום",
         "city": "אשקלון"
@@ -395,9 +365,7 @@
       "id": "store-16",
       "name": "חנות בגדים של ג'יין",
       "ownerID": "owner-2",
-      "categories": [
-        "בגדים"
-      ],
+      "categories": ["בגדים"],
       "location": {
         "district": "מרכז",
         "city": "רעננה"
@@ -426,9 +394,7 @@
       "id": "store-17",
       "name": "חנות פרחים של ג'יין",
       "ownerID": "owner-2",
-      "categories": [
-        "פרחים"
-      ],
+      "categories": ["פרחים"],
       "location": {
         "district": "צפון",
         "city": "נהריה"
@@ -452,9 +418,31 @@
       "id": "store-18",
       "name": "בית קפה של ג'יין",
       "ownerID": "owner-2",
-      "categories": [
-        "בית קפה"
+      "categories": ["בית קפה"],
+      "location": {
+        "district": "מרכז",
+        "city": "תל אביב"
+      },
+      "img": "https://images.unsplash.com/photo-1517685352821-92cf88aee5a5",
+      "comments": [
+        {
+          "name": "אנונימי",
+          "description": "קפה מצוין ואווירה נעימה.",
+          "ratings": 5
+        }
       ],
+      "details": {
+        "phone-number": "051-8888888",
+        "hours": "07:00-22:00",
+        "description": "בית קפה עם קפה מעולה.",
+        "link": "http://example.com/store18"
+      }
+    },
+    {
+      "id": "store-me",
+      "name": "בית קפה של ג'יין",
+      "ownerID": "owner-2",
+      "categories": ["בית קפה"],
       "location": {
         "district": "מרכז",
         "city": "תל אביב"
@@ -478,9 +466,7 @@
       "id": "store-19",
       "name": "מאפיית ג'יין",
       "ownerID": "owner-2",
-      "categories": [
-        "מאפיה"
-      ],
+      "categories": ["מאפיה"],
       "location": {
         "district": "דרום",
         "city": "אשדוד"
@@ -504,9 +490,7 @@
       "id": "store-20",
       "name": "בר של ג'יין",
       "ownerID": "owner-2",
-      "categories": [
-        "בר"
-      ],
+      "categories": ["בר"],
       "location": {
         "district": "מרכז",
         "city": "תל אביב"
@@ -530,9 +514,7 @@
       "id": "eb70",
       "name": "החנות של אלעד",
       "ownerID": "faab",
-      "categories": [
-        "מזון"
-      ],
+      "categories": ["מזון"],
       "location": {
         "district": "מרכז",
         "city": "תל אביב"
@@ -627,10 +609,7 @@
       "password": "Elad123@",
       "description": "מלך",
       "profileImg": "וטן87ן8",
-      "stores": [
-        "2f81",
-        "2bba"
-      ]
+      "stores": ["2f81", "2bba"]
     },
     {
       "id": "faab",
@@ -640,9 +619,7 @@
       "password": "Iitc1234!",
       "description": "גולנציק בשסן",
       "profileImg": "דגדגגכד",
-      "stores": [
-        "eb70"
-      ]
+      "stores": ["eb70"]
     }
   ]
 }

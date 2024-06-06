@@ -1,16 +1,26 @@
-/* :root {
+:root {
   --clr-primary-100: hsl(219, 38%, 90%);
   --clr-primary-350: hsl(74, 29%, 66%);
   --clr-primary-500: hsl(213, 47%, 47%);
   --clr-primary-700: hsl(212, 64%, 19%);
+  --clr-accent-500: rgb(49, 177, 49);
 
-  --clr--neutral-100: hsl(0, 0%, 100%);
-} */
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-110: hsl(0, 0%, 95%);
+  --clr-neutral-300: hsl(0, 0%, 65%);
+  --clr-neutral-700: hsl(0, 0%, 20%);
+
+  --border-radius-light: 4px;
+  --border-radius-med: 8px;
+}
 nav {
   width: 100%;
   padding-block: 2rem;
   color: var(--clr--neutral-100);
   background-color: var(--clr-primary-500);
+}
+nav li:hover {
+  color: var(--clr-accent-500);
 }
 .navbar-brand {
   display: flex;
@@ -20,22 +30,24 @@ nav {
 }
 
 .navbar-brand h3 {
-  font-family: 'Alef', sans-serif;
-  color: #333; 
+  color: var(--clr--neutral-100);
 }
 
 .fa-star-of-david {
-  font-size: 48px; 
-  color: rgb(0, 97, 0); 
+  margin-right: 0.75rem;
+  font-size: 48px;
+  color: var(--clr-accent-500);
 }
-
+/* .fa-star-of-david:hover {
+  animation: shake 0.5s infinite;
+} */
 
 .navbar-options {
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .current-page {
-  color: var(--clr-primary-350);
+  color: var(--clr-accent-500);
 }
 
 .icon-text {
@@ -46,6 +58,3 @@ nav {
     display: inline-block;
   }
 }
-
-
-

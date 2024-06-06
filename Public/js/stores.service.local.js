@@ -250,7 +250,7 @@ async function displayAllStores() {
     storesContainer.classList.remove("hidden");
   }
 }
-function displayPaginationButtons(params) {
+function displayPaginationButtons() {
   // next
   if (
     allRelevantStores.length === 0 ||
