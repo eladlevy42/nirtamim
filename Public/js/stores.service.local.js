@@ -3,13 +3,93 @@ import { dbService } from "./async-db.service.js";
 const storesUrl = "http://localhost:8001/stores";
 const ownerUrl = "http://localhost:8001/owners";
 let currentPage = 1;
-let allStores = [];
+let allRelevantStores = [];
 const storesPerPage = 9;
 let totalStores = 0;
 const storesContainer = document.querySelector("#allStoresContainer");
 const prevPageButton = document.getElementById("prevPage");
 const nextPageButton = document.getElementById("nextPage");
 const pageNumberElement = document.getElementById("pageNumber");
+let filteredByDistrict;
+let filteredByCategory;
+let filteredByCity;
+
+// filter by district
+const districtFilterOption = document.querySelectorAll(".district-option");
+districtFilterOption.forEach((districtOption) => {
+  districtOption.addEventListener("click", async (event) => {
+    const district = event.target.getAttribute("data-value");
+    filteredByDistrict = district;
+    await resetDistrictFilter();
+    await filterByDistrict(district);
+    displayPage(allRelevantStores);
+  });
+});
+async function resetDistrictFilter() {
+  if (filterByDistrict) {
+    allRelevantStores = await dbService.getAllStores();
+  }
+}
+async function filterByDistrict(district) {
+  try {
+    allRelevantStores = allRelevantStores.filter((store) => {
+      return district === store.location.district;
+    });
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+// filter by category
+const categoryFilterOption = document.querySelectorAll(".category-option");
+categoryFilterOption.forEach((categoryOption) => {
+  categoryOption.addEventListener("click", async (event) => {
+    const category = event.target.innerText.trim();
+    filteredByCategory = category;
+    await resetCategoryFilter();
+    await filterByCategory(category);
+    displayPage(allRelevantStores);
+  });
+});
+async function resetCategoryFilter() {
+  if (filteredByCategory) {
+    allRelevantStores = await dbService.getAllStores();
+  }
+}
+async function filterByCategory(category) {
+  try {
+    allRelevantStores = allRelevantStores.filter((store) => {
+      return store.categories.includes(category);
+    });
+  } catch (err) {
+    console.error(err);
+  }
+}
+// filter by city
+const cityFilterOption = document.querySelectorAll(".city-option");
+cityFilterOption.forEach((cityOption) => {
+  cityOption.addEventListener("click", async (event) => {
+    const city = event.target.innerText.trim();
+    filteredByCity = city;
+    await resetCityFilter();
+    await filterByCity(city);
+    displayPage(allRelevantStores);
+  });
+});
+async function resetCityFilter() {
+  if (filteredByCity) {
+    allRelevantStores = await dbService.getAllStores();
+  }
+}
+async function filterByCity(city) {
+  try {
+    allRelevantStores = allRelevantStores.filter(
+      (store) => city === store.location.city
+    );
+  } catch (err) {
+    console.error(err);
+  }
+}
 
 function displayPage(stores) {
   const start = (currentPage - 1) * storesPerPage;
@@ -66,18 +146,18 @@ function displayPage(stores) {
 
   pageNumberElement.innerText = currentPage;
 }
-async function getAllStores() {
+async function displayAllStores() {
   storesContainer.innerHTML = "";
   storesContainer.classList.add("hidden");
   try {
     const response = await axios.get(storesUrl);
-    allStores = response.data;
-    totalStores = allStores.length;
+    allRelevantStores = response.data;
+    totalStores = allRelevantStores.length;
     if (totalStores === 0) {
       console.error("No stores found");
     } else {
       currentPage = 1;
-      displayPage(allStores);
+      displayPage(allRelevantStores);
     }
   } catch (error) {
     console.error("Error fetching stores", error);
@@ -89,7 +169,7 @@ async function getAllStores() {
 function changePage(direction) {
   const maxPage = Math.ceil(totalStores / storesPerPage);
   currentPage = Math.min(Math.max(currentPage + direction, 1), maxPage);
-  displayPage(allStores);
+  displayPage(allRelevantStores);
 }
 function calculateAvgRating(commentsArray) {
   const total = commentsArray.reduce((acc, comment) => {
@@ -105,7 +185,7 @@ const search = async function () {
     .value.trim()
     .toLowerCase();
   if (!searchQuery) {
-    await getAllStores();
+    await displayAllStores();
     return;
   }
 
@@ -114,16 +194,16 @@ const search = async function () {
 
   try {
     const response = await axios.get(storesUrl);
-    allStores = response.data.filter((store) =>
+    allRelevantStores = response.data.filter((store) =>
       store.name.toLowerCase().includes(searchQuery)
     );
 
-    totalStores = allStores.length;
+    totalStores = allRelevantStores.length;
     if (totalStores === 0) {
       storesContainer.innerHTML = "<p>No stores found</p>";
     } else {
       currentPage = 1;
-      displayPage(allStores);
+      displayPage(allRelevantStores);
     }
   } catch (error) {
     console.error("Error searching stores", error);
@@ -138,5 +218,5 @@ export const storeService = {
   changePage,
   displayPage,
   calculateAvgRating,
-  getAllStores,
+  displayAllStores,
 };
