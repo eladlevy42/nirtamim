@@ -8,7 +8,6 @@ const prevPageButton = document.getElementById("prevPage");
 const nextPageButton = document.getElementById("nextPage");
 const pageNumberElement = document.getElementById("pageNumber");
 
-
 function getUserIdFromURL() {
   const params = new URLSearchParams(window.location.search);
   return params.get("userId");
@@ -91,10 +90,9 @@ async function getAllStores() {
 async function getOwnerStores(ownerId) {
   try {
     const res = await axios.get(`${storesUrl}/?ownerID=${ownerId}`);
-    alert(res.data);
+
     return extractStoreName(res.data);
   } catch (err) {
-    alert(err);
     console.error(err);
   }
 }
@@ -104,17 +102,13 @@ function extractStoreName(array) {
 async function updateOwnerStores(ownerId) {
   try {
     const userStores = await getOwnerStores(ownerId);
-    alert(userStores);
+
     try {
       await axios.patch(`${ownerUrl}/${ownerId}`, {
         stores: userStores,
       });
-      alert("Updated");
-    } catch (err) {
-      alert(err);
-    }
+    } catch (err) {}
   } catch (err) {
-    alert(err);
     console.error(err);
   }
 }
@@ -124,7 +118,6 @@ async function getOwnerByID(ownersId) {
     const res = await axios.get(`${ownerUrl}/?id=${ownersId}`);
     return res.data[0];
   } catch (err) {
-    alert(err);
     console.error(err);
   }
 }
