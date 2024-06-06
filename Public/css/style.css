@@ -1,10 +1,11 @@
 @import url(reset.css);
-
+@import url(../css/components/toaster.css);
 @import url(../css/components/navbar.css);
 @import url(../css/components/footer.css);
 @import url(../css/components/buttons.css);
 @import url(../css/components/overlay-popup.css);
 @import url(../css/components/owner-stores.css);
+@import url(../css/components/form.css);
 
 @import url(../css/utils/grid/grid.css);
 @import url(../css/utils/flex/flex.css);
@@ -35,6 +36,7 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
+  font-family: 'Alef', sans-serif;
 }
 footer,
 main > *,

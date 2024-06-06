@@ -98,7 +98,7 @@ function displayPage(stores) {
 
   storesContainer.innerHTML = paginatedStores
     .map((store) => {
-      return `<div class="store-card grid-group">
+      return `<div class="store-card grid-group" id="${store.id}">
             <div class="store-img__wrapper flex-group">
             <img
                     class="store-img"
@@ -130,7 +130,10 @@ function displayPage(stores) {
           </div>`;
     })
     .join("");
-
+  paginatedStores.forEach((store) => {
+    const storeElement = document.getElementById(`${store.id}`);
+    storeElement.addEventListener("click", () => openStorePage(store.id));
+  });
   const maxPage = Math.ceil(totalStores / storesPerPage);
 
   prevPageButton.classList.toggle("hidden", currentPage === 1);

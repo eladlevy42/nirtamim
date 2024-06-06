@@ -1,28 +1,3 @@
-/* .aboutUsContent {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-
-.soldiersImg {
-    max-width: 50%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.aboutUsText {
-    max-width: 50%;
-    font-size: 24px;
-    font-family: 'Alef', sans-serif;
-}
-
-.aboutUsTitle{
-    font-family: 'Alef', sans-serif;
-    text-align: center;
-    padding-bottom: 16px;
-} */
 
 #AboutUsContainer {
     padding: 40px 20px;
@@ -53,7 +28,7 @@
     height: auto;
     object-fit: cover;
     border-radius: 10px;
-    order: 2; /* Default order for smaller screens */
+    order: 2; 
 }
 
 .textContainer {
@@ -68,4 +43,3 @@
     font-family: 'Alef', sans-serif;
     text-align: center;
 }
-

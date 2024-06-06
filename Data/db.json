@@ -4,20 +4,42 @@
       "id": "fake-1234",
       "name": "שם מזויף",
       "ownerID": "owner-1",
-      "categories": [
-        "מסעדה",
-        "בר"
-      ],
+      "categories": ["מסעדה", "בר"],
       "location": {
         "district": "מרכז",
         "city": "נתניה"
       },
-      "img": "https://via.placeholder.com/150",
+      "img": "https://d3o5sihylz93ps.cloudfront.net/wp-content/uploads/2021/06/17100511/cc-1100x733.jpg",
       "comments": [
         {
           "name": "אנונימי",
           "description": "בלה בלה",
           "ratings": "4"
+        },
+        {
+          "name": "גכד",
+          "description": "גדכ",
+          "ratings": 3
+        },
+        {
+          "name": "דגכגדכ",
+          "description": "דגכגדכ",
+          "ratings": 3
+        },
+        {
+          "name": "sdfdsf",
+          "description": "sddfsdf",
+          "ratings": 4
+        },
+        {
+          "name": "sdf",
+          "description": "sdf",
+          "ratings": 4
+        },
+        {
+          "name": "fdgdf",
+          "description": "dgfdgf",
+          "ratings": 5
         }
       ],
       "details": {
@@ -31,10 +53,7 @@
       "id": "store-1",
       "name": "חנות 1",
       "ownerID": "owner-1",
-      "categories": [
-        "חנות",
-        "בית קפה"
-      ],
+      "categories": ["חנות", "בית קפה"],
       "location": {
         "district": "צפון",
         "city": "חיפה"
@@ -45,6 +64,11 @@
           "name": "אנונימי",
           "description": "מקום נהדר!",
           "ratings": "5"
+        },
+        {
+          "name": "elad",
+          "description": "aras",
+          "rating": 2
         }
       ],
       "details": {
@@ -58,10 +82,7 @@
       "id": "store-2",
       "name": "חנות 2",
       "ownerID": "owner-1",
-      "categories": [
-        "חנות ספרים",
-        "בית קפה"
-      ],
+      "categories": ["חנות ספרים", "בית קפה"],
       "location": {
         "district": "דרום",
         "city": "באר שבע"
@@ -90,10 +111,7 @@
       "id": "store-3",
       "name": "חנות 3",
       "ownerID": "owner-1",
-      "categories": [
-        "מכולת",
-        "שוק"
-      ],
+      "categories": ["מכולת", "שוק"],
       "location": {
         "district": "מרכז",
         "city": "תל אביב"
@@ -117,9 +135,7 @@
       "id": "store-4",
       "name": "חנות 4",
       "ownerID": "owner-1",
-      "categories": [
-        "אלקטרוניקה"
-      ],
+      "categories": ["אלקטרוניקה"],
       "location": {
         "district": "צפון",
         "city": "טבריה"
@@ -143,9 +159,7 @@
       "id": "store-5",
       "name": "חנות 5",
       "ownerID": "owner-1",
-      "categories": [
-        "בגדים"
-      ],
+      "categories": ["בגדים"],
       "location": {
         "district": "דרום",
         "city": "אילת"
@@ -169,9 +183,7 @@
       "id": "store-6",
       "name": "חנות 6",
       "ownerID": "owner-1",
-      "categories": [
-        "רהיטים"
-      ],
+      "categories": ["רהיטים"],
       "location": {
         "district": "מרכז",
         "city": "ראשון לציון"
@@ -195,9 +207,7 @@
       "id": "store-7",
       "name": "חנות 7",
       "ownerID": "owner-1",
-      "categories": [
-        "חומרה"
-      ],
+      "categories": ["חומרה"],
       "location": {
         "district": "צפון",
         "city": "קריית שמונה"
@@ -221,9 +231,7 @@
       "id": "store-8",
       "name": "חנות 8",
       "ownerID": "owner-1",
-      "categories": [
-        "חנות צעצועים"
-      ],
+      "categories": ["חנות צעצועים"],
       "location": {
         "district": "דרום",
         "city": "אשדוד"
@@ -247,9 +255,7 @@
       "id": "store-9",
       "name": "חנות 9",
       "ownerID": "owner-1",
-      "categories": [
-        "חנות לחיות מחמד"
-      ],
+      "categories": ["חנות לחיות מחמד"],
       "location": {
         "district": "מרכז",
         "city": "פתח תקווה"
@@ -273,9 +279,7 @@
       "id": "store-10",
       "name": "חנות 10",
       "ownerID": "owner-1",
-      "categories": [
-        "בית מרקחת"
-      ],
+      "categories": ["בית מרקחת"],
       "location": {
         "district": "צפון",
         "city": "עכו"
@@ -299,9 +303,7 @@
       "id": "store-11",
       "name": "חנות 11",
       "ownerID": "owner-2",
-      "categories": [
-        "מאפיה"
-      ],
+      "categories": ["מאפיה"],
       "location": {
         "district": "דרום",
         "city": "אשקלון"
@@ -325,9 +327,7 @@
       "id": "store-12",
       "name": "חנות 12",
       "ownerID": "owner-2",
-      "categories": [
-        "תכשיטים"
-      ],
+      "categories": ["תכשיטים"],
       "location": {
         "district": "מרכז",
         "city": "הרצליה"
@@ -351,9 +351,7 @@
       "id": "store-13",
       "name": "חנות 13",
       "ownerID": "owner-2",
-      "categories": [
-        "חנות מוזיקה"
-      ],
+      "categories": ["חנות מוזיקה"],
       "location": {
         "district": "צפון",
         "city": "צפת"
@@ -377,9 +375,7 @@
       "id": "store-14",
       "name": "חנות 14",
       "ownerID": "owner-2",
-      "categories": [
-        "חנות ספרים"
-      ],
+      "categories": ["חנות ספרים"],
       "location": {
         "district": "מרכז",
         "city": "רמת גן"
@@ -403,9 +399,7 @@
       "id": "store-15",
       "name": "חנות 15",
       "ownerID": "owner-2",
-      "categories": [
-        "מסעדה"
-      ],
+      "categories": ["מסעדה"],
       "location": {
         "district": "צפון",
         "city": "נהריה"
@@ -429,9 +423,7 @@
       "id": "store-16",
       "name": "חנות 16",
       "ownerID": "owner-2",
-      "categories": [
-        "בר"
-      ],
+      "categories": ["בר"],
       "location": {
         "district": "דרום",
         "city": "באר שבע"
@@ -455,9 +447,7 @@
       "id": "store-17",
       "name": "חנות 17",
       "ownerID": "owner-2",
-      "categories": [
-        "חנות ספורט"
-      ],
+      "categories": ["חנות ספורט"],
       "location": {
         "district": "מרכז",
         "city": "רעננה"
@@ -481,9 +471,7 @@
       "id": "store-18",
       "name": "חנות 18",
       "ownerID": "owner-2",
-      "categories": [
-        "בית קפה"
-      ],
+      "categories": ["בית קפה"],
       "location": {
         "district": "צפון",
         "city": "כרמיאל"
@@ -507,9 +495,7 @@
       "id": "store-19",
       "name": "חנות 19",
       "ownerID": "owner-2",
-      "categories": [
-        "מאפיה"
-      ],
+      "categories": ["מאפיה"],
       "location": {
         "district": "דרום",
         "city": "אשדוד"
@@ -533,9 +519,7 @@
       "id": "store-20",
       "name": "חנות 20",
       "ownerID": "owner-2",
-      "categories": [
-        "גלידריה"
-      ],
+      "categories": ["גלידריה"],
       "location": {
         "district": "מרכז",
         "city": "תל אביב"
@@ -554,26 +538,6 @@
         "description": "גלידריה",
         "link": "http://example.com/store20"
       }
-    },
-    {
-      "id": "93e7",
-      "name": "גדחי",
-      "ownerID": "owner-1",
-      "categories": [
-        "לחילח"
-      ],
-      "location": {
-        "district": "ילחי",
-        "city": "לחילחי"
-      },
-      "img": "לחי",
-      "comments": [],
-      "details": {
-        "phone-number": "לחילחי",
-        "hours": "לחי",
-        "description": "לחילחי",
-        "link": "לחילח"
-      }
     }
   ],
   "owners": [
@@ -591,13 +555,10 @@
         "store-2",
         "store-3",
         "store-4",
-        "store-5",
-        "store-6",
         "store-7",
         "store-8",
         "store-9",
-        "store-10",
-        "93e7"
+        "store-10"
       ]
     },
     {
@@ -620,6 +581,26 @@
         "store-19",
         "store-20"
       ]
+    },
+    {
+      "id": "3574",
+      "name": "elad levy",
+      "username": "elad",
+      "email": "eladio2002@gmail.com",
+      "password": "Elad123@",
+      "description": "sdfdfs",
+      "profileImg": "sddsfdsf",
+      "stores": []
+    },
+    {
+      "id": "d8e5",
+      "name": "eladiosd",
+      "username": "eeee",
+      "email": "efdssdfds@sdfdfs",
+      "password": "Elad123@",
+      "description": "dsafdfs",
+      "profileImg": "sddf",
+      "stores": []
     }
   ]
 }
