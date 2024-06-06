@@ -54,7 +54,7 @@ async function matchUsernameToPassword(userPassword, username) {
       return false;
     }
   } catch (err) {
-    toaster.showErrorToaster(err.message);
+    toaster.showErrorToaster("err.message");
   }
 }
 
