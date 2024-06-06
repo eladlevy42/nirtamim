@@ -169,7 +169,7 @@ async function getStoreById(storeId) {
     const res = await axios.get(`${storesUrl}/${storeId}`);
     return res.data;
   } catch (error) {
-    toaster.showErrorToaster(error.message);
+    toaster.showErrorToast(error.message);
   }
 }
 
@@ -223,7 +223,7 @@ async function deleteStore(storeId) {
   }
 }
 
-export async function getAllOwnerStores(ownersId) {
+async function getAllOwnerStores(ownersId) {
   try {
     const res = await axios.get(`${ownerUrl}/${ownersId}`);
     return res.data.stores;
@@ -297,4 +297,5 @@ export const dbService = {
   postComment,
   getUserIdFromURL,
   updateOwnerStores,
+  calculateAvgRating,
 };
