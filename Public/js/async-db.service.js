@@ -8,7 +8,6 @@ const prevPageButton = document.getElementById("prevPage");
 const nextPageButton = document.getElementById("nextPage");
 const pageNumberElement = document.getElementById("pageNumber");
 
-////////////
 
 function getUserIdFromURL() {
   const params = new URLSearchParams(window.location.search);

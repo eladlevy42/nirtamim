@@ -17,10 +17,6 @@
   justify-items: center;
 }
 
-.filters-container {
-  margin: 16px 0 0;
-}
-
 .searchBar {
   margin-bottom: 1rem;
 }
@@ -127,10 +123,15 @@
   margin-right: 0.25rem;
 }
 
-.fa-solid.fa-star{
-  color: rgb(49, 177, 49);
+.pagination {
+  margin-top: 1rem;
 }
-
+.open-hours {
+  color: green;
+}
+.close-hours {
+  color: red;
+}
 @media (min-width: 670px) {
   .all-stores__container {
     grid-template-columns: 330px 1fr;
