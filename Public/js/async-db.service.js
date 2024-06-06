@@ -133,11 +133,14 @@ async function getOwnerByID(ownersId) {
   }
 }
 function calculateAvgRating(commentsArray) {
-  const total = commentsArray.reduce((acc, comment) => {
-    acc += Number(comment.ratings);
-    return acc;
-  }, 0);
-  return (total / commentsArray.length).toFixed(1);
+  if (commentsArray.length > 0) {
+    const total = commentsArray.reduce((acc, comment) => {
+      acc += Number(comment.ratings);
+      return acc;
+    }, 0);
+    return (total / commentsArray.length).toFixed(1);
+  }
+  return 0;
 }
 async function postComment(storeID, comment) {
   try {

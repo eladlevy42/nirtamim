@@ -6,7 +6,7 @@
 @import url(../css/components/overlay-popup.css);
 @import url(../css/components/owner-stores.css);
 @import url(../css/components/form.css);
-
+@import url(../css/components/newStoreFrm.css);
 @import url(../css/utils/grid/grid.css);
 @import url(../css/utils/flex/flex.css);
 
@@ -36,7 +36,7 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
-  font-family: 'Alef', sans-serif;
+  font-family: "Alef", sans-serif;
 }
 footer,
 main > *,
