@@ -100,7 +100,7 @@ function displayPage(stores) {
     .map((store) => {
       return `<div class="store-card grid-group"  id="${store.id}">
               <div class="store-img__wrapper flex-group">
-              <img
+              <img onerror="this.onerror=null; this.src='https://www.svgrepo.com/show/508699/landscape-placeholder.svg';"
                       class="store-img"
                       src="${store.img}"
                       alt="${store.name}"

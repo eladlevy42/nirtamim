@@ -10,6 +10,7 @@ async function onInit() {
   window.onPageLoad = onPageLoad;
   const storeId = dbService.getStoreIdFromURL();
   const store = await dbService.getStoreById(storeId);
+
   onPageLoad(store);
 }
 
@@ -72,12 +73,14 @@ async function onPageLoad(store) {
       star.style.color = "#ccc";
     });
   }
+
   document
     .querySelector(".close-overlay")
     .addEventListener("click", (event) => {
       event.target.parentElement.style.display = "none";
       document.querySelector(".overlay").style.display = "none";
     });
+
   if (document.querySelector("#addNewComment")) {
     document.querySelector("#addNewComment").addEventListener("click", () => {
       document.querySelector(".pop-up__container").style.display = "block";
@@ -85,3 +88,5 @@ async function onPageLoad(store) {
     });
   }
 }
+
+//
