@@ -6,7 +6,6 @@ function createToastIfNeeded() {
   }
 }
 function showErrorToast(message) {
-  console.log(message);
   createToastIfNeeded();
   const toast = document.querySelector("#toaster");
   toast.innerHTML = `<strong>Error!</strong> ${message}`;
