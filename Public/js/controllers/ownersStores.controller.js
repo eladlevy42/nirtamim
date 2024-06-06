@@ -15,7 +15,6 @@ function onInit() {
   document.getElementById("addStoreFrm").addEventListener("submit", onAddStore);
 
   OnRenderOwnerStores();
-  // renderSpecificStore();
 }
 function addNewStore() {
   document.querySelector(".overlay").style.display = "block";
@@ -56,7 +55,7 @@ async function OnRenderOwnerStores() {
     const storeIds = await dbService.getAllOwnerStores(ownerId);
 
     if (storeIds.length === 0) {
-      storesContainer.innerHTML = "<p>אין עוד חנויות /p>";
+      storesContainer.innerHTML = "<p>אין עוד חנויות </p>";
       return;
     }
 
@@ -192,7 +191,7 @@ async function renderSpecificStore(store) {
     const popupContainer = document.querySelector("#popupStore");
     popupContainer.innerHTML = popupHTML;
     console.log(popupContainer);
-    document.querySelector(".overlay").style.display = "block";
+    document.querySelector(".pop-up__container").style.display = "block";
     document.querySelector(".overlay").style.display = "block";
     document.querySelector(".close-overlay").style.display = "block";
     document
