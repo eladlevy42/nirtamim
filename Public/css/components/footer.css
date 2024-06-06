@@ -3,8 +3,15 @@
   --clr-primary-350: hsl(74, 29%, 66%);
   --clr-primary-500: hsl(213, 47%, 47%);
   --clr-primary-700: hsl(212, 64%, 19%);
+  --clr-accent-500: rgb(49, 177, 49);
 
-  --clr--neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-110: hsl(0, 0%, 95%);
+  --clr-neutral-300: hsl(0, 0%, 65%);
+  --clr-neutral-700: hsl(0, 0%, 20%);
+
+  --border-radius-light: 4px;
+  --border-radius-med: 8px;
 }
 footer {
   gap: 0.25rem;
@@ -13,6 +20,9 @@ footer {
   bottom: 0;
   color: var(--clr--neutral-100);
   background-color: var(--clr-primary-700);
+}
+footer h3{
+  color: var(--clr-accent-500);
 }
 
 .footer-details {
