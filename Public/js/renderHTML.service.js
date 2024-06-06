@@ -25,21 +25,9 @@ function renderStoreUsers() {
       </div>
       </div>
       </div>`
-      //   <p class="store-location">${store.location.district}, ${
-      //       store.location.city
-      //     }</p>
-      //   <p class="store-phone">Phone: ${store.details["phone-number"]}</p>
-      //   <p class="store-hours">Hours: ${store.details.hours}</p>
-      //   <p class="store-categories">Categories: ${store.categories.join(", ")}</p>
-      //   <p class="store-rating">Rating: ${store.comments.ratings} - ${
-      //       store.comments.description
-      //     } (${store.comments.name})</p>
-      //   <a href="${store.details.link}" class="store-link">Visit Store</a>
-      // </div>`
     )
     .join("");
 }
-
 function renderStoreForOwners() {
   const allStores = dbService.getLocalStores();
   return allStores
