@@ -6,8 +6,23 @@ window.onload = onInit;
 function onInit() {
   window.OnRenderOwnerStores = OnRenderOwnerStores;
   window.onAddStore = onAddStore;
+  document.querySelector("#addNewStore").addEventListener("click", addNewStore);
   document.getElementById("addStoreFrm").addEventListener("submit", onAddStore);
   OnRenderOwnerStores();
+}
+function addNewStore() {
+  document.querySelector(".overlay").style.display = "block";
+  document.querySelector(".close-overlay").style.display = "block";
+  document
+    .querySelector(".close-overlay")
+    .addEventListener("click", closeOverlay);
+  document.querySelector(".pop-up__container").style.display = "block";
+}
+
+function closeOverlay() {
+  document.querySelector(".overlay").style.display = "none";
+  document.querySelector(".close-overlay").style.display = "none";
+  document.querySelector(".pop-up__container").style.display = "none";
 }
 async function onAddStore(ev) {
   ev.preventDefault();
