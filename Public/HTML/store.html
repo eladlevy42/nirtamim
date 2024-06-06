@@ -45,23 +45,25 @@
     <nav class="justify__space-between align__center flex-group">
       <div class="navbar-brand">
         <h3>נרתמים למילואים</h3>
-        <i class='fa-solid fa-star-of-david'></i>
+        <i class="fa-solid fa-star-of-david"></i>
       </div>
       <ul class="navbar-options flex-group">
         <li>
-          <a href="#"
+          <a href="http://127.0.0.1:5500/Public/HTML/index.html"></a>
+          <a href="http://127.0.0.1:5500/Public/HTML/index.html"></a>
             ><i class="fa-solid fa-house"></i>
             <span class="icon-text">דף הבית</span></a
           >
         </li>
         <li>
-          <a href="#"
+          <a href="http://127.0.0.1:5500/Public/HTML/allStores.html"
             ><i class="fa-solid fa-store"></i>
             <span class="icon-text">חנויות</span></a
           >
         </li>
         <li>
-          <a href="#">
+          <a href="http://127.0.0.1:5500/Public/HTML/logIn.html">
+          <a href="http://127.0.0.1:5500/Public/HTML/logIn.html">
             <i class="fa-solid fa-user"></i>
             <span class="icon-text">החנויות שלי</span></a
           >
@@ -69,86 +71,9 @@
       </ul>
     </nav>
     <main>
-      <h1>השקשוקה של אלעד</h1>
       <div class="store-container grid-group">
         <div class="store-wrapper">
-          <div class="store-img">
-            <img
-              src="https://d3o5sihylz93ps.cloudfront.net/wp-content/uploads/2021/06/17100511/cc-1100x733.jpg"
-              alt=""
-            />
-          </div>
-          <div class="store-details flex-group">
-            <div class="storeDataContainer">
-              <div class="categories-container">
-                <h4>קטגוריה:</h4>
-                <p class="categories">מסעדה, בר</p>
-              </div>
-              <div class="rating-container">
-                <h4>דירוג:</h4>
-                <p class="flex-group">
-                  <i class="fa-solid fa-star filled"></i>
-                  <span class="rating">4.5</span>
-                </p>
-              </div>
-              <div id="storeAdress" class="address">
-                <span class="city">סביון</span>,
-                <span class="address">העגורים 4</span>
-              </div>
-              <div id="storeLinks">
-                <a href="#" class="store__website"
-                  ><i class="fa-solid fa-house-user"></i
-                ></a>
-                <a href="" class="store__phone-number"
-                  ><i class="fa-solid fa-phone"></i
-                ></a>
-                <!-- <i class="fa-solid fa-pen-to-square"></i> -->
-              </div>
-            </div>
-          </div>
-          <div class="reviews-container">
-            <div id="allReviews">
-              <div class="review">
-                <h4>עינת</h4>
-                <span class="reviewRating">
-                  <i class="fa-solid fa-star filled"></i> 5
-                </span>
-                <p class="reviewParagraph">המקום ממש יפה היה טעים מאוד</p>
-              </div>
-              <div class="review">
-                <h4>עינת</h4>
-                <span class="reviewRating">
-                  <i class="fa-solid fa-star filled"></i> 5
-                </span>
-                <p class="reviewParagraph">המקום ממש יפה היה טעים מאוד</p>
-              </div>
-              <div class="review">
-                <h4>עינת</h4>
-                <span class="reviewRating">
-                  <i class="fa-solid fa-star filled"></i> 5
-                </span>
-                <p class="reviewParagraph">המקום ממש יפה היה טעים מאוד</p>
-              </div>
-            </div>
-            <div class="add-review__wrapper flex-group">
-              <button id="addNewComment" class="btn">
-                <i class="fa-solid fa-plus"></i>
-              </button>
-              <p>הוסף תגובה חדשה</p>
-            </div>
-          </div>
-        </div>
-        <div class="about-user-wrapper">
-          <div class="container">
-            <div class="leftStoreContainer">
-              <h2>על הבעלים:</h2>
-              <div class="aboutMeContainer">
-                <p id="ownerDescription">
-                  קוראים לי אלעד אני לוחם בגולני במילואים בעל חנות שקשוקה משגעת
-                </p>
-              </div>
-            </div>
-          </div>
+          <img src="https://i.gifer.com/ZKZg.gif" />
         </div>
       </div>
     </main>
@@ -156,7 +81,8 @@
       <h3>נרתמים למילואים בע"מ</h3>
       <div class="footer-details flex-group">
         <div class="company-info">
-          <p><i class="fa-solid fa-location-dot"></i>
+          <p>
+            <i class="fa-solid fa-location-dot"></i>
             הברוש 13, ירושלים
           </p>
           <p>
@@ -182,65 +108,7 @@
       </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
-    <script
-      type="module"
-      src="../js/controllers/stores.controller.js"
-      src="/nirtamim/Public/js/controllers/store.controller.js"
-    ></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const stars = document.querySelectorAll(".star-rating .fa-star");
-        let selectedRating = 0;
-
-        stars.forEach((star) => {
-          star.addEventListener("mouseover", function () {
-            const starId = parseInt(this.id);
-            fillStars(starId);
-          });
-
-          star.addEventListener("mouseout", function () {
-            resetStars();
-            if (selectedRating > 0) {
-              fillStars(selectedRating);
-            }
-          });
-
-          star.addEventListener("click", function () {
-            selectedRating = parseInt(this.id);
-            fillStars(selectedRating);
-          });
-        });
-
-        function fillStars(starId) {
-          stars.forEach((star) => {
-            if (parseInt(star.id) <= starId) {
-              star.style.color = "hsl(60, 100%, 40%)";
-            } else {
-              star.style.color = "#ccc";
-            }
-          });
-        }
-
-        function resetStars() {
-          stars.forEach((star) => {
-            star.style.color = "#ccc";
-          });
-        }
-        document
-          .querySelector(".close-overlay")
-          .addEventListener("click", (event) => {
-            event.target.parentElement.style.display = "none";
-            document.querySelector(".overlay").style.display = "none";
-          });
-
-        document
-          .querySelector("#addNewComment")
-          .addEventListener("click", () => {
-            document.querySelector(".pop-up__container").style.display =
-              "block";
-            document.querySelector(".overlay").style.display = "block";
-          });
-      });
-    </script>
+    <script type="module" src="../js/controllers/store.controller.js"></script>
+    <script></script>
   </body>
 </html>

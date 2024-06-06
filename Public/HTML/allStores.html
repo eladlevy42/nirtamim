@@ -15,7 +15,7 @@
     <nav class="justify__space-between align__center flex-group">
       <div class="navbar-brand">
         <h3>נרתמים למילואים</h3>
-        <i class='fa-solid fa-star-of-david'></i>
+        <i class="fa-solid fa-star-of-david"></i>
       </div>
       <ul class="navbar-options flex-group">
         <li>
@@ -58,37 +58,35 @@
         </div>
         <div class="categories-filter">
           <div class="styled-select">
-            <div class="select-box">סנן לפי איזור</div>
+            <div class="select-box">סנן לפי קטגוריה</div>
             <div class="options-container">
-              <div class="option" value="">כל האיזורים</div>
-              <div class="option" value="north">איזור צפון</div>
-              <div class="option" value="center">איזור מרכז</div>
-              <div class="option" value="south">איזור דרום</div>
+              <div class="option category-option">מסעדה</div>
+              <div class="option category-option">בגדים</div>
+              <div class="option category-option">בר</div>
+              <div class="option category-option">מאפיה</div>
+              <div class="option category-option">אלקטרוניקה</div>
             </div>
           </div>
         </div>
         <div class="district-filter">
           <div class="styled-select">
-            <div class="select-box">Select an option</div>
+            <div class="select-box">בחר לפי איזור</div>
             <div class="options-container">
-              <div class="option">Option 1</div>
-              <div class="option">Option 2</div>
-              <div class="option">Option 3</div>
-              <div class="option">Option 4</div>
-              <div class="option">Option 5</div>
+              <div data-value="מרכז" class="option district-option">מרכז</div>
+              <div data-value="צפון" class="option district-option">צפון</div>
+              <div data-value="דרום" class="option district-option">דרום</div>
             </div>
           </div>
         </div>
 
         <div class="city-filter">
           <div class="styled-select">
-            <div class="select-box">Select an option</div>
+            <div class="select-box">סנן לפי עיר</div>
             <div class="options-container">
-              <div class="option">Option 1</div>
-              <div class="option">Option 2</div>
-              <div class="option">Option 3</div>
-              <div class="option">Option 4</div>
-              <div class="option">Option 5</div>
+              <div class="option city-option">נתניה</div>
+              <div class="option city-option">חיפה</div>
+              <div class="option city-option">תל אביב</div>
+              <div class="option city-option">באר שבע</div>
             </div>
           </div>
         </div>
@@ -106,7 +104,6 @@
             <h3>שקשוקה שקשוקית</h3>
             <div class="group-details flex-group">
               <p class="store-categories">בר, מסעדה</p>
-              
             </div>
             <div class="store__sub-details flex-group">
               <p class="store-hours">14:00-22:00</p>
@@ -298,8 +295,7 @@
       <h3>נרתמים למילואים בע"מ</h3>
       <div class="footer-details flex-group">
         <div class="company-info">
-          <p><i class="fa-solid fa-location-dot"></i>
-            הברוש 13, ירושלים</p>
+          <p><i class="fa-solid fa-location-dot"></i> הברוש 13, ירושלים</p>
           <p>
             <span class="icon-title"><i class="fa-solid fa-envelope"></i></span>
             nirtamim@yourcompany.com
@@ -326,7 +322,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
     <script
       type="module"
-      src="/nirtamim/Public/js/controllers/stores.controller.js"
+      src="/Public/js/controllers/stores.controller.js"
     ></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {

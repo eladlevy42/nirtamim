@@ -1,162 +1,20 @@
 import { renderHTML } from "./renderHTML.service.js";
-
+import { toaster } from "./toast.sevice.js";
 const storesUrl = "http://localhost:8001/stores";
 const ownerUrl = "http://localhost:8001/owners";
 
-// let currentPage = 1;
-// let allStores = [];
-// const storesPerPage = 9;
-// let totalStores = 0;
-// const storesContainer = document.querySelector("#allStoresContainer");
 const displayStores = document.getElementById("displayStoreBySearch");
 const prevPageButton = document.getElementById("prevPage");
 const nextPageButton = document.getElementById("nextPage");
 const pageNumberElement = document.getElementById("pageNumber");
-const optionContainer = document.querySelector("options-container");
 
-// optionContainer.addEventListener("change", () => {
-//   currentPage = 1;
-//   const selectedStores = optionContainer.value;
-//   filteredStores(selectedStores);
-// });
-
-function filteredStores(category) {
-  const filteredStores = allStores.filter(
-    (store) => category === "" || store.categories.join(", ") === category
-  );
-  totalStores = filteredStores.length;
-  displayPage(filteredStores);
-}
-
-async function getAllStores() {
-  displayStores.innerHTML = "";
-  displayStores.classList.add("hidden");
-
-  try {
-    const response = await axios.get(storesUrl);
-    allStores = response.data;
-    totalStores = allStores.length;
-    if (totalStores === 0) {
-      console.error("No stores found");
-    } else {
-      currentPage = 1;
-      displayPage(allStores);
-    }
-  } catch (error) {
-    console.error("Error fetching stores", error);
-  } finally {
-    displayStores.classList.remove("hidden");
-  }
-}
-
-function changePage(direction) {
-  const maxPage = Math.ceil(totalStores / storesPerPage);
-  currentPage = Math.min(Math.max(currentPage + direction, 1), maxPage);
-  displayPage(allStores);
-}
-
-function calculateAvgRating(commentsArray) {
-  const total = commentsArray.reduce((acc, comment) => {
-    acc += Number(comment.ratings);
-    return acc;
-  }, 0);
-  return (total / commentsArray.length).toFixed(1);
-}
-
-function displayPage(stores) {
-  const start = (currentPage - 1) * storesPerPage;
-  const end = start + storesPerPage;
-  const paginatedStores = stores.slice(start, end);
-
-  storesContainer.innerHTML = paginatedStores
-    .map((store) => {
-      return `<div class="store-card grid-group">
-      <div class="store-img__wrapper flex-group">
-      <img
-              class="store-img"
-              src="${store.img}"
-              alt="${store.name}"
-          />
-      </div>
-      <div class="store-details">
-        <h3>${store.name}</h3>
-        <div class="group-details flex-group">
-          <p class="store-categories">${store.categories.join(", ")}</p>
-        </div>
-        <div class="store__sub-details flex-group">
-          <p class="store-hours">${store.details.hours}</p>
-          <p class="store-location">
-            <span class="city">${
-              store.location.city
-            }</span>,<span class="district"
-              >${store.location.district}
-          </p>
-        </div>
-        <p class="store-rating">
-            <i class="fa-solid fa-star filled"></i>
-            <span class="rating">${calculateAvgRating(store.comments)}</span>
-          </p>
-      </div>
-    </div>`;
-    })
-    .join("");
-
-  const maxPage = Math.ceil(totalStores / storesPerPage);
-
-  prevPageButton.classList.toggle("hidden", currentPage === 1);
-  nextPageButton.classList.toggle(
-    "hidden",
-    currentPage === maxPage || totalStores <= storesPerPage
-  );
-
-  if (maxPage <= 1) {
-    prevPageButton.classList.add("hidden");
-    nextPageButton.classList.add("hidden");
-  }
-
-  pageNumberElement.innerText = currentPage;
-}
-
-const search = async function () {
-  const searchQuery = document
-    .getElementById("searchInput")
-    .value.trim()
-    .toLowerCase();
-  if (!searchQuery) {
-    await getAllStores();
-    return;
-  }
-
-  displayStores.innerHTML = "";
-  displayStores.classList.add("hidden");
-
-  try {
-    const response = await axios.get(storesUrl);
-    allStores = response.data.filter((store) =>
-      store.name.toLowerCase().includes(searchQuery)
-    );
-
-    totalStores = allStores.length;
-    if (totalStores === 0) {
-      displayStores.innerHTML = "<p>No stores found</p>";
-    } else {
-      currentPage = 1;
-      displayPage(allStores);
-    }
-  } catch (error) {
-    console.error("Error searching stores", error);
-  } finally {
-    displayStores.classList.remove("hidden");
-  }
-};
 ////////////
 
 function getUserIdFromURL() {
   const params = new URLSearchParams(window.location.search);
   return params.get("userId");
 }
-
-async function getStore() {
+export async function getStore() {
   try {
     const res = await axios.get(storesUrl);
     return res.data;
@@ -164,7 +22,6 @@ async function getStore() {
     console.log(error);
   }
 }
-
 async function getStoreById(storeId) {
   try {
     const res = await axios.get(`${storesUrl}/${storeId}`);
@@ -173,16 +30,14 @@ async function getStoreById(storeId) {
     console.log(error);
   }
 }
-
-async function postStore(storeData) {
+export async function postStore(storeData) {
   try {
     await axios.post(storesUrl, storeData);
   } catch (error) {
     console.log(error);
   }
 }
-
-async function updateStore(storeId, updateStoreData) {
+export async function updateStore(storeId, updateStoreData) {
   try {
     const res = await axios.put(`${storesUrl}/${storeId}`, updateStoreData);
     return res.data;
@@ -190,7 +45,6 @@ async function updateStore(storeId, updateStoreData) {
     console.log(error);
   }
 }
-
 async function deleteStore(storeId) {
   let ownerId;
   try {
@@ -219,7 +73,6 @@ async function deleteStore(storeId) {
     console.log("Error deleting store from owner", error);
   }
 }
-
 export async function getAllOwnerStores(ownersId) {
   try {
     const res = await axios.get(`${ownerUrl}/${ownersId}`);
@@ -228,9 +81,17 @@ export async function getAllOwnerStores(ownersId) {
     console.log(error);
   }
 }
-
 function getLocalStores() {
   return allStores;
+}
+
+async function getAllStores() {
+  try {
+    const res = await axios.get(storesUrl);
+    return res.data;
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 async function getOwnerStores(ownerId) {
@@ -263,7 +124,6 @@ async function updateOwnerStores(ownerId) {
     console.error(err);
   }
 }
-
 async function getOwnerByID(ownersId) {
   try {
     const res = await axios.get(`${ownerUrl}/?id=${ownersId}`);
@@ -273,7 +133,13 @@ async function getOwnerByID(ownersId) {
     console.error(err);
   }
 }
-
+function calculateAvgRating(commentsArray) {
+  const total = commentsArray.reduce((acc, comment) => {
+    acc += Number(comment.ratings);
+    return acc;
+  }, 0);
+  return (total / commentsArray.length).toFixed(1);
+}
 async function postComment(storeID, comment) {
   try {
     const store = await getStoreById(storeID);
@@ -286,7 +152,10 @@ async function postComment(storeID, comment) {
     console.error(err);
   }
 }
-
+function getStoreIdFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("storeId");
+}
 export const dbService = {
   getStore,
   getStoreById,
@@ -298,4 +167,7 @@ export const dbService = {
   postComment,
   getUserIdFromURL,
   updateOwnerStores,
+  getAllStores,
+  calculateAvgRating,
+  getStoreIdFromURL,
 };
