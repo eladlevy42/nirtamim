@@ -89,14 +89,16 @@ async function filterByCity(city) {
     console.error(err);
   }
 }
-
+function openStorePage(storeId) {
+  window.location.href = `http://127.0.0.1:5500/Public/HTML/store.html?storeId=${storeId}`;
+}
 function displayPage(stores) {
   const start = (currentPage - 1) * storesPerPage;
   const end = start + storesPerPage;
   const paginatedStores = stores.slice(start, end);
   storesContainer.innerHTML = paginatedStores
     .map((store) => {
-      return `<div class="store-card grid-group">
+      return `<div class="store-card grid-group"  id="${store.id}">
               <div class="store-img__wrapper flex-group">
               <img
                       class="store-img"
@@ -128,6 +130,10 @@ function displayPage(stores) {
             </div>`;
     })
     .join("");
+  paginatedStores.forEach((store) => {
+    const storeElement = document.getElementById(`${store.id}`);
+    storeElement.addEventListener("click", () => openStorePage(store.id));
+  });
   const maxPage = Math.ceil(totalStores / storesPerPage);
   prevPageButton.classList.toggle("hidden", currentPage === 1);
   nextPageButton.classList.toggle(

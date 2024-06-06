@@ -39,7 +39,7 @@ async function getUserByUsername(username) {
     const response = await axios.get(`${ownerUrl}/?username=${username}`);
     return response.data[0];
   } catch (err) {
-    toaster.showErrorToaster(err.message);
+    toaster.showErrorToaster("err.message");
     return null;
   }
 }
@@ -54,7 +54,7 @@ async function matchUsernameToPassword(userPassword, username) {
       return false;
     }
   } catch (err) {
-    toaster.showErrorToaster(err.message);
+    toaster.showErrorToaster("err.message");
   }
 }
 
@@ -68,7 +68,7 @@ async function checkEmailExists(email) {
     }
     return true;
   } catch (err) {
-    toaster.showErrorToaster(err.message);
+    toaster.showErrorToaster("err.message");
     return false;
   }
 }
@@ -149,7 +149,7 @@ async function registerUser(ev) {
   try {
     await postOwner(newOwner);
   } catch (err) {
-    toaster.showErrorToaster(err.message);
+    toaster.showErrorToaster("err.message");
   }
 }
 

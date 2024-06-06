@@ -78,9 +78,10 @@ async function onPageLoad(store) {
       event.target.parentElement.style.display = "none";
       document.querySelector(".overlay").style.display = "none";
     });
-
-  document.querySelector("#addNewComment").addEventListener("click", () => {
-    document.querySelector(".pop-up__container").style.display = "block";
-    document.querySelector(".overlay").style.display = "block";
-  });
+  if (document.querySelector("#addNewComment")) {
+    document.querySelector("#addNewComment").addEventListener("click", () => {
+      document.querySelector(".pop-up__container").style.display = "block";
+      document.querySelector(".overlay").style.display = "block";
+    });
+  }
 }
