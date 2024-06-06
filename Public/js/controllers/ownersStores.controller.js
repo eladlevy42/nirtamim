@@ -68,6 +68,7 @@ async function OnRenderOwnerStores() {
                 class="store-img"
                 src="${store.img}"
                 alt="${store.name}"
+                onerror="this.onerror=null; this.src='https://www.svgrepo.com/show/508699/landscape-placeholder.svg';"
             />
         </div>
         <div class="store-details">
@@ -82,7 +83,9 @@ async function OnRenderOwnerStores() {
                 store.location.city
               }</span>,<span class="district"
                 >${store.location.district}
-            </p>
+            <span id="time">שעות עבודה: ${store.details.hours}</span>
+                </p>
+
           </div>
           <p class="store-rating">
               <i class="fa-solid fa-star filled"></i>

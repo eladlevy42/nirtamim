@@ -8,7 +8,7 @@ function renderStoreUsers() {
       (store) =>
         `<div class="store-card grid-group">
       <div class="store-img__wrapper flex-group">
-            <img
+            <img onerror="this.onerror=null; this.src='https://www.svgrepo.com/show/508699/landscape-placeholder.svg';"
               class="store-img"
               src="${store.img}" alt="${store.name}"
             />
@@ -36,7 +36,11 @@ function renderStoreForOwners() {
         `<div class="store">
       <button onclick="editBook(this)" class="edit" id="editButton">
       <button onclick="deleteBook(this)" class="delete" id="DeleteButton">
-      <img src="${store.img}" alt="${store.name}" class="store-image"/>
+      <img onerror="this.onerror=null; this.src='https://www.svgrepo.com/show/508699/landscape-placeholder.svg';" src="${
+        store.img
+      }" alt="${
+          store.name
+        }"                 onerror="this.onerror=null; this.src='https://www.svgrepo.com/show/508699/landscape-placeholder.svg';" class="store-image"/>
       <h4 class="store-name">${store.name}</h4>
       <p class="store-description">${store.details.description}</p>
       <p class="store-location">${store.location.district}, ${
@@ -77,7 +81,7 @@ async function renderSpecificStore(store) {
   <div class="store-container grid-group">
     <div class="store-wrapper">
       <div class="store-img">
-        <img
+        <img                 onerror="this.onerror=null; this.src='https://www.svgrepo.com/show/508699/landscape-placeholder.svg';"
           src=${store.img}
           alt="${store.name}"
         />
@@ -100,7 +104,9 @@ async function renderSpecificStore(store) {
           <div id="storeAdress" class="address">
             <span class="city">${store.location.city}</span>,
             <span class="address">${store.location.district}</span>
+            
           </div>
+          <span>שעות עבודה: ${store.details.hours}</span>
           <div id="storeLinks">
             <a href="${store.details.link}" class="store__website"
               ><i class="fa-solid fa-house-user"></i
@@ -108,7 +114,6 @@ async function renderSpecificStore(store) {
             <a href="${store.details.phone}" class="store__phone-number"
               ><i class="fa-solid fa-phone"></i
             ></a>
-            <!-- <i class="fa-solid fa-pen-to-square"></i> -->
           </div>
         </div>
       </div>
