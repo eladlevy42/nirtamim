@@ -1,6 +1,7 @@
 const storesUrl = "http://localhost:8001/stores";
 const ownerUrl = "http://localhost:8001/owners";
 import { toaster } from "/public/js/toast.sevice.js";
+
 async function userAuth(ev) {
   ev.preventDefault();
   const userPassword = document.querySelector("#passwordLog").value;
