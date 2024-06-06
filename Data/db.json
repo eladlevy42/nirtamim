@@ -22,7 +22,10 @@
       ],
       "details": {
         "phone-number": "050-1234678",
-        "hours": "אובייקט אופציה",
+        "hours": {
+          "opening-time": "8:00",
+          "closing-time": "20:00"
+        },
         "description": "תיאור חנות",
         "link": "optional"
       }
@@ -49,7 +52,10 @@
       ],
       "details": {
         "phone-number": "050-1111111",
-        "hours": "9-5",
+        "hours": {
+          "opening-time": "9:00",
+          "closing-time": "17:00"
+        },
         "description": "חנות מקסימה",
         "link": "http://example.com/store1"
       }
@@ -81,7 +87,10 @@
       ],
       "details": {
         "phone-number": "050-2222222",
-        "hours": "10-6",
+        "hours": {
+          "opening-time": "10:00",
+          "closing-time": "18:00"
+        },
         "description": "חנות ספרים ובית קפה",
         "link": "http://example.com/store2"
       }
@@ -108,7 +117,10 @@
       ],
       "details": {
         "phone-number": "050-3333333",
-        "hours": "8-8",
+        "hours": {
+          "opening-time": "8:00",
+          "closing-time": "20:00"
+        },
         "description": "שוק מכולת",
         "link": "http://example.com/store3"
       }
@@ -134,7 +146,10 @@
       ],
       "details": {
         "phone-number": "050-4444444",
-        "hours": "10-7",
+        "hours": {
+          "opening-time": "10:00",
+          "closing-time": "19:00"
+        },
         "description": "חנות אלקטרוניקה",
         "link": "http://example.com/store4"
       }
@@ -160,7 +175,10 @@
       ],
       "details": {
         "phone-number": "050-5555555",
-        "hours": "11-8",
+        "hours": {
+          "opening-time": "11:00",
+          "closing-time": "20:00"
+        },
         "description": "חנות אופנה",
         "link": "http://example.com/store5"
       }
@@ -186,7 +204,10 @@
       ],
       "details": {
         "phone-number": "050-6666666",
-        "hours": "10-9",
+        "hours": {
+          "opening-time": "10:00",
+          "closing-time": "21:00"
+        },
         "description": "חנות רהיטים",
         "link": "http://example.com/store6"
       }
@@ -212,7 +233,10 @@
       ],
       "details": {
         "phone-number": "050-7777777",
-        "hours": "9-6",
+        "hours": {
+          "opening-time": "9:00",
+          "closing-time": "18:00"
+        },
         "description": "חנות חומרה",
         "link": "http://example.com/store7"
       }
@@ -238,7 +262,10 @@
       ],
       "details": {
         "phone-number": "050-8888888",
-        "hours": "9-5",
+        "hours": {
+          "opening-time": "9:00",
+          "closing-time": "17:00"
+        },
         "description": "חנות צעצועים",
         "link": "http://example.com/store8"
       }
@@ -264,7 +291,10 @@
       ],
       "details": {
         "phone-number": "050-9999999",
-        "hours": "9-7",
+        "hours": {
+          "opening-time": "9:00",
+          "closing-time": "19:00"
+        },
         "description": "חנות לחיות מחמד",
         "link": "http://example.com/store9"
       }
@@ -284,14 +314,17 @@
       "comments": [
         {
           "name": "אנונימי",
-          "description": "צוות ידידותי",
+          "description": "שירות נהדר",
           "ratings": "5"
         }
       ],
       "details": {
-        "phone-number": "050-0000000",
-        "hours": "8-8",
-        "description": "בית מרקחת",
+        "phone-number": "050-1010101",
+        "hours": {
+          "opening-time": "8:00",
+          "closing-time": "20:00"
+        },
+        "description": "בית מרקחת עם שירות מעולה",
         "link": "http://example.com/store10"
       }
     },
@@ -316,7 +349,10 @@
       ],
       "details": {
         "phone-number": "051-1111111",
-        "hours": "7-3",
+        "hours": {
+          "opening-time": "7:00",
+          "closing-time": "15:00"
+        },
         "description": "מאפיה",
         "link": "http://example.com/store11"
       }
@@ -342,7 +378,10 @@
       ],
       "details": {
         "phone-number": "051-2222222",
-        "hours": "10-6",
+        "hours": {
+          "opening-time": "6:00",
+          "closing-time": "20:00"
+        },
         "description": "חנות תכשיטים",
         "link": "http://example.com/store12"
       }
@@ -368,7 +407,10 @@
       ],
       "details": {
         "phone-number": "051-3333333",
-        "hours": "9-5",
+        "hours": {
+          "opening-time": "6:00",
+          "closing-time": "17:00"
+        },
         "description": "חנות מוזיקה",
         "link": "http://example.com/store13"
       }
@@ -394,7 +436,10 @@
       ],
       "details": {
         "phone-number": "051-4444444",
-        "hours": "10-7",
+        "hours": {
+          "opening-time": "10:00",
+          "closing-time": "19:00"
+        },
         "description": "חנות ספרים",
         "link": "http://example.com/store14"
       }
@@ -420,7 +465,10 @@
       ],
       "details": {
         "phone-number": "051-5555555",
-        "hours": "12-10",
+        "hours": {
+          "opening-time": "10:00",
+          "closing-time": "00:00"
+        },
         "description": "מסעדה",
         "link": "http://example.com/store15"
       }
@@ -446,7 +494,10 @@
       ],
       "details": {
         "phone-number": "051-6666666",
-        "hours": "8-2",
+        "hours": {
+          "opening-time": "8:00",
+          "closing-time": "14:00"
+        },
         "description": "בר",
         "link": "http://example.com/store16"
       }
@@ -472,7 +523,10 @@
       ],
       "details": {
         "phone-number": "051-7777777",
-        "hours": "9-9",
+        "hours": {
+          "opening-time": "9:00",
+          "closing-time": "21:00"
+        },
         "description": "חנות ספורט",
         "link": "http://example.com/store17"
       }
@@ -498,7 +552,10 @@
       ],
       "details": {
         "phone-number": "051-8888888",
-        "hours": "7-7",
+        "hours": {
+          "opening-time": "7:00",
+          "closing-time": "19:00"
+        },
         "description": "בית קפה",
         "link": "http://example.com/store18"
       }
@@ -524,7 +581,10 @@
       ],
       "details": {
         "phone-number": "051-9999999",
-        "hours": "6-3",
+        "hours": {
+          "opening-time": "6:00",
+          "closing-time": "15:00"
+        },
         "description": "מאפיה",
         "link": "http://example.com/store19"
       }
@@ -550,7 +610,10 @@
       ],
       "details": {
         "phone-number": "051-0000000",
-        "hours": "10-10",
+        "hours": {
+          "opening-time": "10:00",
+          "closing-time": "22:00"
+        },
         "description": "גלידריה",
         "link": "http://example.com/store20"
       }
