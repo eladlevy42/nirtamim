@@ -5,7 +5,7 @@ window.onload = onInit;
 function onInit() {
   // Expose functions to the window object
   window.onAddStore = onAddStore;
-  window.checkWordInPDF = checkWordInPDF;
+  // window.checkWordInPDF = checkWordInPDF;
   // Add event listener for the form submission
   document.getElementById("addStoreFrm").addEventListener("submit", onAddStore);
 }
