@@ -67,7 +67,7 @@ function renderStoreForOwners() {
 }
 
 function renderComments(comments) {
-  console.log(comments[1].ratings);
+  console.log(comments[1]);
   return comments
     .map(
       (comment) =>

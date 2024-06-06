@@ -19,10 +19,10 @@ async function onAddStore(ev) {
     try {
       await dbService.updateOwnerStores(ownerId);
     } catch (err) {
-      toaster.showErrorToaster(err.message);
+      toaster.showErrorToaster("err.message");
     }
   } catch (err) {
-    toaster.showErrorToaster(err.message);
+    toaster.showErrorToaster("err.message");
   }
 }
 

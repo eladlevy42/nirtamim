@@ -133,6 +133,13 @@ async function getOwnerByID(ownersId) {
     console.error(err);
   }
 }
+function calculateAvgRating(commentsArray) {
+  const total = commentsArray.reduce((acc, comment) => {
+    acc += Number(comment.ratings);
+    return acc;
+  }, 0);
+  return (total / commentsArray.length).toFixed(1);
+}
 async function postComment(storeID, comment) {
   try {
     const store = await getStoreById(storeID);
@@ -144,6 +151,10 @@ async function postComment(storeID, comment) {
   } catch (err) {
     console.error(err);
   }
+}
+function getStoreIdFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("storeId");
 }
 export const dbService = {
   getStore,
@@ -157,4 +168,6 @@ export const dbService = {
   getUserIdFromURL,
   updateOwnerStores,
   getAllStores,
+  calculateAvgRating,
+  getStoreIdFromURL,
 };
