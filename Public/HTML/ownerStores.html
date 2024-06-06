@@ -23,54 +23,74 @@
         <div class="popUp" id="addStorePop">
           <form id="addStoreFrm">
             <h3>הוסף חנות</h3>
+            <div class="halfFrm">
+              <!-- <label for="newStoreName">שם החנות</label> -->
+              <input
+                placeholder="שם החנות"
+                type="text"
+                name="name"
+                id="newStoreName"
+                required
+              />
 
-            <!-- <label for="newStoreName">שם החנות</label> -->
-            <input
-              placeholder="שם החנות"
-              type="text"
-              name="name"
-              id="newStoreName"
-              required
-            />
+              <input
+                type="text"
+                name="categories"
+                id="newStoreCategories"
+                placeholder="קטגוריות החנות (הפרד באמצעות פסיק)"
+                required
+              />
 
-            <label for="newStoreCategories"
-              >קטגוריות החנות (הפרד באמצעות פסיק)</label
-            >
-            <input
-              type="text"
-              name="categories"
-              id="newStoreCategories"
-              required
-            />
+              <input
+                type="text"
+                name="district"
+                id="newStoreDistrict"
+                placeholder="מחוז החנות"
+                required
+              />
 
-            <label for="newStoreDistrict">מחוז החנות</label>
-            <input type="text" name="district" id="newStoreDistrict" required />
+              <input
+                type="text"
+                name="city"
+                id="newStoreCity"
+                placeholder="עיר החנות"
+                required
+              />
 
-            <label for="newStoreCity">עיר החנות</label>
-            <input type="text" name="city" id="newStoreCity" required />
-
-            <label for="newStoreImage">תמונת החנות</label>
-            <input type="text" name="img" id="newStoreImage" required />
-
+              <input
+                type="text"
+                name="img"
+                id="newStoreImage"
+                placeholder="תמונת החנות (לינק)"
+                required
+              />
+            </div>
             <h4>פרטי החנות</h4>
-            <label for="newStorePhone">טלפון החנות</label>
-            <input type="text" name="phoneNumber" id="newStorePhone" required />
+            <div class="halfFrm">
+              <input
+                type="text"
+                name="phoneNumber"
+                id="newStorePhone"
+                placeholder="טלפון החנות"
+                required
+              />
 
-            <label for="newStoreHours">שעות פעילות</label>
-            <input type="text" name="hours" id="newStoreHours" required />
+              <input
+                type="text"
+                name="hours"
+                id="newStoreHours"
+                placeholder="שעות פעילות"
+                required
+              />
 
-            <label for="newStoreDescription">תיאור החנות</label>
-            <textarea
-              name="storeDescription"
-              id="newStoreDescription"
-              cols="30"
-              rows="10"
-              required
-            ></textarea>
-
-            <label for="newStoreLink">קישור לאתר החנות</label>
-            <input type="text" name="link" id="newStoreLink" required />
-
+              <input
+                type="text"
+                name="link"
+                id="newStoreLink"
+                placeholder="קישור לאתר החנות"
+                required
+              />
+            </div>
             <button type="submit" id="addStoreBtn">הוסף חנות</button>
           </form>
         </div>
@@ -112,170 +132,10 @@
         הוסף חנות חדשה
       </button>
       <section class="stores-container">
-        <!-- <div class="store-card grid-group">
-          <div class="store-img__wrapper flex-group">
-            <img
-              class="store-img"
-              src="https://d3o5sihylz93ps.cloudfront.net/wp-content/uploads/2021/06/17100511/cc-1100x733.jpg"
-              alt=""
-            />
-          </div>
-          <div class="store-details">
-            <h3>שקשוקה שקשוקית</h3>
-            <div class="group-details flex-group">
-              <p class="store-categories">בר, מסעדה</p>
-              <p class="store-rating">
-                <i class="fa-solid fa-star filled"></i>
-                <span class="rating">4.5</span>
-              </p>
-            </div>
-            <div class="store__sub-details flex-group">
-              <p class="store-hours">14:00-22:00</p>
-              <p class="store-location">
-                <span class="city">נתניה</span>,<span class="district"
-                  >מרכז</span
-                >
-              </p>
-            </div>
-          </div>
-        </div> -->
-        <!-- <div class="store-card grid-group">
-          <div class="store-img__wrapper flex-group">
-            <img
-              class="store-img"
-              src="https://d3o5sihylz93ps.cloudfront.net/wp-content/uploads/2021/06/17100511/cc-1100x733.jpg"
-              alt=""
-            />
-          </div>
-          <div class="store-details">
-            <h3>שקשוקה שקשוקית</h3>
-            <div class="group-details flex-group">
-              <p class="store-categories">בר, מסעדה</p>
-              <p class="store-rating">
-                <i class="fa-solid fa-star filled"></i>
-                <span class="rating">4.5</span>
-              </p>
-            </div>
-            <div class="store__sub-details flex-group">
-              <p class="store-hours">14:00-22:00</p>
-              <p class="store-location">
-                <span class="city">נתניה</span>,<span class="district"
-                  >מרכז</span
-                >
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="store-card grid-group">
-          <div class="store-img__wrapper flex-group">
-            <img
-              class="store-img"
-              src="https://d3o5sihylz93ps.cloudfront.net/wp-content/uploads/2021/06/17100511/cc-1100x733.jpg"
-              alt=""
-            />
-          </div>
-          <div class="store-details">
-            <h3>שקשוקה שקשוקית</h3>
-            <div class="group-details flex-group">
-              <p class="store-categories">בר, מסעדה</p>
-              <p class="store-rating">
-                <i class="fa-solid fa-star filled"></i>
-                <span class="rating">4.5</span>
-              </p>
-            </div>
-            <div class="store__sub-details flex-group">
-              <p class="store-hours">14:00-22:00</p>
-              <p class="store-location">
-                <span class="city">נתניה</span>,<span class="district"
-                  >מרכז</span
-                >
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="store-card grid-group">
-          <div class="store-img__wrapper flex-group">
-            <img
-              class="store-img"
-              src="https://d3o5sihylz93ps.cloudfront.net/wp-content/uploads/2021/06/17100511/cc-1100x733.jpg"
-              alt=""
-            />
-          </div>
-          <div class="store-details">
-            <h3>שקשוקה שקשוקית</h3>
-            <div class="group-details flex-group">
-              <p class="store-categories">בר, מסעדה</p>
-              <p class="store-rating">
-                <i class="fa-solid fa-star filled"></i>
-                <span class="rating">4.5</span>
-              </p>
-            </div>
-            <div class="store__sub-details flex-group">
-              <p class="store-hours">14:00-22:00</p>
-              <p class="store-location">
-                <span class="city">נתניה</span>,<span class="district"
-                  >מרכז</span
-                >
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="store-card grid-group">
-          <div class="store-img__wrapper flex-group">
-            <img
-              class="store-img"
-              src="https://d3o5sihylz93ps.cloudfront.net/wp-content/uploads/2021/06/17100511/cc-1100x733.jpg"
-              alt=""
-            />
-          </div>
-          <div class="store-details">
-            <h3>שקשוקה שקשוקית</h3>
-            <div class="group-details flex-group">
-              <p class="store-categories">בר, מסעדה</p>
-              <p class="store-rating">
-                <i class="fa-solid fa-star filled"></i>
-                <span class="rating">4.5</span>
-              </p>
-            </div>
-            <div class="store__sub-details flex-group">
-              <p class="store-hours">14:00-22:00</p>
-              <p class="store-location">
-                <span class="city">נתניה</span>,<span class="district"
-                  >מרכז</span
-                >
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="store-card grid-group">
-          <div class="store-img__wrapper flex-group">
-            <img
-              class="store-img"
-              src="https://d3o5sihylz93ps.cloudfront.net/wp-content/uploads/2021/06/17100511/cc-1100x733.jpg"
-              alt=""
-            />
-          </div>
-          <div class="store-details">
-            <h3>שקשוקה שקשוקית</h3>
-            <div class="group-details flex-group">
-              <p class="store-categories">בר, מסעדה</p>
-              <p class="store-rating">
-                <i class="fa-solid fa-star filled"></i>
-                <span class="rating">4.5</span>
-              </p>
-            </div>
-            <div class="store__sub-details flex-group">
-              <p class="store-hours">14:00-22:00</p>
-              <p class="store-location">
-                <span class="city">נתניה</span>,<span class="district"
-                  >מרכז</span
-                >
-              </p>
-            </div>
-          </div>
-        </div> -->
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif"
+        />
       </section>
-      <!-- <h1>החנויות שלי</h1> -->
     </main>
     <footer class="footer">
       <h3>נרתמים למילואים בע"מ</h3>

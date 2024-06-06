@@ -25,7 +25,6 @@ function getNewStoreData() {
     details: {
       "phone-number": formData.get("phoneNumber"),
       hours: formData.get("hours"),
-      description: formData.get("storeDescription"),
       link: formData.get("link"),
     },
   };

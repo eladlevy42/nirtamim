@@ -1,0 +1,9 @@
+.halfFrm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-block: 10px;
+}
+#newStoreCategories {
+  width: 100%;
+}
