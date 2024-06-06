@@ -48,22 +48,17 @@ export async function updateStore(storeId, updateStoreData) {
 async function deleteStore(storeId) {
   let ownerId;
   try {
-    // Get the store details to find the ownerID
     const storeResponse = await axios.get(`${storesUrl}/${storeId}`);
     const storeData = storeResponse.data;
     ownerId = storeData.ownerID;
-    // Delete the store
     await axios.delete(`${storesUrl}/${storeId}`);
   } catch (error) {
     console.log("Error deleting store", error);
   }
   try {
-    // Get the owner's data
     const ownerResponse = await axios.get(`${ownerUrl}/${ownerId}`);
     const ownerData = ownerResponse.data;
-    // Remove the store from the owner's stores array
     const updatedStores = ownerData.stores.filter((id) => id !== storeId);
-    // Update the owner's data
     await axios.put(`${ownerUrl}/${ownerId}`, {
       ...ownerData,
       stores: updatedStores,
@@ -124,6 +119,7 @@ async function updateOwnerStores(ownerId) {
     console.error(err);
   }
 }
+
 async function getOwnerByID(ownersId) {
   try {
     const res = await axios.get(`${ownerUrl}/?id=${ownersId}`);
