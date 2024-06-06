@@ -13,7 +13,6 @@ async function renderSpecificStore(storeId) {
                 <img src="${store.img}" alt="${store.name}" />
               </div>
               <div class="btnsEdit">
-                <button onclick="editStore('${storeId}')" class="edit" id="editButton">Edit</button>
                 <button onclick="deleteStore('${storeId}')" class="delete" id="deleteButton">Delete</button>
               </div>
               <div class="store-details flex-group">

@@ -4,7 +4,10 @@
       "id": "store-1",
       "name": "מסעדת ג'ון",
       "ownerID": "owner-1",
-      "categories": ["מסעדה", "בר"],
+      "categories": [
+        "מסעדה",
+        "בר"
+      ],
       "location": {
         "district": "מרכז",
         "city": "נתניה"
@@ -30,6 +33,11 @@
           "name": "קרק'",
           "description": "כק'כקד",
           "ratings": 4
+        },
+        {
+          "name": "אלעד",
+          "description": "מאוד טעים תודה",
+          "ratings": 5
         }
       ],
       "details": {
@@ -43,7 +51,10 @@
       "id": "store-2",
       "name": "חנות הספרים של ג'ון",
       "ownerID": "owner-1",
-      "categories": ["חנות ספרים", "בית קפה"],
+      "categories": [
+        "חנות ספרים",
+        "בית קפה"
+      ],
       "location": {
         "district": "צפון",
         "city": "חיפה"
@@ -72,7 +83,9 @@
       "id": "store-4",
       "name": "חנות האלקטרוניקה של ג'ון",
       "ownerID": "owner-1",
-      "categories": ["אלקטרוניקה"],
+      "categories": [
+        "אלקטרוניקה"
+      ],
       "location": {
         "district": "צפון",
         "city": "טבריה"
@@ -96,7 +109,9 @@
       "id": "store-5",
       "name": "חנות האופנה של ג'ון",
       "ownerID": "owner-1",
-      "categories": ["בגדים"],
+      "categories": [
+        "בגדים"
+      ],
       "location": {
         "district": "דרום",
         "city": "אילת"
@@ -120,7 +135,9 @@
       "id": "store-6",
       "name": "חנות הרהיטים של ג'יין",
       "ownerID": "owner-2",
-      "categories": ["רהיטים"],
+      "categories": [
+        "רהיטים"
+      ],
       "location": {
         "district": "מרכז",
         "city": "ראשון לציון"
@@ -144,7 +161,9 @@
       "id": "store-7",
       "name": "חנות הצעצועים של ג'יין",
       "ownerID": "owner-2",
-      "categories": ["צעצועים"],
+      "categories": [
+        "צעצועים"
+      ],
       "location": {
         "district": "דרום",
         "city": "אשדוד"
@@ -168,7 +187,9 @@
       "id": "store-8",
       "name": "חנות התכשיטים של ג'יין",
       "ownerID": "owner-2",
-      "categories": ["תכשיטים"],
+      "categories": [
+        "תכשיטים"
+      ],
       "location": {
         "district": "מרכז",
         "city": "הרצליה"
@@ -192,7 +213,9 @@
       "id": "store-9",
       "name": "חנות הספורט של ג'יין",
       "ownerID": "owner-2",
-      "categories": ["ספורט"],
+      "categories": [
+        "ספורט"
+      ],
       "location": {
         "district": "צפון",
         "city": "כרמיאל"
@@ -216,7 +239,9 @@
       "id": "store-10",
       "name": "חנות המוזיקה של ג'יין",
       "ownerID": "owner-2",
-      "categories": ["מוזיקה"],
+      "categories": [
+        "מוזיקה"
+      ],
       "location": {
         "district": "מרכז",
         "city": "רמת גן"
@@ -240,7 +265,9 @@
       "id": "store-11",
       "name": "קפה של ג'יין",
       "ownerID": "owner-2",
-      "categories": ["בית קפה"],
+      "categories": [
+        "בית קפה"
+      ],
       "location": {
         "district": "צפון",
         "city": "נהריה"
@@ -264,7 +291,9 @@
       "id": "store-12",
       "name": "מסעדת ג'יין",
       "ownerID": "owner-2",
-      "categories": ["מסעדה"],
+      "categories": [
+        "מסעדה"
+      ],
       "location": {
         "district": "דרום",
         "city": "באר שבע"
@@ -288,7 +317,9 @@
       "id": "store-13",
       "name": "המאפייה של ג'ון",
       "ownerID": "owner-1",
-      "categories": ["מאפיה"],
+      "categories": [
+        "מאפיה"
+      ],
       "location": {
         "district": "מרכז",
         "city": "פתח תקווה"
@@ -312,7 +343,9 @@
       "id": "store-14",
       "name": "בית מרקחת של ג'ון",
       "ownerID": "owner-1",
-      "categories": ["בית מרקחת"],
+      "categories": [
+        "בית מרקחת"
+      ],
       "location": {
         "district": "צפון",
         "city": "עכו"
@@ -336,7 +369,9 @@
       "id": "store-15",
       "name": "חנות החיות של ג'יין",
       "ownerID": "owner-2",
-      "categories": ["חנות לחיות מחמד"],
+      "categories": [
+        "חנות לחיות מחמד"
+      ],
       "location": {
         "district": "דרום",
         "city": "אשקלון"
@@ -360,7 +395,9 @@
       "id": "store-16",
       "name": "חנות בגדים של ג'יין",
       "ownerID": "owner-2",
-      "categories": ["בגדים"],
+      "categories": [
+        "בגדים"
+      ],
       "location": {
         "district": "מרכז",
         "city": "רעננה"
@@ -384,7 +421,9 @@
       "id": "store-17",
       "name": "חנות פרחים של ג'יין",
       "ownerID": "owner-2",
-      "categories": ["פרחים"],
+      "categories": [
+        "פרחים"
+      ],
       "location": {
         "district": "צפון",
         "city": "נהריה"
@@ -408,7 +447,9 @@
       "id": "store-18",
       "name": "בית קפה של ג'יין",
       "ownerID": "owner-2",
-      "categories": ["בית קפה"],
+      "categories": [
+        "בית קפה"
+      ],
       "location": {
         "district": "מרכז",
         "city": "תל אביב"
@@ -432,7 +473,9 @@
       "id": "store-19",
       "name": "מאפיית ג'יין",
       "ownerID": "owner-2",
-      "categories": ["מאפיה"],
+      "categories": [
+        "מאפיה"
+      ],
       "location": {
         "district": "דרום",
         "city": "אשדוד"
@@ -456,7 +499,9 @@
       "id": "store-20",
       "name": "בר של ג'יין",
       "ownerID": "owner-2",
-      "categories": ["בר"],
+      "categories": [
+        "בר"
+      ],
       "location": {
         "district": "מרכז",
         "city": "תל אביב"
@@ -474,6 +519,25 @@
         "hours": "18:00-02:00",
         "description": "בר עם מגוון משקאות.",
         "link": "http://example.com/store20"
+      }
+    },
+    {
+      "id": "eb70",
+      "name": "החנות של אלעד",
+      "ownerID": "faab",
+      "categories": [
+        "מזון"
+      ],
+      "location": {
+        "district": "מרכז",
+        "city": "תל אביב"
+      },
+      "img": "https://ynet-pic1.yit.co.il/PicServer5/2020/01/07/9706109/9.jpg",
+      "comments": [],
+      "details": {
+        "phone-number": "0548010701",
+        "hours": "10:00-16:00",
+        "link": "אין"
       }
     }
   ],
@@ -539,6 +603,41 @@
       "description": "אמילי היא בעלת חנויות עם תשוקה לעיצוב פנים.",
       "profileImg": "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d",
       "stores": []
+    },
+    {
+      "id": "0f9e",
+      "name": "עדן רוט",
+      "username": "elad",
+      "email": "deewfwe@frefre.vdsi",
+      "password": "Elad123@",
+      "description": "מלך",
+      "profileImg": "וטן87ן8",
+      "stores": []
+    },
+    {
+      "id": "6e50",
+      "name": "עדן רוט",
+      "username": "elad1",
+      "email": "deewfwre@frefre.vdsi",
+      "password": "Elad123@",
+      "description": "מלך",
+      "profileImg": "וטן87ן8",
+      "stores": [
+        "2f81",
+        "2bba"
+      ]
+    },
+    {
+      "id": "faab",
+      "name": "אלעד לוי",
+      "username": "elad11",
+      "email": "eladio2002@gmail.com",
+      "password": "Iitc1234!",
+      "description": "גולנציק בשסן",
+      "profileImg": "דגדגגכד",
+      "stores": [
+        "eb70"
+      ]
     }
   ]
 }

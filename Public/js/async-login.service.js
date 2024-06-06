@@ -1,6 +1,7 @@
+import { toaster } from "./toast.sevice";
+
 const storesUrl = "http://localhost:8001/stores";
 const ownerUrl = "http://localhost:8001/owners";
-import { toaster } from "/public/js/toast.sevice.js";
 
 async function userAuth(ev) {
   ev.preventDefault();
@@ -16,45 +17,30 @@ async function userAuth(ev) {
   }
 }
 
-// async function checkWordInPDF() {
-//   const fileInput = document.getElementById("3010up");
-//   const word = "3010";
-//   const file = fileInput.files[0];
-
-//   const arrayBuffer = await file.arrayBuffer();
-//   const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
-
-//   let text = "";
-//   const pages = pdfDoc.getPages();
-//   for (const page of pages) {
-//     const textContent = await page.getTextContent();
-//     text += textContent.items.map((item) => item.str).join(" ");
-//   }
-//   alert(text.includes(word));
-//   return text.includes(word);
-// }
-
 async function getUserByUsername(username) {
   try {
+    console.log(`${ownerUrl}/?username=${username}`);
     const response = await axios.get(`${ownerUrl}/?username=${username}`);
     return response.data[0];
   } catch (err) {
-    toaster.showErrorToaster("err.message");
+    console.error(err);
     return null;
   }
 }
 
 async function matchUsernameToPassword(userPassword, username) {
+  console.log(userPassword + " " + username);
   try {
     const user = await getUserByUsername(username);
-
+    console.log(user.password);
+    console.log(user);
     if (user.password == userPassword) {
       return true;
     } else {
       return false;
     }
   } catch (err) {
-    toaster.showErrorToaster("err.message");
+    console.error(err);
   }
 }
 
@@ -62,13 +48,13 @@ async function matchUsernameToPassword(userPassword, username) {
 async function checkEmailExists(email) {
   try {
     const res = await axios.get(`${ownerUrl}/?email=${email}`);
-
+    console.log(res.data[0]);
     if (res.data[0] == null) {
       return false;
     }
     return true;
   } catch (err) {
-    toaster.showErrorToaster("err.message");
+    console.log(err);
     return false;
   }
 }
@@ -105,10 +91,10 @@ function checkPassword(password) {
 async function registerUser(ev) {
   ev.preventDefault();
   const username = document.querySelector("#usernameReg").value;
-
+  console.log(username);
+  console.log(await getUserByUsername(username));
   if ((await getUserByUsername(username)) != null) {
-    toaster.showErrorToast("שם משתמש כבר בשימוש ע''י משתמש אחר, בחר אחד חדש");
-
+    toaster.showErrorToast("username already exists");
     return;
   }
   const password1 = document.querySelector("#passwordSign1").value;
@@ -119,21 +105,18 @@ async function registerUser(ev) {
     return;
   }
   const password2 = document.querySelector("#passwordSign2").value;
+  console.log(password1 + "" + password2);
   if (password1 != password2) {
-    toaster.showErrorToast("סיסמאות אינן תואמות");
-
+    toaster.showErrorToast("passwords do not match");
     return;
   }
   const email = document.querySelector("#emailSign").value;
+  console.log(email);
+  console.log(await checkEmailExists(email));
   if (await checkEmailExists(email)) {
-    toaster.showErrorToast('כתובת דוא"ל כבר בשימוש!');
-
+    toaster.showErrorToast("email already exists");
     return;
   }
-  // if (!checkWordInPDF()) {
-  //   alert("file not 3010");
-  //   return;
-  // }
   const Name = document.querySelector("#ownerName").value;
   const desc = document.querySelector("#userAbout").value;
   const image = document.querySelector("#userImage").value;
@@ -148,16 +131,19 @@ async function registerUser(ev) {
   };
   try {
     await postOwner(newOwner);
-  } catch (err) {
-    toaster.showErrorToaster("err.message");
+  } catch {
+    console.log(err);
   }
 }
 
 async function postOwner(owner) {
   try {
+    console.log(owner.id);
     await axios.post(ownerUrl, owner);
-    window.location.href = `http://localhost:8001/ownerStores.html?userId=${encodeURIComponent(
-      owner.id
+    const user = await getUserByUsername(owner.username);
+    console.log("owner posted");
+    window.location.href = `http://127.0.0.1:5500/Public/HTML/ownerStores.html?userId=${encodeURIComponent(
+      user.id
     )}`;
   } catch (err) {
     throw err;

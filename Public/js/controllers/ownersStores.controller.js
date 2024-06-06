@@ -17,18 +17,23 @@ function onInit() {
   OnRenderOwnerStores();
 }
 function addNewStore() {
-  document.querySelector(".overlay").style.display = "block";
-  document.querySelector(".close-overlay").style.display = "block";
-  document
-    .querySelector(".close-overlay")
-    .addEventListener("click", closeOverlay);
+  document.querySelector("#addOverlay").style.display = "block";
   document.querySelector("#addStorePop").style.display = "flex";
+  document.querySelector("#btn2").addEventListener("click", closeAddStore);
+}
+function closeAddStore() {
+  document.querySelector("#addOverlay").style.display = "none";
+  document.querySelector("#addStorePop").style.display = "none";
+}
+function openNewStore() {
+  document.querySelector("#addStorePop").style.display = "block";
 }
 
 function closeOverlay() {
   document.querySelector(".overlay").style.display = "none";
   document.querySelector(".close-overlay").style.display = "none";
   document.querySelector("#addStorePop").style.display = "none";
+  document.querySelector(".pop-up__container").style.display = "none";
 }
 async function onAddStore(ev) {
   ev.preventDefault();
@@ -49,7 +54,6 @@ async function onAddStore(ev) {
 
 async function OnRenderOwnerStores() {
   const ownerId = dbService.getUserIdFromURL();
-  console.log(ownerId);
   const storesContainer = document.querySelector(".stores-container");
   try {
     const storeIds = await dbService.getAllOwnerStores(ownerId);
@@ -120,19 +124,17 @@ async function renderSpecificStore(store) {
   console.log(store);
   try {
     const owner = dbService.getOwnerByID(store.ownerID);
-    const popupHTML = `
-     
-        <i class="close-overlay fa-solid fa-xmark" onclick="closePopUp()"></i>
+    const popupHTML = ` <div class="overlay" id="StoreOverlay"></div>
+    <div class="pop-up__container" id="storePop">
+        <i id='btn1' class="close-overlay  fa-solid fa-xmark""></i>
         <h1>${store.name}</h1>
-        <div class="store-container grid-group">
+        <div class="store-container grid-group" id='selectedStoreCont'>
           <div class="store-wrapper">
             <div class="store-img">
               <img src="${store.img}" alt="${store.name}" />
             </div>
             <div class="btnsEdit">
-              <button onclick="editStore('${
-                store.id
-              }')" class="edit" id="editButton">Edit</button>
+             
               <button onclick="deleteStore('${
                 store.id
               }')" class="delete" id="deleteButton">Delete</button>
@@ -170,34 +172,19 @@ async function renderSpecificStore(store) {
               <div id="allReviews">
                 ${renderHTML.renderComments(store.comments)}
               </div>
-              <div class="add-review__wrapper flex-group">
-                <button id="addNewComment" class="btn"><i class="fa-solid fa-plus"></i></button>
-                <p>הוסף תגובה חדשה</p>
-              </div>
+              
             </div>
           </div>
-          <div class="about-user-wrapper">
-            <div class="container">
-              <div class="leftStoreContainer">
-                <h2>על הבעלים:</h2>
-                <div class="aboutMeContainer">
-                  <p id="ownerDescription">${owner.description}</p>
-                </div>
-              </div>
-            </div>
+         </div>
           </div>
       `;
 
-    const popupContainer = document.querySelector("#popupStore");
-    popupContainer.innerHTML = popupHTML;
-    console.log(popupContainer);
-    document.querySelector(".pop-up__container").style.display = "block";
-    document.querySelector(".overlay").style.display = "block";
-    document.querySelector(".close-overlay").style.display = "block";
-    document
-      .querySelector(".close-overlay")
-      .addEventListener("click", closeOverlay);
-    document.querySelector("#popupStore").style.display = "block !important";
+    const body = document.querySelector("body");
+    body.innerHTML += popupHTML;
+
+    document.querySelector("#StoreOverlay").style.display = "block";
+    document.querySelector("#storePop").style.display = "flex";
+    document.querySelector("#btn1").addEventListener("click", closePopUp);
   } catch (err) {
     console.log(err);
     // toaster.showErrorToast("err.message");
@@ -205,9 +192,9 @@ async function renderSpecificStore(store) {
 }
 
 function closePopUp() {
-  const popupContainer = document.getElementById("storePopupContainer");
-
-  popupContainer.classList.add("hidden");
+  console.log("cls");
+  document.querySelector("#StoreOverlay").style.display = "none";
+  document.querySelector("#storePop").style.display = "none";
 }
 
 async function handleDeleteStore(storeId) {
