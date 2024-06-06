@@ -16,8 +16,7 @@
 .all-stores__container {
   justify-items: center;
 }
-.filters-container {
-}
+
 .searchBar {
   margin-bottom: 1rem;
 }
@@ -124,6 +123,15 @@
   margin-right: 0.25rem;
 }
 
+.pagination {
+  margin-top: 1rem;
+}
+.open-hours {
+  color: green;
+}
+.close-hours {
+  color: red;
+}
 @media (min-width: 670px) {
   .all-stores__container {
     grid-template-columns: 330px 1fr;

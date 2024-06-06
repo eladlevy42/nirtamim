@@ -169,9 +169,34 @@ async function displayStores() {
     storesContainer.innerHTML += renderStoreElement(element);
     startStoreIndex++;
   }
+  document.querySelectorAll(".store-card").forEach((storeCard) => {
+    storeCard.addEventListener("click", (event) => {
+      const cardId = event.currentTarget.id;
+      openStorePage(cardId);
+    });
+  });
+}
+
+function isCurrentTimeInRange(timeRange) {
+  const [startTime, endTime] = timeRange.split("-");
+  const now = new Date();
+  const currentTime = now.getHours() * 60 + now.getMinutes();
+  const [startHours, startMinutes] = startTime.split(":").map(Number);
+  const [endHours, endMinutes] = endTime.split(":").map(Number);
+  const startTimeInMinutes = startHours * 60 + startMinutes;
+  const endTimeInMinutes = endHours * 60 + endMinutes;
+
+  if (startTimeInMinutes <= endTimeInMinutes) {
+    return currentTime >= startTimeInMinutes && currentTime <= endTimeInMinutes;
+  } else {
+    return currentTime >= startTimeInMinutes || currentTime <= endTimeInMinutes;
+  }
+}
+function coloredHours(timeRange) {
+  return isCurrentTimeInRange(timeRange) ? "open-hours" : "close-hours";
 }
 function renderStoreElement(storeObject) {
-  return `<div class="store-card grid-group"  id="${storeObject.id}">
+  return `<div class="store-card grid-group" id="${storeObject.id}">
               <div class="store-img__wrapper flex-group">
               <img
                       class="store-img"
@@ -187,7 +212,9 @@ function renderStoreElement(storeObject) {
                   )}</p>
                 </div>
                 <div class="store__sub-details flex-group">
-                  <p class="store-hours">${storeObject.details.hours}</p>
+                  <p class="store-hours ${coloredHours(
+                    storeObject.details.hours
+                  )}">${storeObject.details.hours}</p>
                   <p class="store-location">
                     <span class="city">${
                       storeObject.location.city
